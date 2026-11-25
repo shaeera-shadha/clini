@@ -1,0 +1,24 @@
+Doctor: Good morning. What brings you in today?
+Patient: I've had this cough that won't go away. It started maybe a week ago, possibly a bit longer. It's worse at night.
+Doctor: Is the cough dry, or are you bringing anything up?
+Patient: Mostly dry. Sometimes there's a little clear phlegm in the morning.
+Doctor: Have you had any fever or chills?
+Patient: No fever. I did feel a bit shivery one evening, but I'm not sure that was anything.
+Doctor: Any shortness of breath or chest pain?
+Patient: I get a little breathless climbing stairs. No chest pain at all.
+Doctor: Do you smoke?
+Patient: I stopped smoking five years ago. I smoked for about ten years before that.
+Doctor: Any medical conditions I should know about?
+Patient: I had pneumonia as a child, but nothing since then.
+Doctor: Are you taking any medicines at the moment?
+Patient: Just cetirizine 10 mg for hay fever in the spring. I haven't taken anything for the cough.
+Doctor: Any allergies to medicines?
+Patient: Not that I know of.
+Doctor: Does anyone in your family have lung problems?
+Patient: My mother has asthma. My brother had a bad chest infection last month, and I wonder if I caught it from him.
+Doctor: Let me listen to your chest now.
+Doctor: I can hear a mild wheeze on both sides when you breathe out. There are no crackles.
+Doctor: Your temperature is 37.1 degrees today. Your oxygen saturation is 97 percent.
+Patient: Do you think it's a chest infection?
+Doctor: I don't hear signs of a chest infection right now. Your throat looks slightly red.
+Doctor: Please come back if the breathlessness gets worse.
