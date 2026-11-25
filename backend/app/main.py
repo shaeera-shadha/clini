@@ -9,7 +9,7 @@ import logging
 from collections.abc import AsyncIterator
 from typing import Annotated
 
-from fastapi import Depends, FastAPI, Request
+from fastapi import Depends, FastAPI, Request, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse, StreamingResponse
 
@@ -29,7 +29,10 @@ from app.schemas import (
     HealthResponse,
     Sample,
     SampleSummary,
+    TextResponse,
 )
+from app.transcribe import transcribe_audio
+from app.upload import extract_text_from_file
 
 log = logging.getLogger("clinnote")
 
@@ -128,6 +131,18 @@ async def baseline(
     body: GenerateRequest, settings: SettingsDep, client: ClientDep, cache: BaselineCacheDep
 ) -> BaselineResult:
     return await run_baseline(_resolve_transcript(body), client, settings, cache)
+
+
+@app.post("/extract-text")
+async def extract_text(file: UploadFile) -> TextResponse:
+    text = await extract_text_from_file(file)
+    return TextResponse(text=text)
+
+
+@app.post("/transcribe")
+async def transcribe(file: UploadFile, settings: SettingsDep) -> TextResponse:
+    text = await transcribe_audio(file, settings)
+    return TextResponse(text=text)
 
 
 @app.get("/eval")

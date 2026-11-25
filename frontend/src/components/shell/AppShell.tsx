@@ -26,7 +26,7 @@ export function AppShell({
       </a>
       <Sidebar />
       <div className="flex min-h-0 min-w-0 flex-1 flex-col pt-2 print:pt-0">
-        <main id="main" tabIndex={-1} className="print-reset outline-none flex min-h-0 flex-1 flex-col rounded-tl-panel border-t border-l border-border bg-panel xl:overflow-hidden">
+        <main id="main" tabIndex={-1} className="print-reset outline-none flex min-h-0 flex-1 flex-col rounded-tl-panel border-t border-l border-border bg-panel xl:overflow-y-auto">
           <div className="mx-auto flex w-full max-w-content min-h-0 flex-1 flex-col">
             <TopBar title={title} subtitle={subtitle} />
             {healthError && (

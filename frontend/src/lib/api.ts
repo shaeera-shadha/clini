@@ -50,6 +50,19 @@ async function toApiError(response: Response): Promise<ApiError> {
 
 export type GenerateInput = { sample_id: string } | { transcript: string }
 
+async function upload<T>(path: string, file: File | Blob, filename?: string): Promise<T> {
+  const form = new FormData()
+  form.append('file', file, filename ?? (file instanceof File ? file.name : 'file'))
+  let response: Response
+  try {
+    response = await fetch(`${BASE}${path}`, { method: 'POST', body: form })
+  } catch {
+    throw new ApiError('backend_down', UNREACHABLE)
+  }
+  if (!response.ok) throw await toApiError(response)
+  return (await response.json()) as T
+}
+
 export const api = {
   health: () => request<Health>('/health'),
   samples: () => request<SampleSummary[]>('/samples'),
@@ -61,6 +74,8 @@ export const api = {
       body: JSON.stringify(input),
     }),
   evaluation: () => request<EvalReport>('/eval'),
+  extractText: (file: File) => upload<{ text: string }>('/extract-text', file),
+  transcribe: (blob: Blob, filename: string) => upload<{ text: string }>('/transcribe', blob, filename),
 }
 
 /**

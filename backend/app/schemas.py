@@ -172,6 +172,10 @@ class BaselineResult(BaseModel):
 # ---- API ----------------------------------------------------------------------------------
 
 
+class TextResponse(BaseModel):
+    text: str
+
+
 class SampleSummary(BaseModel):
     id: str
     title: str

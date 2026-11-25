@@ -14,6 +14,13 @@ ErrorCode = Literal[
     "llm_unavailable",
     "mock_fixture_missing",
     "eval_missing",
+    "unsupported_file",
+    "file_too_large",
+    "empty_file",
+    "extraction_failed",
+    "transcription_unavailable",
+    "empty_transcription",
+    "transcription_failed",
 ]
 
 
