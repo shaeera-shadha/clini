@@ -50,10 +50,14 @@ def check_prerequisites() -> None:
 def setup() -> None:
     if not VENV_PYTHON.exists():
         step("Creating backend/.venv")
-        subprocess.run([sys.executable, "-m", "venv", str(BACKEND / ".venv")], check=True)
+        subprocess.run(
+            [sys.executable, "-m", "venv", str(BACKEND / ".venv")], check=True
+        )
     step("Installing backend dependencies")
     # The backend runs from backend/, so only its dependencies are installed, not the package.
-    project = tomllib.loads((BACKEND / "pyproject.toml").read_text(encoding="utf-8"))["project"]
+    project = tomllib.loads((BACKEND / "pyproject.toml").read_text(encoding="utf-8"))[
+        "project"
+    ]
     requirements = [*project["dependencies"], *project["optional-dependencies"]["dev"]]
     subprocess.run(
         [str(VENV_PYTHON), "-m", "pip", "install", "--quiet", "--disable-pip-version-check",
@@ -62,7 +66,9 @@ def setup() -> None:
     )  # fmt: skip
     if not (FRONTEND / "node_modules").exists():
         step("Installing frontend dependencies")
-        subprocess.run([NPM, "install", "--no-fund", "--no-audit"], cwd=FRONTEND, check=True)
+        subprocess.run(
+            [NPM, "install", "--no-fund", "--no-audit"], cwd=FRONTEND, check=True
+        )
     env_file = BACKEND / ".env"
     if not env_file.exists():
         step("Creating backend/.env from .env.example (mock mode)")
@@ -93,12 +99,23 @@ def choose_mode(force_mock: bool) -> str:
 
 
 def ensure_ports_free() -> None:
+    if wait_for(HEALTH_URL, timeout=1):
+        sys.exit(
+            f"ClinNote is already running at {APP_URL}. Open that address, or stop the other "
+            "copy first (Ctrl+C in the window where it runs, or close that window)."
+        )
     for port, what in ((8000, "API"), (5173, "web app")):
         with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as probe:
             if probe.connect_ex(("127.0.0.1", port)) == 0:
+                find = (
+                    f"Get-NetTCPConnection -LocalPort {port} -State Listen | "
+                    "Select-Object OwningProcess"
+                    if WINDOWS
+                    else f"lsof -i :{port}"
+                )
                 sys.exit(
-                    f"Port {port} (the {what}) is already in use, probably by another ClinNote "
-                    "or dev server. Stop it and run this again."
+                    f"Port {port} (the {what}) is in use by another program. "
+                    f"Find it with:  {find}\nStop it, then run this again."
                 )
 
 
@@ -168,8 +185,12 @@ def main() -> None:
         action="store_true",
         help="mock mode with hand-made fixtures containing planted extractor mistakes",
     )
-    parser.add_argument("--setup", action="store_true", help="install dependencies and exit")
-    parser.add_argument("--no-browser", action="store_true", help="do not open a browser tab")
+    parser.add_argument(
+        "--setup", action="store_true", help="install dependencies and exit"
+    )
+    parser.add_argument(
+        "--no-browser", action="store_true", help="do not open a browser tab"
+    )
     args = parser.parse_args()
     check_prerequisites()
     setup()
