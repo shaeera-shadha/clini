@@ -6,9 +6,10 @@ from functools import lru_cache
 
 import groq
 
-from app.cache import CachingLLM, ResultCache
+from app.cache import BaselineCache, CachingLLM, NoteCache, ResultCache
 from app.config import Settings, get_settings
 from app.llm import GroqLLM, LLMClient, MockLLM
+from app.schemas import BaselineResult, GenerateResult
 
 
 def build_client(settings: Settings) -> LLMClient:
@@ -20,9 +21,17 @@ def build_client(settings: Settings) -> LLMClient:
     return CachingLLM(live, settings.cache_dir / "calls")
 
 
-def build_result_cache(settings: Settings) -> ResultCache | None:
-    # Mock responses are already instant and deterministic; caching them would only hide edits.
-    return ResultCache(settings.cache_dir / "results") if settings.llm_mode == "live" else None
+# Mock responses are already instant and deterministic; caching them would only hide edits.
+def build_result_cache(settings: Settings) -> NoteCache | None:
+    if settings.llm_mode != "live":
+        return None
+    return ResultCache(settings.cache_dir / "results", GenerateResult)
+
+
+def build_baseline_cache(settings: Settings) -> BaselineCache | None:
+    if settings.llm_mode != "live":
+        return None
+    return ResultCache(settings.cache_dir / "baseline", BaselineResult)
 
 
 @lru_cache(maxsize=1)
@@ -31,5 +40,10 @@ def get_client() -> LLMClient:
 
 
 @lru_cache(maxsize=1)
-def get_result_cache() -> ResultCache | None:
+def get_result_cache() -> NoteCache | None:
     return build_result_cache(get_settings())
+
+
+@lru_cache(maxsize=1)
+def get_baseline_cache() -> BaselineCache | None:
+    return build_baseline_cache(get_settings())

@@ -1,0 +1,798 @@
+{
+  "run_at": "2026-11-25T05:38:42+00:00",
+  "mode": "mock",
+  "fixture_source": "Hand-made mock fixtures, not model output",
+  "models": {
+    "extractor": "openai/gpt-oss-120b",
+    "verifier": "qwen/qwen3.8-27b",
+    "baseline": "openai/gpt-oss-120b"
+  },
+  "prompt_versions": {
+    "extract": "v1",
+    "verify": "v1",
+    "baseline": "v1"
+  },
+  "definitions": {
+    "supported_item_rate": "Share of output statements that match a fact in the hand-written gold annotation and fall into no trap.",
+    "unsupported_per_note": "Average number of output statements per consultation that match no gold fact or fall into a trap (for example a relative's condition written as the patient's, or a diagnosis the clinician never made).",
+    "section_accuracy": "Of supported statements with a section, the share placed in the gold section (symptom, history, observation). Plain-summary sections are read from its headings; statements under assessment or plan headings are not scored.",
+    "negation_preserved": "Of denied or uncertain gold facts that a system covers, the share it keeps denied or uncertain.",
+    "gold_coverage": "Share of gold facts covered by at least one supported statement."
+  },
+  "labels": {
+    "baseline": "Plain summary",
+    "extractor": "Extractor only (before verification)",
+    "clinnote": "ClinNote (after verification)"
+  },
+  "systems": {
+    "baseline": {
+      "counts": {
+        "units": 95,
+        "supported": 67,
+        "unsupported": 28,
+        "trap_hits": 12,
+        "gold_total": 118,
+        "gold_covered": 97,
+        "section_scored": 59,
+        "section_correct": 54,
+        "polarity_scored": 34,
+        "polarity_preserved": 25,
+        "verifier_flagged": 31,
+        "samples": 6
+      },
+      "rates": {
+        "supported_item_rate": 0.705,
+        "unsupported_per_note": 4.67,
+        "section_accuracy": 0.915,
+        "negation_preserved": 0.735,
+        "gold_coverage": 0.822
+      }
+    },
+    "extractor": {
+      "counts": {
+        "units": 136,
+        "supported": 118,
+        "unsupported": 18,
+        "trap_hits": 11,
+        "gold_total": 118,
+        "gold_covered": 118,
+        "section_scored": 118,
+        "section_correct": 118,
+        "polarity_scored": 42,
+        "polarity_preserved": 42,
+        "verifier_flagged": 18,
+        "samples": 6
+      },
+      "rates": {
+        "supported_item_rate": 0.868,
+        "unsupported_per_note": 3.0,
+        "section_accuracy": 1.0,
+        "negation_preserved": 1.0,
+        "gold_coverage": 1.0
+      }
+    },
+    "clinnote": {
+      "counts": {
+        "units": 118,
+        "supported": 118,
+        "unsupported": 0,
+        "trap_hits": 0,
+        "gold_total": 118,
+        "gold_covered": 118,
+        "section_scored": 118,
+        "section_correct": 118,
+        "polarity_scored": 42,
+        "polarity_preserved": 42,
+        "verifier_flagged": 0,
+        "samples": 6
+      },
+      "rates": {
+        "supported_item_rate": 1.0,
+        "unsupported_per_note": 0.0,
+        "section_accuracy": 1.0,
+        "negation_preserved": 1.0,
+        "gold_coverage": 1.0
+      }
+    }
+  },
+  "verifier_audit": {
+    "unsupported_caught": 18,
+    "unsupported_missed": 0,
+    "supported_flagged": 0,
+    "supported_kept": 118
+  },
+  "samples": [
+    {
+      "sample_id": "cough",
+      "title": "Persistent cough",
+      "systems": {
+        "baseline": {
+          "counts": {
+            "units": 17,
+            "supported": 14,
+            "unsupported": 3,
+            "trap_hits": 2,
+            "gold_total": 21,
+            "gold_covered": 17,
+            "section_scored": 13,
+            "section_correct": 13,
+            "polarity_scored": 5,
+            "polarity_preserved": 4,
+            "verifier_flagged": 3,
+            "samples": 1
+          },
+          "rates": {
+            "supported_item_rate": 0.824,
+            "unsupported_per_note": 3.0,
+            "section_accuracy": 1.0,
+            "negation_preserved": 0.8,
+            "gold_coverage": 0.81
+          }
+        },
+        "extractor": {
+          "counts": {
+            "units": 24,
+            "supported": 21,
+            "unsupported": 3,
+            "trap_hits": 1,
+            "gold_total": 21,
+            "gold_covered": 21,
+            "section_scored": 21,
+            "section_correct": 21,
+            "polarity_scored": 7,
+            "polarity_preserved": 7,
+            "verifier_flagged": 3,
+            "samples": 1
+          },
+          "rates": {
+            "supported_item_rate": 0.875,
+            "unsupported_per_note": 3.0,
+            "section_accuracy": 1.0,
+            "negation_preserved": 1.0,
+            "gold_coverage": 1.0
+          }
+        },
+        "clinnote": {
+          "counts": {
+            "units": 21,
+            "supported": 21,
+            "unsupported": 0,
+            "trap_hits": 0,
+            "gold_total": 21,
+            "gold_covered": 21,
+            "section_scored": 21,
+            "section_correct": 21,
+            "polarity_scored": 7,
+            "polarity_preserved": 7,
+            "verifier_flagged": 0,
+            "samples": 1
+          },
+          "rates": {
+            "supported_item_rate": 1.0,
+            "unsupported_per_note": 0.0,
+            "section_accuracy": 1.0,
+            "negation_preserved": 1.0,
+            "gold_coverage": 1.0
+          }
+        }
+      },
+      "unsupported": [
+        {
+          "system": "baseline",
+          "text": "History of asthma.",
+          "reason": "Mother's asthma recorded as the patient's own condition"
+        },
+        {
+          "system": "baseline",
+          "text": "Likely post-viral bronchitis with possible reactive airways component.",
+          "reason": "A diagnosis the clinician never made"
+        },
+        {
+          "system": "baseline",
+          "text": "Consider a salbutamol inhaler.",
+          "reason": "Matches no fact in the gold annotation."
+        },
+        {
+          "system": "extractor",
+          "text": "Productive cough with green sputum for 3 days 3 days",
+          "reason": "Duration 3 days is not in the transcript."
+        },
+        {
+          "system": "extractor",
+          "text": "Asthma",
+          "reason": "Mother's asthma recorded as the patient's own condition"
+        },
+        {
+          "system": "extractor",
+          "text": "Possibly Chest infection",
+          "reason": "Matches no fact in the gold annotation."
+        }
+      ]
+    },
+    {
+      "sample_id": "headache",
+      "title": "Recurrent headache",
+      "systems": {
+        "baseline": {
+          "counts": {
+            "units": 16,
+            "supported": 12,
+            "unsupported": 4,
+            "trap_hits": 1,
+            "gold_total": 22,
+            "gold_covered": 19,
+            "section_scored": 10,
+            "section_correct": 7,
+            "polarity_scored": 7,
+            "polarity_preserved": 4,
+            "verifier_flagged": 4,
+            "samples": 1
+          },
+          "rates": {
+            "supported_item_rate": 0.75,
+            "unsupported_per_note": 4.0,
+            "section_accuracy": 0.7,
+            "negation_preserved": 0.571,
+            "gold_coverage": 0.864
+          }
+        },
+        "extractor": {
+          "counts": {
+            "units": 25,
+            "supported": 22,
+            "unsupported": 3,
+            "trap_hits": 1,
+            "gold_total": 22,
+            "gold_covered": 22,
+            "section_scored": 22,
+            "section_correct": 22,
+            "polarity_scored": 9,
+            "polarity_preserved": 9,
+            "verifier_flagged": 3,
+            "samples": 1
+          },
+          "rates": {
+            "supported_item_rate": 0.88,
+            "unsupported_per_note": 3.0,
+            "section_accuracy": 1.0,
+            "negation_preserved": 1.0,
+            "gold_coverage": 1.0
+          }
+        },
+        "clinnote": {
+          "counts": {
+            "units": 22,
+            "supported": 22,
+            "unsupported": 0,
+            "trap_hits": 0,
+            "gold_total": 22,
+            "gold_covered": 22,
+            "section_scored": 22,
+            "section_correct": 22,
+            "polarity_scored": 9,
+            "polarity_preserved": 9,
+            "verifier_flagged": 0,
+            "samples": 1
+          },
+          "rates": {
+            "supported_item_rate": 1.0,
+            "unsupported_per_note": 0.0,
+            "section_accuracy": 1.0,
+            "negation_preserved": 1.0,
+            "gold_coverage": 1.0
+          }
+        }
+      },
+      "unsupported": [
+        {
+          "system": "baseline",
+          "text": "Cranial nerves intact.",
+          "reason": "Matches no fact in the gold annotation."
+        },
+        {
+          "system": "baseline",
+          "text": "No focal neurological deficit.",
+          "reason": "Matches no fact in the gold annotation."
+        },
+        {
+          "system": "baseline",
+          "text": "Blood pressure normal.",
+          "reason": "Matches no fact in the gold annotation."
+        },
+        {
+          "system": "baseline",
+          "text": "Migraine with aura, possible medication overuse headache.",
+          "reason": "Migraine recorded as the patient's diagnosis (only the sister has migraines)"
+        },
+        {
+          "system": "extractor",
+          "text": "Headaches for two months two months",
+          "reason": "Duration 2 months is not in the transcript."
+        },
+        {
+          "system": "extractor",
+          "text": "Vomiting with headaches",
+          "reason": "Matches no fact in the gold annotation."
+        },
+        {
+          "system": "extractor",
+          "text": "Migraine",
+          "reason": "Migraine recorded as the patient's diagnosis (only the sister has migraines)"
+        }
+      ]
+    },
+    {
+      "sample_id": "chest",
+      "title": "Chest discomfort on exertion",
+      "systems": {
+        "baseline": {
+          "counts": {
+            "units": 17,
+            "supported": 12,
+            "unsupported": 5,
+            "trap_hits": 2,
+            "gold_total": 20,
+            "gold_covered": 20,
+            "section_scored": 11,
+            "section_correct": 11,
+            "polarity_scored": 6,
+            "polarity_preserved": 4,
+            "verifier_flagged": 6,
+            "samples": 1
+          },
+          "rates": {
+            "supported_item_rate": 0.706,
+            "unsupported_per_note": 5.0,
+            "section_accuracy": 1.0,
+            "negation_preserved": 0.667,
+            "gold_coverage": 1.0
+          }
+        },
+        "extractor": {
+          "counts": {
+            "units": 23,
+            "supported": 20,
+            "unsupported": 3,
+            "trap_hits": 2,
+            "gold_total": 20,
+            "gold_covered": 20,
+            "section_scored": 20,
+            "section_correct": 20,
+            "polarity_scored": 6,
+            "polarity_preserved": 6,
+            "verifier_flagged": 3,
+            "samples": 1
+          },
+          "rates": {
+            "supported_item_rate": 0.87,
+            "unsupported_per_note": 3.0,
+            "section_accuracy": 1.0,
+            "negation_preserved": 1.0,
+            "gold_coverage": 1.0
+          }
+        },
+        "clinnote": {
+          "counts": {
+            "units": 20,
+            "supported": 20,
+            "unsupported": 0,
+            "trap_hits": 0,
+            "gold_total": 20,
+            "gold_covered": 20,
+            "section_scored": 20,
+            "section_correct": 20,
+            "polarity_scored": 6,
+            "polarity_preserved": 6,
+            "verifier_flagged": 0,
+            "samples": 1
+          },
+          "rates": {
+            "supported_item_rate": 1.0,
+            "unsupported_per_note": 0.0,
+            "section_accuracy": 1.0,
+            "negation_preserved": 1.0,
+            "gold_coverage": 1.0
+          }
+        }
+      },
+      "unsupported": [
+        {
+          "system": "baseline",
+          "text": "58-year-old with 3 days of exertional central chest tightness radiating to the left arm and jaw, relieved by rest within minutes.",
+          "reason": "Duration 58 years is not in the transcript."
+        },
+        {
+          "system": "baseline",
+          "text": "Suspected stable angina.",
+          "reason": "Heart diagnosis the clinician never made"
+        },
+        {
+          "system": "baseline",
+          "text": "Differential includes GORD.",
+          "reason": "Indigestion stated as a finding (the wife's guess)"
+        },
+        {
+          "system": "baseline",
+          "text": "Start aspirin 75 mg and a GTN spray.",
+          "reason": "Matches no fact in the gold annotation."
+        },
+        {
+          "system": "baseline",
+          "text": "Refer to the rapid access chest pain clinic.",
+          "reason": "Matches no fact in the gold annotation."
+        },
+        {
+          "system": "extractor",
+          "text": "Amlodipine 10 mg every morning",
+          "reason": "Dose 10 mg is not in the transcript."
+        },
+        {
+          "system": "extractor",
+          "text": "Heart attack at age fifty-two",
+          "reason": "Heart attack recorded as the patient's own"
+        },
+        {
+          "system": "extractor",
+          "text": "Possible indigestion",
+          "reason": "Indigestion stated as a finding (the wife's guess)"
+        }
+      ]
+    },
+    {
+      "sample_id": "abdominal",
+      "title": "Right lower abdominal pain",
+      "systems": {
+        "baseline": {
+          "counts": {
+            "units": 12,
+            "supported": 5,
+            "unsupported": 7,
+            "trap_hits": 3,
+            "gold_total": 19,
+            "gold_covered": 12,
+            "section_scored": 4,
+            "section_correct": 4,
+            "polarity_scored": 5,
+            "polarity_preserved": 4,
+            "verifier_flagged": 7,
+            "samples": 1
+          },
+          "rates": {
+            "supported_item_rate": 0.417,
+            "unsupported_per_note": 7.0,
+            "section_accuracy": 1.0,
+            "negation_preserved": 0.8,
+            "gold_coverage": 0.632
+          }
+        },
+        "extractor": {
+          "counts": {
+            "units": 22,
+            "supported": 19,
+            "unsupported": 3,
+            "trap_hits": 3,
+            "gold_total": 19,
+            "gold_covered": 19,
+            "section_scored": 19,
+            "section_correct": 19,
+            "polarity_scored": 6,
+            "polarity_preserved": 6,
+            "verifier_flagged": 3,
+            "samples": 1
+          },
+          "rates": {
+            "supported_item_rate": 0.864,
+            "unsupported_per_note": 3.0,
+            "section_accuracy": 1.0,
+            "negation_preserved": 1.0,
+            "gold_coverage": 1.0
+          }
+        },
+        "clinnote": {
+          "counts": {
+            "units": 19,
+            "supported": 19,
+            "unsupported": 0,
+            "trap_hits": 0,
+            "gold_total": 19,
+            "gold_covered": 19,
+            "section_scored": 19,
+            "section_correct": 19,
+            "polarity_scored": 6,
+            "polarity_preserved": 6,
+            "verifier_flagged": 0,
+            "samples": 1
+          },
+          "rates": {
+            "supported_item_rate": 1.0,
+            "unsupported_per_note": 0.0,
+            "section_accuracy": 1.0,
+            "negation_preserved": 1.0,
+            "gold_coverage": 1.0
+          }
+        }
+      },
+      "unsupported": [
+        {
+          "system": "baseline",
+          "text": "One-day history of periumbilical pain migrating to the right iliac fossa, constant, 7 out of 10, worse on movement.",
+          "reason": "Duration 1 day is not in the transcript."
+        },
+        {
+          "system": "baseline",
+          "text": "Associated nausea, one episode of vomiting and anorexia.",
+          "reason": "Number 1 is not in the transcript."
+        },
+        {
+          "system": "baseline",
+          "text": "Fever last night.",
+          "reason": "Fever stated as definite (it was not measured)"
+        },
+        {
+          "system": "baseline",
+          "text": "Took paracetamol 1 g this morning.",
+          "reason": "Dose 1 g is not in the transcript."
+        },
+        {
+          "system": "baseline",
+          "text": "Tender in the right iliac fossa with guarding and rebound tenderness.",
+          "reason": "Rebound tenderness or peritonism, never stated"
+        },
+        {
+          "system": "baseline",
+          "text": "Rovsing's sign positive.",
+          "reason": "Matches no fact in the gold annotation."
+        },
+        {
+          "system": "baseline",
+          "text": "Acute appendicitis.",
+          "reason": "Appendicitis diagnosis the clinician never made"
+        },
+        {
+          "system": "extractor",
+          "text": "Fever last night",
+          "reason": "Fever stated as definite (it was not measured)"
+        },
+        {
+          "system": "extractor",
+          "text": "Appendix removed last year",
+          "reason": "Cousin's appendicectomy recorded as the patient's"
+        },
+        {
+          "system": "extractor",
+          "text": "Rebound tenderness",
+          "reason": "Rebound tenderness or peritonism, never stated"
+        }
+      ]
+    },
+    {
+      "sample_id": "diabetes",
+      "title": "Diabetes follow-up",
+      "systems": {
+        "baseline": {
+          "counts": {
+            "units": 18,
+            "supported": 12,
+            "unsupported": 6,
+            "trap_hits": 2,
+            "gold_total": 17,
+            "gold_covered": 14,
+            "section_scored": 10,
+            "section_correct": 9,
+            "polarity_scored": 4,
+            "polarity_preserved": 3,
+            "verifier_flagged": 7,
+            "samples": 1
+          },
+          "rates": {
+            "supported_item_rate": 0.667,
+            "unsupported_per_note": 6.0,
+            "section_accuracy": 0.9,
+            "negation_preserved": 0.75,
+            "gold_coverage": 0.824
+          }
+        },
+        "extractor": {
+          "counts": {
+            "units": 20,
+            "supported": 17,
+            "unsupported": 3,
+            "trap_hits": 2,
+            "gold_total": 17,
+            "gold_covered": 17,
+            "section_scored": 17,
+            "section_correct": 17,
+            "polarity_scored": 5,
+            "polarity_preserved": 5,
+            "verifier_flagged": 3,
+            "samples": 1
+          },
+          "rates": {
+            "supported_item_rate": 0.85,
+            "unsupported_per_note": 3.0,
+            "section_accuracy": 1.0,
+            "negation_preserved": 1.0,
+            "gold_coverage": 1.0
+          }
+        },
+        "clinnote": {
+          "counts": {
+            "units": 17,
+            "supported": 17,
+            "unsupported": 0,
+            "trap_hits": 0,
+            "gold_total": 17,
+            "gold_covered": 17,
+            "section_scored": 17,
+            "section_correct": 17,
+            "polarity_scored": 5,
+            "polarity_preserved": 5,
+            "verifier_flagged": 0,
+            "samples": 1
+          },
+          "rates": {
+            "supported_item_rate": 1.0,
+            "unsupported_per_note": 0.0,
+            "section_accuracy": 1.0,
+            "negation_preserved": 1.0,
+            "gold_coverage": 1.0
+          }
+        }
+      },
+      "unsupported": [
+        {
+          "system": "baseline",
+          "text": "Intermittent numbness in the toes, likely due to the cold weather.",
+          "reason": "Cold weather stated as the cause of numbness"
+        },
+        {
+          "system": "baseline",
+          "text": "Non-smoker, alcohol 1 unit a week.",
+          "reason": "Duration 1 week is not in the transcript."
+        },
+        {
+          "system": "baseline",
+          "text": "Weight 92 kg (up 3 kg since June).",
+          "reason": "Number 3 is not in the transcript."
+        },
+        {
+          "system": "baseline",
+          "text": "Reduced monofilament sensation at the left hallux consistent with peripheral neuropathy.",
+          "reason": "Neuropathy diagnosis the clinician never made"
+        },
+        {
+          "system": "baseline",
+          "text": "Increase metformin to 1 g twice daily.",
+          "reason": "Dose 1 g is not in the transcript."
+        },
+        {
+          "system": "baseline",
+          "text": "Arrange retinal screening.",
+          "reason": "Matches no fact in the gold annotation."
+        },
+        {
+          "system": "extractor",
+          "text": "Toe numbness caused by the cold weather",
+          "reason": "Cold weather stated as the cause of numbness"
+        },
+        {
+          "system": "extractor",
+          "text": "Metformin 1000 mg twice a day",
+          "reason": "Dose 1000 mg is not in the transcript."
+        },
+        {
+          "system": "extractor",
+          "text": "Peripheral neuropathy",
+          "reason": "Neuropathy diagnosis the clinician never made"
+        }
+      ]
+    },
+    {
+      "sample_id": "rash",
+      "title": "Itchy forearm rash",
+      "systems": {
+        "baseline": {
+          "counts": {
+            "units": 15,
+            "supported": 12,
+            "unsupported": 3,
+            "trap_hits": 2,
+            "gold_total": 19,
+            "gold_covered": 15,
+            "section_scored": 11,
+            "section_correct": 10,
+            "polarity_scored": 7,
+            "polarity_preserved": 6,
+            "verifier_flagged": 4,
+            "samples": 1
+          },
+          "rates": {
+            "supported_item_rate": 0.8,
+            "unsupported_per_note": 3.0,
+            "section_accuracy": 0.909,
+            "negation_preserved": 0.857,
+            "gold_coverage": 0.789
+          }
+        },
+        "extractor": {
+          "counts": {
+            "units": 22,
+            "supported": 19,
+            "unsupported": 3,
+            "trap_hits": 2,
+            "gold_total": 19,
+            "gold_covered": 19,
+            "section_scored": 19,
+            "section_correct": 19,
+            "polarity_scored": 9,
+            "polarity_preserved": 9,
+            "verifier_flagged": 3,
+            "samples": 1
+          },
+          "rates": {
+            "supported_item_rate": 0.864,
+            "unsupported_per_note": 3.0,
+            "section_accuracy": 1.0,
+            "negation_preserved": 1.0,
+            "gold_coverage": 1.0
+          }
+        },
+        "clinnote": {
+          "counts": {
+            "units": 19,
+            "supported": 19,
+            "unsupported": 0,
+            "trap_hits": 0,
+            "gold_total": 19,
+            "gold_covered": 19,
+            "section_scored": 19,
+            "section_correct": 19,
+            "polarity_scored": 9,
+            "polarity_preserved": 9,
+            "verifier_flagged": 0,
+            "samples": 1
+          },
+          "rates": {
+            "supported_item_rate": 1.0,
+            "unsupported_per_note": 0.0,
+            "section_accuracy": 1.0,
+            "negation_preserved": 1.0,
+            "gold_coverage": 1.0
+          }
+        }
+      },
+      "unsupported": [
+        {
+          "system": "baseline",
+          "text": "Hay fever.",
+          "reason": "Son's hay fever recorded as the patient's"
+        },
+        {
+          "system": "baseline",
+          "text": "Allergic contact dermatitis secondary to the new washing powder.",
+          "reason": "Dermatitis or allergy diagnosis the clinician never made"
+        },
+        {
+          "system": "baseline",
+          "text": "Emollients and a stronger topical steroid if not improving.",
+          "reason": "Matches no fact in the gold annotation."
+        },
+        {
+          "system": "extractor",
+          "text": "Rash for five weeks five weeks",
+          "reason": "Duration 5 weeks is not in the transcript."
+        },
+        {
+          "system": "extractor",
+          "text": "Allergic contact dermatitis from the washing powder",
+          "reason": "Dermatitis or allergy diagnosis the clinician never made"
+        },
+        {
+          "system": "extractor",
+          "text": "Possibly Scabies",
+          "reason": "Scabies stated as a finding"
+        }
+      ]
+    }
+  ]
+}

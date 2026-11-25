@@ -1,0 +1,24 @@
+Doctor: Good afternoon. What's brought you in?
+Patient: I've had a tight feeling in my chest on and off for three days. It comes on when I walk up the hill to the bus stop.
+Doctor: How long does it last?
+Patient: A few minutes, and it goes away when I stop and rest.
+Doctor: Does the pain spread anywhere?
+Patient: Sometimes into my left arm. I'm not sure if it goes to my jaw.
+Doctor: Any shortness of breath, sweating, or palpitations?
+Patient: I get a bit short of breath with it. No sweating. No palpitations that I've noticed.
+Doctor: Do you have any pain right now?
+Patient: No, I'm fine sitting here.
+Doctor: Do you have any medical conditions?
+Patient: I have high blood pressure. I take amlodipine 5 mg every morning.
+Doctor: Do you smoke?
+Patient: I smoke about ten cigarettes a day.
+Doctor: Any heart problems in the family?
+Patient: My father had a heart attack when he was fifty-two. My brother has high cholesterol, I think.
+Doctor: Any allergies?
+Patient: I'm allergic to penicillin. It gave me a rash.
+Doctor: Let me examine you.
+Doctor: Your blood pressure is 152 over 94. Your pulse is 88 and regular.
+Doctor: Your heart sounds are normal and your chest is clear.
+Doctor: There's no swelling in your ankles.
+Patient: My wife thinks it's indigestion.
+Doctor: I'd like to do an ECG today.

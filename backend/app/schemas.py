@@ -125,6 +125,50 @@ class VerifierOutput(_Strict):
     reason: str
 
 
+class BaselineOutput(_Strict):
+    note: str
+
+
+# ---- Baseline (plain summary, no citations) -----------------------------------------------
+
+
+class Segment(BaseModel):
+    """One piece of the plain summary as displayed: a heading, a scored claim, or plain text."""
+
+    line: int
+    kind: Literal["heading", "claim", "text"]
+    text: str
+    claim_id: str | None = None
+
+
+class BaselineClaim(BaseModel):
+    id: str
+    text: str
+    heading: str | None
+    section_guess: Section | None
+    # Retrieved (not cited): the plain summary has no citations of its own.
+    evidence: list[str]
+    status: Status
+    verification: Verification
+
+
+class BaselineMeta(BaseModel):
+    models: dict[str, str]
+    prompt_versions: dict[str, str]
+    mode: Literal["live", "mock"]
+    timings_ms: dict[str, int]
+    transcript_hash: str
+    cached: bool = False
+
+
+class BaselineResult(BaseModel):
+    text: str
+    segments: list[Segment]
+    claims: list[BaselineClaim]
+    meta: BaselineMeta
+    sentences: list[Sentence]
+
+
 # ---- API ----------------------------------------------------------------------------------
 
 

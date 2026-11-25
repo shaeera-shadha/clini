@@ -10,6 +10,7 @@ from app.normalize import (
     durations_in,
     negated_mentions,
     numbers_in,
+    standalone_numbers_in,
     word_to_number,
 )
 from app.schemas import CandidateItem, Sentence
@@ -140,3 +141,26 @@ def test_polarity_mismatches_are_caught() -> None:
     assert "polarity" in failures(text="Vomiting", polarity="present", evidence=["S3"])
     assert "polarity" in failures(text="Headache", polarity="absent", evidence=["S1"])
     assert "polarity" in failures(text="Headache", polarity="uncertain", evidence=["S1"])
+
+
+def test_negatively_worded_finding_is_not_a_polarity_error() -> None:
+    # "Never smoked" is a present finding phrased with a negation; S3 negates it as expected.
+    assert failures(section="history", text="Has never smoked", evidence=["S3"]) == {}
+
+
+def test_numbers_inside_quantities_are_compared_as_quantities() -> None:
+    assert standalone_numbers_in("Cough for one week, 10 mg daily, pulse 72") == {72}
+    assert durations_in("for one week") == durations_in("maybe a week")
+    assert durations_in("for the next month") == {Quantity(1, "month")}
+
+
+def test_scale_denominator_is_not_a_finding() -> None:
+    assert numbers_in("Pain six out of ten") == {6}
+    assert numbers_in("Pain 7/10") == {7}
+
+
+def test_hyphenated_free_counts_as_negation() -> None:
+    assert negated_mentions("Currently pain-free.", content_stems("pain")) == (1, 0)
+    from app.normalize import NEGATION_CUES
+
+    assert NEGATION_CUES.search("Currently pain-free.")

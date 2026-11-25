@@ -127,6 +127,16 @@ SOCIAL = re.compile(
     r"occupation|works? as|exercise)\b",
     re.IGNORECASE,
 )
+ONSET = re.compile(
+    r"\b(since|ago|for the (?:last|past)|over the (?:last|past)|started|began|came up|"
+    r"yesterday|this morning|last night)\b",
+    re.IGNORECASE,
+)
+SEVERITY = re.compile(
+    r"\b(mild|mildly|moderate|severe|severely|slight|slightly|a little|a bit|very|worst|"
+    r"out of (?:10|ten)|on a scale|severity)\b|\d+\s*/\s*10\b",
+    re.IGNORECASE,
+)
 VITALS = re.compile(
     r"(\btemperature\b|\bblood pressure\b|\bbp\b|\bpulse\b|\bheart rate\b|\boxygen\b|"
     r"\bsaturation\b|\bspo2\b|\brespiratory rate\b|\bweight\b|\bbmi\b|mmhg|\bbpm\b|°)",

@@ -1,0 +1,26 @@
+Doctor: Hello. What can I help you with today?
+Patient: I've been getting headaches for about two weeks now. They're mostly on the right side of my head. It feels like a throbbing pain.
+Doctor: How bad is the pain, on a scale of one to ten?
+Patient: Usually around six. The worst one was maybe an eight.
+Doctor: Does anything make it worse?
+Patient: Bright lights bother me when it's bad. I think screens make it worse, but I'm not certain.
+Doctor: Any nausea or vomiting?
+Patient: I feel a bit sick with the bad ones. I haven't vomited.
+Doctor: Any changes in your vision, weakness, or numbness?
+Patient: No weakness or numbness. Sometimes I see zigzag lines before it starts.
+Doctor: Have you taken anything for it?
+Patient: I take ibuprofen 400 mg when it starts. It helps a little.
+Doctor: How often are you taking it?
+Patient: Probably four days a week.
+Doctor: Any medical problems in the past?
+Patient: No, I've always been healthy.
+Doctor: Does anyone in the family get headaches?
+Patient: My sister gets migraines. My dad had a stroke at seventy, so I'm worried this could be something serious.
+Doctor: Do you drink coffee?
+Patient: About three cups a day.
+Doctor: I'm going to look at the back of your eyes and check your nerves.
+Doctor: The back of your eyes looks normal. Your eye movements are normal, and I can't find any weakness in your arms or legs.
+Doctor: Your neck moves freely and there's no stiffness.
+Patient: So it's not a tumour?
+Doctor: Nothing I've found today points to anything serious.
+Doctor: Let's keep a headache diary for the next month.

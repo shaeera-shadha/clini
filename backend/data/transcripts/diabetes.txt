@@ -1,0 +1,27 @@
+Doctor: Good morning. This is your diabetes review.
+Doctor: How have you been getting on?
+Patient: Mostly fine. I've been a bit more thirsty over the last month.
+Doctor: Are you passing urine more often?
+Patient: Yes, I get up twice a night now.
+Doctor: Any problems with your feet, like numbness or tingling?
+Patient: Sometimes my toes feel a bit numb. Maybe it's the cold weather.
+Doctor: Any problems with your eyesight?
+Patient: No, my eye check in March was fine.
+Doctor: What medicines are you taking?
+Patient: Metformin 500 mg twice a day. I sometimes forget the evening dose.
+Doctor: How often do you miss it?
+Patient: Maybe two or three times a week.
+Doctor: Any low sugar episodes, feeling shaky or sweaty?
+Patient: No, never.
+Doctor: How's your diet?
+Patient: I've been eating more sweets since I stopped working.
+Doctor: Do you smoke or drink?
+Patient: I don't smoke. I have a glass of wine at the weekend.
+Doctor: Your mother had diabetes too, didn't she?
+Patient: Yes, and she lost a toe from it. I'm scared the same will happen to me.
+Doctor: Let me check your blood pressure and feet.
+Doctor: Your blood pressure is 138 over 84. Your weight is 92 kilograms, up from 89 in June.
+Doctor: The pulses in your feet are present. You have reduced sensation to the monofilament on the left big toe.
+Doctor: The skin on your feet is intact with no ulcers.
+Doctor: Your last HbA1c was 64.
+Doctor: We'll increase the metformin and arrange a foot clinic referral.

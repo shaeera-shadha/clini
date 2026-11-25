@@ -8,7 +8,7 @@ from dataclasses import dataclass
 from typing import Literal
 
 from app.assemble import assemble
-from app.cache import ResultCache
+from app.cache import NoteCache, ResultCache
 from app.config import Settings
 from app.extract import extract
 from app.llm import LLMClient
@@ -42,7 +42,7 @@ def _ms_since(start: float) -> int:
 
 def _cache_key(transcript_hash: str, settings: Settings) -> str:
     models = {"extractor": settings.extractor_model, "verifier": settings.verifier_model}
-    prompts: dict[str, str] = {name: load_prompt(name) for name in PROMPT_VERSIONS}
+    prompts: dict[str, str] = {name: load_prompt(name) for name in ("extract", "verify")}
     return ResultCache.key(transcript_hash, models, {"pipeline": PIPELINE_VERSION, **prompts})
 
 
@@ -50,7 +50,7 @@ async def run_pipeline(
     transcript: str,
     client: LLMClient,
     settings: Settings,
-    cache: ResultCache | None = None,
+    cache: NoteCache | None = None,
 ) -> AsyncIterator[PipelineEvent]:
     timings = Timings()
 
@@ -92,7 +92,7 @@ async def run_pipeline(
         not_mentioned=missing,
         meta=NoteMeta(
             models={"extractor": settings.extractor_model, "verifier": settings.verifier_model},
-            prompt_versions=dict(PROMPT_VERSIONS),
+            prompt_versions={n: PROMPT_VERSIONS[n] for n in ("extract", "verify")},
             mode=settings.llm_mode,
             timings_ms=timings,
             transcript_hash=pre.transcript_hash,
@@ -105,7 +105,7 @@ async def run_pipeline(
 
 
 async def generate(
-    transcript: str, client: LLMClient, settings: Settings, cache: ResultCache | None = None
+    transcript: str, client: LLMClient, settings: Settings, cache: NoteCache | None = None
 ) -> GenerateResult:
     async for event in run_pipeline(transcript, client, settings, cache):
         if isinstance(event, ResultEvent):

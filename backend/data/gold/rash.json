@@ -1,0 +1,454 @@
+{
+  "sample_id": "rash",
+  "items": [
+    {
+      "id": "G1",
+      "section": "symptom",
+      "polarity": "present",
+      "text": "Itchy rash on both forearms",
+      "evidence": [
+        "S3"
+      ],
+      "match": [
+        [
+          "rash",
+          "itch"
+        ],
+        [
+          "forearm",
+          "arm"
+        ]
+      ]
+    },
+    {
+      "id": "G2",
+      "section": "symptom",
+      "polarity": "present",
+      "text": "Came up about five days ago",
+      "evidence": [
+        "S4"
+      ],
+      "match": [
+        [
+          "five",
+          "5"
+        ]
+      ]
+    },
+    {
+      "id": "G3",
+      "section": "symptom",
+      "polarity": "present",
+      "text": "Small patch on the neck",
+      "evidence": [
+        "S6"
+      ],
+      "match": [
+        [
+          "neck"
+        ]
+      ]
+    },
+    {
+      "id": "G4",
+      "section": "symptom",
+      "polarity": "absent",
+      "text": "On the face",
+      "evidence": [
+        "S7"
+      ],
+      "match": [
+        [
+          "face",
+          "facial"
+        ]
+      ]
+    },
+    {
+      "id": "G5",
+      "section": "symptom",
+      "polarity": "absent",
+      "text": "Pain",
+      "evidence": [
+        "S9"
+      ],
+      "match": [
+        [
+          "pain"
+        ]
+      ]
+    },
+    {
+      "id": "G6",
+      "section": "symptom",
+      "polarity": "present",
+      "text": "Very itchy, especially at night",
+      "evidence": [
+        "S9"
+      ],
+      "match": [
+        [
+          "itch",
+          "prurit"
+        ]
+      ]
+    },
+    {
+      "id": "G7",
+      "section": "history",
+      "polarity": "uncertain",
+      "text": "New washing powder last week, unsure if related",
+      "evidence": [
+        "S11",
+        "S12"
+      ],
+      "match": [
+        [
+          "washing powder",
+          "detergent",
+          "laundry"
+        ]
+      ]
+    },
+    {
+      "id": "G8",
+      "section": "history",
+      "polarity": "absent",
+      "text": "New medicines",
+      "evidence": [
+        "S14"
+      ],
+      "match": [
+        [
+          "new medic"
+        ]
+      ]
+    },
+    {
+      "id": "G9",
+      "section": "symptom",
+      "polarity": "absent",
+      "text": "Fever",
+      "evidence": [
+        "S16"
+      ],
+      "match": [
+        [
+          "fever",
+          "pyrexi"
+        ]
+      ]
+    },
+    {
+      "id": "G10",
+      "section": "symptom",
+      "polarity": "present",
+      "text": "Feels fine otherwise",
+      "evidence": [
+        "S17"
+      ],
+      "match": [
+        [
+          "fine",
+          "well"
+        ]
+      ]
+    },
+    {
+      "id": "G11",
+      "section": "history",
+      "polarity": "present",
+      "text": "Eczema as a child, cleared about age ten",
+      "evidence": [
+        "S19",
+        "S20"
+      ],
+      "match": [
+        [
+          "eczema",
+          "atopic"
+        ]
+      ]
+    },
+    {
+      "id": "G12",
+      "section": "history",
+      "polarity": "absent",
+      "text": "Anyone at home with the rash",
+      "evidence": [
+        "S22"
+      ],
+      "match": [
+        [
+          "home",
+          "household",
+          "contact"
+        ]
+      ]
+    },
+    {
+      "id": "G13",
+      "section": "history",
+      "polarity": "present",
+      "text": "Son: hay fever",
+      "evidence": [
+        "S23"
+      ],
+      "match": [
+        [
+          "son"
+        ],
+        [
+          "hay fever",
+          "rhinitis"
+        ]
+      ]
+    },
+    {
+      "id": "G14",
+      "section": "history",
+      "polarity": "present",
+      "text": "Hydrocortisone cream 1 percent twice a day, helps a bit",
+      "evidence": [
+        "S25",
+        "S26"
+      ],
+      "match": [
+        [
+          "hydrocortisone",
+          "steroid cream"
+        ]
+      ]
+    },
+    {
+      "id": "G15",
+      "section": "observation",
+      "polarity": "present",
+      "text": "Red, slightly raised patches on both forearms with scratch marks",
+      "evidence": [
+        "S28"
+      ],
+      "match": [
+        [
+          "red",
+          "raised",
+          "erythem",
+          "scratch",
+          "excoriat"
+        ]
+      ]
+    },
+    {
+      "id": "G16",
+      "section": "observation",
+      "polarity": "absent",
+      "text": "Blisters",
+      "evidence": [
+        "S29"
+      ],
+      "match": [
+        [
+          "blister",
+          "vesic"
+        ]
+      ]
+    },
+    {
+      "id": "G17",
+      "section": "observation",
+      "polarity": "absent",
+      "text": "Broken or weeping skin",
+      "evidence": [
+        "S29"
+      ],
+      "match": [
+        [
+          "weep",
+          "broken",
+          "exudat"
+        ]
+      ]
+    },
+    {
+      "id": "G18",
+      "section": "observation",
+      "polarity": "present",
+      "text": "Neck patch looks similar",
+      "evidence": [
+        "S30"
+      ],
+      "match": [
+        [
+          "neck"
+        ]
+      ]
+    },
+    {
+      "id": "G19",
+      "section": "observation",
+      "polarity": "absent",
+      "text": "Burrows",
+      "evidence": [
+        "S32"
+      ],
+      "match": [
+        [
+          "burrow"
+        ]
+      ]
+    }
+  ],
+  "other": [
+    {
+      "text": "Read online it could be scabies",
+      "evidence": [
+        "S31"
+      ],
+      "match": [
+        [
+          "scabies"
+        ],
+        [
+          "worr",
+          "concern",
+          "wonder",
+          "ask",
+          "query",
+          "?",
+          "fear",
+          "scared",
+          "anxi",
+          "thinks",
+          "think",
+          "believ",
+          "read",
+          "online",
+          "suggest"
+        ]
+      ]
+    },
+    {
+      "text": "Pattern not typical of scabies",
+      "evidence": [
+        "S32"
+      ],
+      "match": [
+        [
+          "scabies"
+        ],
+        [
+          "not typical",
+          "isn't typical",
+          "atypical",
+          "unlikely"
+        ]
+      ]
+    },
+    {
+      "text": "Stop the new washing powder for two weeks",
+      "evidence": [
+        "S33"
+      ],
+      "match": [
+        [
+          "stop",
+          "avoid"
+        ],
+        [
+          "washing",
+          "powder",
+          "detergent"
+        ]
+      ]
+    }
+  ],
+  "traps": [
+    {
+      "id": "T1",
+      "description": "Scabies stated as a finding",
+      "match": [
+        [
+          "scabies"
+        ]
+      ],
+      "exempt": [
+        "no ",
+        "not ",
+        "n't",
+        "denies",
+        "denied",
+        "without",
+        "negative",
+        "never",
+        "absent",
+        "worr",
+        "concern",
+        "wonder",
+        "ask",
+        "query",
+        "?",
+        "fear",
+        "scared",
+        "anxi",
+        "thinks",
+        "think",
+        "believ",
+        "read",
+        "online",
+        "suggest",
+        "not typical",
+        "isn't typical",
+        "unlikely"
+      ]
+    },
+    {
+      "id": "T2",
+      "description": "Dermatitis or allergy diagnosis the clinician never made",
+      "match": [
+        [
+          "dermatitis",
+          "contact allerg",
+          "allergic reaction",
+          "urticaria"
+        ]
+      ],
+      "exempt": [
+        "no ",
+        "not ",
+        "n't",
+        "denies",
+        "denied",
+        "without",
+        "negative",
+        "never",
+        "absent"
+      ]
+    },
+    {
+      "id": "T3",
+      "description": "Son's hay fever recorded as the patient's",
+      "match": [
+        [
+          "hay fever"
+        ]
+      ],
+      "exempt": [
+        "mother",
+        "mum",
+        "maternal",
+        "father",
+        "dad",
+        "paternal",
+        "sister",
+        "brother",
+        "sibling",
+        "son",
+        "daughter",
+        "cousin",
+        "family",
+        "relative",
+        "wife"
+      ]
+    }
+  ]
+}

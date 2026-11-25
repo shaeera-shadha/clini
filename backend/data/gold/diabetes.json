@@ -1,0 +1,438 @@
+{
+  "sample_id": "diabetes",
+  "items": [
+    {
+      "id": "G1",
+      "section": "symptom",
+      "polarity": "present",
+      "text": "More thirsty over the last month",
+      "evidence": [
+        "S5"
+      ],
+      "match": [
+        [
+          "thirst",
+          "polydips"
+        ]
+      ]
+    },
+    {
+      "id": "G2",
+      "section": "symptom",
+      "polarity": "present",
+      "text": "Gets up twice a night to pass urine",
+      "evidence": [
+        "S7"
+      ],
+      "match": [
+        [
+          "night",
+          "nocturia",
+          "urin"
+        ]
+      ]
+    },
+    {
+      "id": "G3",
+      "section": "symptom",
+      "polarity": "present",
+      "text": "Toes sometimes feel a bit numb",
+      "evidence": [
+        "S9"
+      ],
+      "match": [
+        [
+          "numb",
+          "tingl"
+        ],
+        [
+          "toe",
+          "feet",
+          "foot"
+        ]
+      ]
+    },
+    {
+      "id": "G4",
+      "section": "symptom",
+      "polarity": "absent",
+      "text": "Eyesight problems (eye check in March fine)",
+      "evidence": [
+        "S12"
+      ],
+      "match": [
+        [
+          "eye",
+          "vision",
+          "visual",
+          "sight",
+          "retin"
+        ]
+      ]
+    },
+    {
+      "id": "G5",
+      "section": "history",
+      "polarity": "present",
+      "text": "Metformin 500 mg twice a day",
+      "evidence": [
+        "S14"
+      ],
+      "match": [
+        [
+          "metformin"
+        ]
+      ]
+    },
+    {
+      "id": "G6",
+      "section": "history",
+      "polarity": "uncertain",
+      "text": "Forgets evening dose maybe two or three times a week",
+      "evidence": [
+        "S15",
+        "S17"
+      ],
+      "match": [
+        [
+          "miss",
+          "forget",
+          "forgot",
+          "adheren"
+        ]
+      ]
+    },
+    {
+      "id": "G7",
+      "section": "history",
+      "polarity": "absent",
+      "text": "Low sugar episodes",
+      "evidence": [
+        "S19"
+      ],
+      "match": [
+        [
+          "hypo",
+          "low sugar",
+          "low blood sugar",
+          "shaky"
+        ]
+      ]
+    },
+    {
+      "id": "G8",
+      "section": "history",
+      "polarity": "present",
+      "text": "Eating more sweets since stopping work",
+      "evidence": [
+        "S21"
+      ],
+      "match": [
+        [
+          "sweets",
+          "diet"
+        ]
+      ]
+    },
+    {
+      "id": "G9",
+      "section": "history",
+      "polarity": "absent",
+      "text": "Smoking",
+      "evidence": [
+        "S23"
+      ],
+      "match": [
+        [
+          "smok"
+        ]
+      ]
+    },
+    {
+      "id": "G10",
+      "section": "history",
+      "polarity": "present",
+      "text": "A glass of wine at the weekend",
+      "evidence": [
+        "S24"
+      ],
+      "match": [
+        [
+          "wine",
+          "alcohol"
+        ]
+      ]
+    },
+    {
+      "id": "G11",
+      "section": "history",
+      "polarity": "present",
+      "text": "Mother: diabetes, lost a toe",
+      "evidence": [
+        "S25",
+        "S26"
+      ],
+      "match": [
+        [
+          "mother",
+          "mum",
+          "maternal",
+          "family"
+        ],
+        [
+          "diabet",
+          "toe",
+          "amput"
+        ]
+      ]
+    },
+    {
+      "id": "G12",
+      "section": "observation",
+      "polarity": "present",
+      "text": "Blood pressure 138 over 84",
+      "evidence": [
+        "S29"
+      ],
+      "match": [
+        [
+          "138"
+        ]
+      ]
+    },
+    {
+      "id": "G13",
+      "section": "observation",
+      "polarity": "present",
+      "text": "Weight 92 kilograms, up from 89 in June",
+      "evidence": [
+        "S30"
+      ],
+      "match": [
+        [
+          "92"
+        ]
+      ]
+    },
+    {
+      "id": "G14",
+      "section": "observation",
+      "polarity": "present",
+      "text": "Foot pulses present",
+      "evidence": [
+        "S31"
+      ],
+      "match": [
+        [
+          "pulse"
+        ]
+      ]
+    },
+    {
+      "id": "G15",
+      "section": "observation",
+      "polarity": "present",
+      "text": "Reduced monofilament sensation, left big toe",
+      "evidence": [
+        "S32"
+      ],
+      "match": [
+        [
+          "monofilament",
+          "sensation"
+        ]
+      ]
+    },
+    {
+      "id": "G16",
+      "section": "observation",
+      "polarity": "absent",
+      "text": "Foot ulcers (skin intact)",
+      "evidence": [
+        "S33"
+      ],
+      "match": [
+        [
+          "ulcer",
+          "intact"
+        ]
+      ]
+    },
+    {
+      "id": "G17",
+      "section": "observation",
+      "polarity": "present",
+      "text": "Last HbA1c 64",
+      "evidence": [
+        "S34"
+      ],
+      "match": [
+        [
+          "hba1c",
+          "a1c",
+          "64"
+        ]
+      ]
+    }
+  ],
+  "other": [
+    {
+      "text": "Diabetes review",
+      "evidence": [
+        "S2"
+      ],
+      "match": [
+        [
+          "review",
+          "follow"
+        ]
+      ]
+    },
+    {
+      "text": "Patient wonders if it is the cold weather",
+      "evidence": [
+        "S10"
+      ],
+      "match": [
+        [
+          "cold"
+        ]
+      ]
+    },
+    {
+      "text": "Scared the same will happen",
+      "evidence": [
+        "S27"
+      ],
+      "match": [
+        [
+          "scared",
+          "worr",
+          "fear",
+          "anxi",
+          "concern"
+        ]
+      ]
+    },
+    {
+      "text": "Increase metformin, foot clinic referral",
+      "evidence": [
+        "S35"
+      ],
+      "match": [
+        [
+          "increase",
+          "foot clinic",
+          "referr",
+          "podiatr"
+        ]
+      ]
+    }
+  ],
+  "traps": [
+    {
+      "id": "T1",
+      "description": "Mother's toe loss recorded as the patient's",
+      "match": [
+        [
+          "amput",
+          "lost a toe"
+        ]
+      ],
+      "exempt": [
+        "mother",
+        "mum",
+        "maternal",
+        "father",
+        "dad",
+        "paternal",
+        "sister",
+        "brother",
+        "sibling",
+        "son",
+        "daughter",
+        "cousin",
+        "family",
+        "relative",
+        "wife",
+        "worr",
+        "concern",
+        "wonder",
+        "ask",
+        "query",
+        "?",
+        "fear",
+        "scared",
+        "anxi",
+        "thinks",
+        "think",
+        "believ",
+        "read",
+        "online",
+        "suggest"
+      ]
+    },
+    {
+      "id": "T2",
+      "description": "Neuropathy diagnosis the clinician never made",
+      "match": [
+        [
+          "neuropath"
+        ]
+      ],
+      "exempt": [
+        "no ",
+        "not ",
+        "n't",
+        "denies",
+        "denied",
+        "without",
+        "negative",
+        "never",
+        "absent"
+      ]
+    },
+    {
+      "id": "T3",
+      "description": "Cold weather stated as the cause of numbness",
+      "match": [
+        [
+          "cold"
+        ]
+      ],
+      "exempt": [
+        "might",
+        "possib",
+        "maybe",
+        "perhaps",
+        "probabl",
+        "unsure",
+        "not sure",
+        "uncertain",
+        "not measured",
+        "didn't check",
+        "did not check",
+        "not checked",
+        "unmeasured",
+        "subjective",
+        "worr",
+        "concern",
+        "wonder",
+        "ask",
+        "query",
+        "?",
+        "fear",
+        "scared",
+        "anxi",
+        "thinks",
+        "think",
+        "believ",
+        "read",
+        "online",
+        "suggest",
+        "wonder",
+        "attribut"
+      ]
+    }
+  ]
+}

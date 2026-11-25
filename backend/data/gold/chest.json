@@ -1,0 +1,481 @@
+{
+  "sample_id": "chest",
+  "items": [
+    {
+      "id": "G1",
+      "section": "symptom",
+      "polarity": "present",
+      "text": "Chest tightness on and off for three days",
+      "evidence": [
+        "S3"
+      ],
+      "match": [
+        [
+          "tight",
+          "pressure",
+          "discomfort"
+        ]
+      ]
+    },
+    {
+      "id": "G2",
+      "section": "symptom",
+      "polarity": "present",
+      "text": "Comes on walking uphill",
+      "evidence": [
+        "S4"
+      ],
+      "match": [
+        [
+          "hill",
+          "exert",
+          "walk"
+        ]
+      ]
+    },
+    {
+      "id": "G3",
+      "section": "symptom",
+      "polarity": "present",
+      "text": "Lasts a few minutes, eases with rest",
+      "evidence": [
+        "S6"
+      ],
+      "match": [
+        [
+          "rest",
+          "minute"
+        ]
+      ]
+    },
+    {
+      "id": "G4",
+      "section": "symptom",
+      "polarity": "present",
+      "text": "Spreads to the left arm",
+      "evidence": [
+        "S8"
+      ],
+      "match": [
+        [
+          "arm"
+        ]
+      ]
+    },
+    {
+      "id": "G5",
+      "section": "symptom",
+      "polarity": "uncertain",
+      "text": "Unsure if it spreads to the jaw",
+      "evidence": [
+        "S9"
+      ],
+      "match": [
+        [
+          "jaw"
+        ]
+      ]
+    },
+    {
+      "id": "G6",
+      "section": "symptom",
+      "polarity": "present",
+      "text": "A bit short of breath with it",
+      "evidence": [
+        "S11"
+      ],
+      "match": [
+        [
+          "breath",
+          "dyspn"
+        ]
+      ]
+    },
+    {
+      "id": "G7",
+      "section": "symptom",
+      "polarity": "absent",
+      "text": "Sweating",
+      "evidence": [
+        "S12"
+      ],
+      "match": [
+        [
+          "sweat",
+          "diaphores"
+        ]
+      ]
+    },
+    {
+      "id": "G8",
+      "section": "symptom",
+      "polarity": "absent",
+      "text": "Palpitations",
+      "evidence": [
+        "S13"
+      ],
+      "match": [
+        [
+          "palpitat"
+        ]
+      ],
+      "accept_polarity": [
+        "uncertain"
+      ]
+    },
+    {
+      "id": "G9",
+      "section": "symptom",
+      "polarity": "absent",
+      "text": "Pain at present",
+      "evidence": [
+        "S15"
+      ],
+      "match": [
+        [
+          "now",
+          "current",
+          "at present",
+          "pain-free",
+          "pain free",
+          "sitting",
+          "at rest"
+        ]
+      ]
+    },
+    {
+      "id": "G10",
+      "section": "history",
+      "polarity": "present",
+      "text": "High blood pressure",
+      "evidence": [
+        "S17"
+      ],
+      "match": [
+        [
+          "blood pressure",
+          "hypertens"
+        ]
+      ]
+    },
+    {
+      "id": "G11",
+      "section": "history",
+      "polarity": "present",
+      "text": "Amlodipine 5 mg every morning",
+      "evidence": [
+        "S18"
+      ],
+      "match": [
+        [
+          "amlodipine"
+        ]
+      ]
+    },
+    {
+      "id": "G12",
+      "section": "history",
+      "polarity": "present",
+      "text": "Smokes about ten cigarettes a day",
+      "evidence": [
+        "S20"
+      ],
+      "match": [
+        [
+          "smok",
+          "cigarette"
+        ]
+      ]
+    },
+    {
+      "id": "G13",
+      "section": "history",
+      "polarity": "present",
+      "text": "Father: heart attack at fifty-two",
+      "evidence": [
+        "S22"
+      ],
+      "match": [
+        [
+          "father",
+          "dad"
+        ],
+        [
+          "heart attack",
+          "myocardial",
+          "mi "
+        ]
+      ]
+    },
+    {
+      "id": "G14",
+      "section": "history",
+      "polarity": "uncertain",
+      "text": "Brother: high cholesterol, I think",
+      "evidence": [
+        "S23"
+      ],
+      "match": [
+        [
+          "brother",
+          "sibling"
+        ],
+        [
+          "cholesterol",
+          "lipid"
+        ]
+      ]
+    },
+    {
+      "id": "G15",
+      "section": "history",
+      "polarity": "present",
+      "text": "Penicillin allergy (rash)",
+      "evidence": [
+        "S25",
+        "S26"
+      ],
+      "match": [
+        [
+          "penicillin"
+        ]
+      ]
+    },
+    {
+      "id": "G16",
+      "section": "observation",
+      "polarity": "present",
+      "text": "Blood pressure 152 over 94",
+      "evidence": [
+        "S28"
+      ],
+      "match": [
+        [
+          "152"
+        ]
+      ]
+    },
+    {
+      "id": "G17",
+      "section": "observation",
+      "polarity": "present",
+      "text": "Pulse 88 and regular",
+      "evidence": [
+        "S29"
+      ],
+      "match": [
+        [
+          "88"
+        ]
+      ]
+    },
+    {
+      "id": "G18",
+      "section": "observation",
+      "polarity": "present",
+      "text": "Heart sounds normal",
+      "evidence": [
+        "S30"
+      ],
+      "match": [
+        [
+          "heart sound"
+        ]
+      ]
+    },
+    {
+      "id": "G19",
+      "section": "observation",
+      "polarity": "present",
+      "text": "Chest clear",
+      "evidence": [
+        "S30"
+      ],
+      "match": [
+        [
+          "clear"
+        ]
+      ]
+    },
+    {
+      "id": "G20",
+      "section": "observation",
+      "polarity": "absent",
+      "text": "Ankle swelling",
+      "evidence": [
+        "S31"
+      ],
+      "match": [
+        [
+          "ankle",
+          "oedema",
+          "edema",
+          "swelling"
+        ]
+      ]
+    }
+  ],
+  "other": [
+    {
+      "text": "Wife thinks it is indigestion",
+      "evidence": [
+        "S32"
+      ],
+      "match": [
+        [
+          "indigestion"
+        ],
+        [
+          "wife",
+          "think",
+          "believ"
+        ]
+      ]
+    },
+    {
+      "text": "ECG today",
+      "evidence": [
+        "S33"
+      ],
+      "match": [
+        [
+          "ecg",
+          "electrocardiogram"
+        ]
+      ]
+    }
+  ],
+  "traps": [
+    {
+      "id": "T1",
+      "description": "Heart diagnosis the clinician never made",
+      "match": [
+        [
+          "angina",
+          "coronary",
+          "acs",
+          "cardiac ischaem",
+          "cardiac ischem"
+        ]
+      ],
+      "exempt": [
+        "no ",
+        "not ",
+        "n't",
+        "denies",
+        "denied",
+        "without",
+        "negative",
+        "never",
+        "absent"
+      ]
+    },
+    {
+      "id": "T2",
+      "description": "Heart attack recorded as the patient's own",
+      "match": [
+        [
+          "heart attack",
+          "myocardial infarction"
+        ]
+      ],
+      "exempt": [
+        "mother",
+        "mum",
+        "maternal",
+        "father",
+        "dad",
+        "paternal",
+        "sister",
+        "brother",
+        "sibling",
+        "son",
+        "daughter",
+        "cousin",
+        "family",
+        "relative",
+        "wife",
+        "no ",
+        "not ",
+        "n't",
+        "denies",
+        "denied",
+        "without",
+        "negative",
+        "never",
+        "absent"
+      ]
+    },
+    {
+      "id": "T3",
+      "description": "Indigestion stated as a finding (the wife's guess)",
+      "match": [
+        [
+          "indigestion",
+          "reflux",
+          "dyspepsia",
+          "gerd",
+          "gord"
+        ]
+      ],
+      "exempt": [
+        "mother",
+        "mum",
+        "maternal",
+        "father",
+        "dad",
+        "paternal",
+        "sister",
+        "brother",
+        "sibling",
+        "son",
+        "daughter",
+        "cousin",
+        "family",
+        "relative",
+        "wife",
+        "worr",
+        "concern",
+        "wonder",
+        "ask",
+        "query",
+        "?",
+        "fear",
+        "scared",
+        "anxi",
+        "thinks",
+        "think",
+        "believ",
+        "read",
+        "online",
+        "suggest"
+      ]
+    },
+    {
+      "id": "T4",
+      "description": "High cholesterol recorded as the patient's own",
+      "match": [
+        [
+          "cholesterol"
+        ]
+      ],
+      "exempt": [
+        "mother",
+        "mum",
+        "maternal",
+        "father",
+        "dad",
+        "paternal",
+        "sister",
+        "brother",
+        "sibling",
+        "son",
+        "daughter",
+        "cousin",
+        "family",
+        "relative",
+        "wife"
+      ]
+    }
+  ]
+}

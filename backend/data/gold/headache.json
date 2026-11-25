@@ -1,0 +1,508 @@
+{
+  "sample_id": "headache",
+  "items": [
+    {
+      "id": "G1",
+      "section": "symptom",
+      "polarity": "present",
+      "text": "Headaches for about two weeks",
+      "evidence": [
+        "S3"
+      ],
+      "match": [
+        [
+          "headache",
+          "head pain"
+        ]
+      ]
+    },
+    {
+      "id": "G2",
+      "section": "symptom",
+      "polarity": "present",
+      "text": "Mostly right-sided",
+      "evidence": [
+        "S4"
+      ],
+      "match": [
+        [
+          "right"
+        ]
+      ]
+    },
+    {
+      "id": "G3",
+      "section": "symptom",
+      "polarity": "present",
+      "text": "Throbbing pain",
+      "evidence": [
+        "S5"
+      ],
+      "match": [
+        [
+          "throb",
+          "pulsat"
+        ]
+      ]
+    },
+    {
+      "id": "G4",
+      "section": "symptom",
+      "polarity": "present",
+      "text": "Pain usually around six out of ten",
+      "evidence": [
+        "S7"
+      ],
+      "match": [
+        [
+          "six",
+          "6"
+        ]
+      ]
+    },
+    {
+      "id": "G5",
+      "section": "symptom",
+      "polarity": "uncertain",
+      "text": "Worst one maybe an eight out of ten",
+      "evidence": [
+        "S8"
+      ],
+      "match": [
+        [
+          "eight",
+          "8"
+        ]
+      ]
+    },
+    {
+      "id": "G6",
+      "section": "symptom",
+      "polarity": "present",
+      "text": "Bright lights bother when bad",
+      "evidence": [
+        "S10"
+      ],
+      "match": [
+        [
+          "light",
+          "photophob"
+        ]
+      ]
+    },
+    {
+      "id": "G7",
+      "section": "symptom",
+      "polarity": "uncertain",
+      "text": "Screens may make it worse",
+      "evidence": [
+        "S11"
+      ],
+      "match": [
+        [
+          "screen"
+        ]
+      ]
+    },
+    {
+      "id": "G8",
+      "section": "symptom",
+      "polarity": "present",
+      "text": "Feels a bit sick with bad headaches",
+      "evidence": [
+        "S13"
+      ],
+      "match": [
+        [
+          "nause",
+          "sick"
+        ]
+      ]
+    },
+    {
+      "id": "G9",
+      "section": "symptom",
+      "polarity": "absent",
+      "text": "Vomiting",
+      "evidence": [
+        "S14"
+      ],
+      "match": [
+        [
+          "vomit"
+        ]
+      ]
+    },
+    {
+      "id": "G10",
+      "section": "symptom",
+      "polarity": "absent",
+      "text": "Weakness",
+      "evidence": [
+        "S16"
+      ],
+      "match": [
+        [
+          "weak"
+        ]
+      ]
+    },
+    {
+      "id": "G11",
+      "section": "symptom",
+      "polarity": "absent",
+      "text": "Numbness",
+      "evidence": [
+        "S16"
+      ],
+      "match": [
+        [
+          "numb"
+        ]
+      ]
+    },
+    {
+      "id": "G12",
+      "section": "symptom",
+      "polarity": "present",
+      "text": "Zigzag lines before onset",
+      "evidence": [
+        "S17"
+      ],
+      "match": [
+        [
+          "zigzag",
+          "zig-zag",
+          "aura",
+          "visual"
+        ]
+      ]
+    },
+    {
+      "id": "G13",
+      "section": "history",
+      "polarity": "present",
+      "text": "Ibuprofen 400 mg at onset, helps a little",
+      "evidence": [
+        "S19",
+        "S20"
+      ],
+      "match": [
+        [
+          "ibuprofen"
+        ]
+      ]
+    },
+    {
+      "id": "G14",
+      "section": "history",
+      "polarity": "uncertain",
+      "text": "Taking it probably four days a week",
+      "evidence": [
+        "S22"
+      ],
+      "match": [
+        [
+          "four",
+          "4"
+        ]
+      ]
+    },
+    {
+      "id": "G15",
+      "section": "history",
+      "polarity": "absent",
+      "text": "Past medical problems",
+      "evidence": [
+        "S24"
+      ],
+      "match": [
+        [
+          "healthy",
+          "no past",
+          "no previous",
+          "no medical",
+          "no significant",
+          "nil",
+          "pmh"
+        ]
+      ]
+    },
+    {
+      "id": "G16",
+      "section": "history",
+      "polarity": "present",
+      "text": "Sister: migraines",
+      "evidence": [
+        "S26"
+      ],
+      "match": [
+        [
+          "sister",
+          "sibling"
+        ],
+        [
+          "migraine"
+        ]
+      ]
+    },
+    {
+      "id": "G17",
+      "section": "history",
+      "polarity": "present",
+      "text": "Father: stroke at seventy",
+      "evidence": [
+        "S27"
+      ],
+      "match": [
+        [
+          "father",
+          "dad"
+        ],
+        [
+          "stroke"
+        ]
+      ]
+    },
+    {
+      "id": "G18",
+      "section": "history",
+      "polarity": "present",
+      "text": "About three cups of coffee a day",
+      "evidence": [
+        "S29"
+      ],
+      "match": [
+        [
+          "coffee",
+          "caffeine",
+          "cups"
+        ]
+      ]
+    },
+    {
+      "id": "G19",
+      "section": "observation",
+      "polarity": "present",
+      "text": "Back of eyes normal",
+      "evidence": [
+        "S31"
+      ],
+      "match": [
+        [
+          "back of",
+          "fund",
+          "retina",
+          "optic"
+        ]
+      ]
+    },
+    {
+      "id": "G20",
+      "section": "observation",
+      "polarity": "present",
+      "text": "Eye movements normal",
+      "evidence": [
+        "S32"
+      ],
+      "match": [
+        [
+          "eye movement"
+        ]
+      ]
+    },
+    {
+      "id": "G21",
+      "section": "observation",
+      "polarity": "absent",
+      "text": "Weakness in arms or legs",
+      "evidence": [
+        "S32"
+      ],
+      "match": [
+        [
+          "weak",
+          "power"
+        ],
+        [
+          "arm",
+          "leg",
+          "limb"
+        ]
+      ]
+    },
+    {
+      "id": "G22",
+      "section": "observation",
+      "polarity": "absent",
+      "text": "Neck stiffness",
+      "evidence": [
+        "S33"
+      ],
+      "match": [
+        [
+          "stiff",
+          "neck"
+        ]
+      ]
+    }
+  ],
+  "other": [
+    {
+      "text": "Worried it could be serious",
+      "evidence": [
+        "S27"
+      ],
+      "match": [
+        [
+          "worr",
+          "concern",
+          "anxi",
+          "fear"
+        ]
+      ]
+    },
+    {
+      "text": "Asks whether it is a tumour",
+      "evidence": [
+        "S34"
+      ],
+      "match": [
+        [
+          "tumour",
+          "tumor"
+        ],
+        [
+          "worr",
+          "concern",
+          "wonder",
+          "ask",
+          "query",
+          "?",
+          "fear",
+          "scared",
+          "anxi",
+          "thinks",
+          "think",
+          "believ",
+          "read",
+          "online",
+          "suggest"
+        ]
+      ]
+    },
+    {
+      "text": "Nothing serious found today",
+      "evidence": [
+        "S35"
+      ],
+      "match": [
+        [
+          "serious"
+        ]
+      ]
+    },
+    {
+      "text": "Keep a headache diary",
+      "evidence": [
+        "S36"
+      ],
+      "match": [
+        [
+          "diary"
+        ]
+      ]
+    }
+  ],
+  "traps": [
+    {
+      "id": "T1",
+      "description": "Tumour stated as a finding",
+      "match": [
+        [
+          "tumour",
+          "tumor",
+          "mass"
+        ]
+      ],
+      "exempt": [
+        "no ",
+        "not ",
+        "n't",
+        "denies",
+        "denied",
+        "without",
+        "negative",
+        "never",
+        "absent",
+        "worr",
+        "concern",
+        "wonder",
+        "ask",
+        "query",
+        "?",
+        "fear",
+        "scared",
+        "anxi",
+        "thinks",
+        "think",
+        "believ",
+        "read",
+        "online",
+        "suggest"
+      ]
+    },
+    {
+      "id": "T2",
+      "description": "Migraine recorded as the patient's diagnosis (only the sister has migraines)",
+      "match": [
+        [
+          "migraine"
+        ]
+      ],
+      "exempt": [
+        "mother",
+        "mum",
+        "maternal",
+        "father",
+        "dad",
+        "paternal",
+        "sister",
+        "brother",
+        "sibling",
+        "son",
+        "daughter",
+        "cousin",
+        "family",
+        "relative",
+        "wife"
+      ]
+    },
+    {
+      "id": "T3",
+      "description": "Stroke recorded as the patient's condition",
+      "match": [
+        [
+          "stroke"
+        ]
+      ],
+      "exempt": [
+        "mother",
+        "mum",
+        "maternal",
+        "father",
+        "dad",
+        "paternal",
+        "sister",
+        "brother",
+        "sibling",
+        "son",
+        "daughter",
+        "cousin",
+        "family",
+        "relative",
+        "wife"
+      ]
+    }
+  ]
+}

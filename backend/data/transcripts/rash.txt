@@ -1,0 +1,25 @@
+Doctor: Hello. What seems to be the problem?
+Patient: I've got this itchy rash on both my forearms. It came up about five days ago.
+Doctor: Has it spread anywhere else?
+Patient: There's a small patch on my neck too. It's not on my face.
+Doctor: Is it painful?
+Patient: Not painful, just very itchy, especially at night.
+Doctor: Have you started any new soaps, creams or washing powder?
+Patient: We changed to a new washing powder last week. I'm not sure if that's related.
+Doctor: Any new medicines?
+Patient: No new medicines.
+Doctor: Any fever or feeling unwell?
+Patient: No fever. I feel fine otherwise.
+Doctor: Have you had skin problems before?
+Patient: I had eczema as a child. It cleared up when I was about ten.
+Doctor: Anyone at home with a similar rash?
+Patient: No one at home has it. My son has hay fever, but that's different.
+Doctor: Are you using anything on it?
+Patient: I've been putting on hydrocortisone cream 1 percent twice a day. It helps a bit.
+Doctor: Let me have a look.
+Doctor: There are red, slightly raised patches on both forearms with some scratch marks.
+Doctor: There are no blisters, and the skin isn't broken or weeping.
+Doctor: The patch on your neck looks similar.
+Patient: I read online it could be scabies.
+Doctor: I don't see burrows, and the pattern isn't typical of scabies.
+Doctor: Please stop the new washing powder for two weeks.

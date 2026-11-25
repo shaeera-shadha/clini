@@ -1,6 +1,6 @@
 {
   "sample_id": "cough",
-  "source": "hand-written fixture",
+  "source": "hand-made mock fixture (not model output)",
   "extract": {
     "items": [
       {
@@ -8,12 +8,25 @@
         "text": "Cough",
         "polarity": "present",
         "qualifiers": {
-          "duration": "maybe a week, possibly a bit longer",
+          "duration": null,
           "severity": null,
           "onset": null
         },
         "evidence": [
           "S3",
+          "S4"
+        ]
+      },
+      {
+        "section": "symptom",
+        "text": "Duration maybe a week, possibly longer",
+        "polarity": "uncertain",
+        "qualifiers": {
+          "duration": null,
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
           "S4"
         ]
       },
@@ -27,13 +40,12 @@
           "onset": null
         },
         "evidence": [
-          "S3",
           "S5"
         ]
       },
       {
         "section": "symptom",
-        "text": "Mostly dry cough with a little clear phlegm in the morning",
+        "text": "Mostly dry, a little clear phlegm in the morning",
         "polarity": "present",
         "qualifiers": {
           "duration": null,
@@ -73,7 +85,7 @@
       },
       {
         "section": "symptom",
-        "text": "Chills (felt shivery one evening)",
+        "text": "Felt shivery one evening, unsure",
         "polarity": "uncertain",
         "qualifiers": {
           "duration": null,
@@ -86,11 +98,11 @@
       },
       {
         "section": "symptom",
-        "text": "Breathlessness when climbing stairs",
+        "text": "A little breathless climbing stairs",
         "polarity": "present",
         "qualifiers": {
           "duration": null,
-          "severity": "a little",
+          "severity": null,
           "onset": null
         },
         "evidence": [
@@ -112,7 +124,7 @@
       },
       {
         "section": "history",
-        "text": "Ex-smoker: stopped five years ago after about ten years of smoking",
+        "text": "Ex-smoker: stopped five years ago, smoked about ten years",
         "polarity": "present",
         "qualifiers": {
           "duration": null,
@@ -139,7 +151,7 @@
       },
       {
         "section": "history",
-        "text": "Cetirizine 10 mg for hay fever in the spring",
+        "text": "Cetirizine 10 mg for hay fever in spring",
         "polarity": "present",
         "qualifiers": {
           "duration": null,
@@ -152,7 +164,20 @@
       },
       {
         "section": "history",
-        "text": "Drug allergies",
+        "text": "Hay fever",
+        "polarity": "present",
+        "qualifiers": {
+          "duration": null,
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S21"
+        ]
+      },
+      {
+        "section": "history",
+        "text": "Medicine allergies (not that I know of)",
         "polarity": "absent",
         "qualifiers": {
           "duration": null,
@@ -205,11 +230,11 @@
       },
       {
         "section": "observation",
-        "text": "Wheeze on both sides on expiration",
+        "text": "Mild wheeze on both sides on expiration",
         "polarity": "present",
         "qualifiers": {
           "duration": null,
-          "severity": "mild",
+          "severity": null,
           "onset": null
         },
         "evidence": [
@@ -257,6 +282,19 @@
       },
       {
         "section": "observation",
+        "text": "Signs of chest infection on listening",
+        "polarity": "absent",
+        "qualifiers": {
+          "duration": null,
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S34"
+        ]
+      },
+      {
+        "section": "observation",
         "text": "Throat slightly red",
         "polarity": "present",
         "qualifiers": {
@@ -286,87 +324,170 @@
   "verify": {
     "I1": {
       "verdict": "supported",
-      "reason": "S3 states a persistent cough and S4 gives a hedged duration of maybe a week."
+      "reason": "Stated in S3, S4."
     },
     "I2": {
       "verdict": "supported",
-      "reason": "S5 says it is worse at night, referring to the cough in S3."
+      "reason": "Stated in S4."
     },
     "I3": {
       "verdict": "supported",
-      "reason": "S7 and S8 state mostly dry with a little clear morning phlegm."
+      "reason": "Stated in S5."
     },
     "I4": {
+      "verdict": "supported",
+      "reason": "Stated in S7, S8."
+    },
+    "I5": {
       "verdict": "unsupported",
       "reason": "S8 mentions a little clear phlegm; green sputum and a 3-day duration are not stated."
     },
-    "I5": {
-      "verdict": "supported",
-      "reason": "S10 explicitly denies fever."
-    },
     "I6": {
       "verdict": "supported",
-      "reason": "S11 reports feeling shivery once, with the patient unsure, matching uncertain polarity."
+      "reason": "Stated in S10."
     },
     "I7": {
       "verdict": "supported",
-      "reason": "S13 states the patient gets a little breathless climbing stairs."
+      "reason": "Stated in S11."
     },
     "I8": {
       "verdict": "supported",
-      "reason": "S14 explicitly denies chest pain."
+      "reason": "Stated in S13."
     },
     "I9": {
       "verdict": "supported",
-      "reason": "S16 and S17 state the patient stopped five years ago after about ten years of smoking."
+      "reason": "Stated in S14."
     },
     "I10": {
       "verdict": "supported",
-      "reason": "S19 states pneumonia as a child."
+      "reason": "Stated in S16, S17."
     },
     "I11": {
       "verdict": "supported",
-      "reason": "S21 states cetirizine 10 mg for hay fever in the spring."
+      "reason": "Stated in S19."
     },
     "I12": {
       "verdict": "supported",
-      "reason": "S23 asks about medicine allergies and S24 answers not that I know of."
+      "reason": "Stated in S21."
     },
     "I13": {
       "verdict": "supported",
-      "reason": "S26 states the patient's mother has asthma."
+      "reason": "Stated in S21."
     },
     "I14": {
-      "verdict": "unsupported",
-      "reason": "S26 says the patient's mother has asthma; it does not say the patient has asthma."
+      "verdict": "supported",
+      "reason": "Stated in S23, S24."
     },
     "I15": {
       "verdict": "supported",
-      "reason": "S27 states the patient's brother had a chest infection last month."
+      "reason": "Stated in S26."
     },
     "I16": {
-      "verdict": "supported",
-      "reason": "S29 states a mild wheeze on both sides when breathing out."
+      "verdict": "unsupported",
+      "reason": "S26 says the patient's mother has asthma; it does not say the patient has asthma."
     },
     "I17": {
       "verdict": "supported",
-      "reason": "S30 states there are no crackles."
+      "reason": "Stated in S27."
     },
     "I18": {
       "verdict": "supported",
-      "reason": "S31 states a temperature of 37.1 degrees."
+      "reason": "Stated in S29."
     },
     "I19": {
       "verdict": "supported",
-      "reason": "S32 states an oxygen saturation of 97 percent."
+      "reason": "Stated in S30."
     },
     "I20": {
       "verdict": "supported",
-      "reason": "S35 states the throat looks slightly red."
+      "reason": "Stated in S31."
     },
     "I21": {
+      "verdict": "supported",
+      "reason": "Stated in S32."
+    },
+    "I22": {
+      "verdict": "supported",
+      "reason": "Stated in S34."
+    },
+    "I23": {
+      "verdict": "supported",
+      "reason": "Stated in S35."
+    },
+    "I24": {
       "verdict": "unsupported",
       "reason": "S33 is the patient's question, not a clinician finding."
+    },
+    "B1": {
+      "verdict": "supported",
+      "reason": "Matches the transcript."
+    },
+    "B2": {
+      "verdict": "supported",
+      "reason": "Matches the transcript."
+    },
+    "B3": {
+      "verdict": "supported",
+      "reason": "Matches the transcript."
+    },
+    "B4": {
+      "verdict": "supported",
+      "reason": "Matches the transcript."
+    },
+    "B5": {
+      "verdict": "supported",
+      "reason": "Matches the transcript."
+    },
+    "B6": {
+      "verdict": "supported",
+      "reason": "Matches the transcript."
+    },
+    "B7": {
+      "verdict": "unsupported",
+      "reason": "Mother's asthma recorded as the patient's own condition"
+    },
+    "B8": {
+      "verdict": "supported",
+      "reason": "Matches the transcript."
+    },
+    "B9": {
+      "verdict": "supported",
+      "reason": "Matches the transcript."
+    },
+    "B10": {
+      "verdict": "supported",
+      "reason": "Matches the transcript."
+    },
+    "B11": {
+      "verdict": "supported",
+      "reason": "Matches the transcript."
+    },
+    "B12": {
+      "verdict": "supported",
+      "reason": "Matches the transcript."
+    },
+    "B13": {
+      "verdict": "supported",
+      "reason": "Matches the transcript."
+    },
+    "B14": {
+      "verdict": "supported",
+      "reason": "Matches the transcript."
+    },
+    "B15": {
+      "verdict": "unsupported",
+      "reason": "A diagnosis the clinician never made"
+    },
+    "B16": {
+      "verdict": "supported",
+      "reason": "Matches the transcript."
+    },
+    "B17": {
+      "verdict": "unsupported",
+      "reason": "Not stated in the retrieved transcript sentences."
     }
+  },
+  "baseline": {
+    "note": "Presenting complaint:\nPersistent cough for one week, worse at night.\n\nHistory of presenting complaint:\nDry cough with occasional clear sputum in the mornings. No fever. Mild shortness of breath on exertion. No chest pain.\n\nPast medical history:\nChildhood pneumonia. History of asthma.\nEx-smoker (quit 5 years ago, 10 pack-years).\n\nMedications:\nCetirizine 10 mg daily.\n\nAllergies:\nNo known drug allergies.\n\nFamily history:\nBrother recently had a chest infection.\n\nExamination:\nTemperature 37.1 C, SpO2 97 percent. Mild bilateral expiratory wheeze, no crackles. Mild pharyngeal erythema.\n\nAssessment:\nLikely post-viral bronchitis with possible reactive airways component.\n\nPlan:\nReturn if breathlessness worsens. Consider a salbutamol inhaler."
   }
 }

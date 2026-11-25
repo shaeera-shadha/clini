@@ -68,3 +68,13 @@ def test_assemble_orders_sections_and_splits_flagged() -> None:
     assert [(f.item.id, f.reason, f.verifier_verdict) for f in flagged] == [
         ("I3", "reason 3", "unsupported")
     ]
+
+
+def test_duration_and_severity_read_from_wording_too() -> None:
+    items = [
+        note_item(1, "symptom", "Abdominal pain since yesterday evening"),
+        note_item(2, "symptom", "Pain usually around six out of ten"),
+    ]
+    missing = not_mentioned(items)
+    assert "Duration of symptoms" not in missing
+    assert "Severity" not in missing

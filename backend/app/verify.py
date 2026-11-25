@@ -21,6 +21,7 @@ from app.normalize import (
     durations_in,
     negated_mentions,
     numbers_in,
+    standalone_numbers_in,
 )
 from app.prompts import load_prompt
 from app.schemas import CandidateItem, CheckResult, NoteItem, Sentence, Verification, VerifierOutput
@@ -78,7 +79,7 @@ def _quote(values: list[str]) -> str:
 
 
 def check_numbers(item: CandidateItem, store: Store) -> CheckResult:
-    missing = numbers_in(_claim_text(item)) - numbers_in(_cited_text(item, store))
+    missing = standalone_numbers_in(_claim_text(item)) - numbers_in(_cited_text(item, store))
     if missing:
         values = _quote([f"{v:g}" for v in sorted(missing)])
         detail = f"Number {values} does not appear in {_ids(item)}."
@@ -124,30 +125,38 @@ def check_drugs(item: CandidateItem, store: Store) -> CheckResult:
 
 def check_polarity(item: CandidateItem, store: Store) -> CheckResult:
     cited = [store[e].text for e in item.evidence]
+    plural = len(item.evidence) > 1
     if item.polarity == "absent":
         ok = any(NEGATION_CUES.search(t) for t in cited)
+        verb = "contain" if plural else "contains"
         detail = (
             "Cited text contains a negation."
             if ok
-            else f"Marked as denied, but {_ids(item)} contain no negation."
+            else f"Marked as denied, but {_ids(item)} {verb} no negation."
         )
     elif item.polarity == "uncertain":
         ok = any(HEDGE_CUES.search(t) for t in cited)
+        verb = "contain" if plural else "contains"
         detail = (
             "Cited text contains hedging."
             if ok
-            else f"Marked as uncertain, but {_ids(item)} contain no hedging."
+            else f"Marked as uncertain, but {_ids(item)} {verb} no hedging."
         )
+    elif NEGATION_CUES.search(item.text):
+        # The finding is itself phrased negatively ("does not feel like eating"), so a negation
+        # in the cited text is expected, not a contradiction.
+        ok, detail = True, "The item's own wording carries the negation."
     else:
         stems = content_stems(item.text)
         counts = [negated_mentions(t, stems) for t in cited]
         mentions = sum(m for m, _ in counts)
         negated = sum(n for _, n in counts)
         ok = mentions == 0 or negated < mentions
+        verb = "negate" if plural else "negates"
         detail = (
             "Cited text does not negate the finding."
             if ok
-            else f"Marked as present, but {_ids(item)} negate it."
+            else f"Marked as present, but {_ids(item)} {verb} it."
         )
     return CheckResult(name="polarity", passed=ok, detail=detail)
 
@@ -164,9 +173,22 @@ DETERMINISTIC_CHECKS: tuple[Check, ...] = (
 )
 
 
-def run_checks(item: CandidateItem, store: Store) -> list[CheckResult]:
+# Baseline claims have no section, speaker or polarity, so only the content checks apply.
+CONTENT_CHECKS: tuple[Check, ...] = (
+    check_has_evidence,
+    check_ids_exist,
+    check_numbers,
+    check_durations,
+    check_doses,
+    check_drugs,
+)
+
+
+def run_checks(
+    item: CandidateItem, store: Store, checks: tuple[Check, ...] = DETERMINISTIC_CHECKS
+) -> list[CheckResult]:
     results: list[CheckResult] = []
-    for check in DETERMINISTIC_CHECKS:
+    for check in checks:
         result = check(item, store)
         results.append(result)
         # Later checks read the cited sentences, which is meaningless if IDs are missing.
@@ -175,34 +197,49 @@ def run_checks(item: CandidateItem, store: Store) -> list[CheckResult]:
     return results
 
 
-def verifier_message(item: CandidateItem, store: Store) -> str:
-    claim = {
+def item_claim(item: CandidateItem) -> dict[str, object]:
+    return {
         "section": item.section,
         "text": item.text,
         "polarity": item.polarity,
         "qualifiers": item.qualifiers.model_dump(exclude_none=True),
     }
-    cited = "\n".join(f"[{e}] {store[e].speaker.upper()}: {store[e].text}" for e in item.evidence)
-    return f"Note item:\n{json.dumps(claim, ensure_ascii=False)}\n\nCited sentences:\n{cited}"
+
+
+def verifier_message(claim: dict[str, object], cited: list[Sentence]) -> str:
+    lines = "\n".join(f"[{s.id}] {s.speaker.upper()}: {s.text}" for s in cited)
+    return f"Note item:\n{json.dumps(claim, ensure_ascii=False)}\n\nCited sentences:\n{lines}"
+
+
+async def verify_claim(
+    client: LLMClient,
+    model: str,
+    claim: dict[str, object],
+    item: CandidateItem,
+    store: Store,
+    transcript_hash: str,
+    checks: tuple[Check, ...] = DETERMINISTIC_CHECKS,
+) -> Verification:
+    """Deterministic checks, then (only if they pass) the LLM verifier on the cited sentences."""
+    results = run_checks(item, store, checks)
+    failed = [c for c in results if not c.passed]
+    if failed:
+        return Verification(checks=results, verdict="not_run", reason=failed[0].detail)
+    out = await client.complete_json(
+        task="verify",
+        model=model,
+        system=load_prompt("verify"),
+        user=verifier_message(claim, [store[e] for e in item.evidence]),
+        output=VerifierOutput,
+        fixture=FixtureKey(transcript_hash, item.id),
+    )
+    return Verification(checks=results, verdict=out.verdict, reason=out.reason)
 
 
 async def verify_item(
     client: LLMClient, model: str, item: CandidateItem, store: Store, transcript_hash: str
 ) -> NoteItem:
-    checks = run_checks(item, store)
-    failed = [c for c in checks if not c.passed]
-    if failed:
-        verification = Verification(checks=checks, verdict="not_run", reason=failed[0].detail)
-    else:
-        out = await client.complete_json(
-            task="verify",
-            model=model,
-            system=load_prompt("verify"),
-            user=verifier_message(item, store),
-            output=VerifierOutput,
-            fixture=FixtureKey(transcript_hash, item.id),
-        )
-        verification = Verification(checks=checks, verdict=out.verdict, reason=out.reason)
+    verification = await verify_claim(client, model, item_claim(item), item, store, transcript_hash)
     status = "verified" if verification.verdict == "supported" else "flagged"
     return NoteItem(**item.model_dump(), status=status, verification=verification)
 

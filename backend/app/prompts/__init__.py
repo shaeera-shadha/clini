@@ -6,9 +6,9 @@ from functools import cache
 from pathlib import Path
 from typing import Literal
 
-PromptName = Literal["extract", "verify"]
+PromptName = Literal["extract", "verify", "baseline"]
 
-PROMPT_VERSIONS: dict[PromptName, str] = {"extract": "v1", "verify": "v1"}
+PROMPT_VERSIONS: dict[PromptName, str] = {"extract": "v1", "verify": "v1", "baseline": "v1"}
 
 _DIR = Path(__file__).resolve().parent
 

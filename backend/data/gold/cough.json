@@ -1,0 +1,511 @@
+{
+  "sample_id": "cough",
+  "items": [
+    {
+      "id": "G1",
+      "section": "symptom",
+      "polarity": "present",
+      "text": "Cough",
+      "evidence": [
+        "S3",
+        "S4"
+      ],
+      "match": [
+        [
+          "cough"
+        ]
+      ]
+    },
+    {
+      "id": "G2",
+      "section": "symptom",
+      "polarity": "uncertain",
+      "text": "Duration maybe a week, possibly longer",
+      "evidence": [
+        "S4"
+      ],
+      "match": [
+        [
+          "week"
+        ]
+      ]
+    },
+    {
+      "id": "G3",
+      "section": "symptom",
+      "polarity": "present",
+      "text": "Cough worse at night",
+      "evidence": [
+        "S5"
+      ],
+      "match": [
+        [
+          "night",
+          "nocturnal"
+        ]
+      ]
+    },
+    {
+      "id": "G4",
+      "section": "symptom",
+      "polarity": "present",
+      "text": "Mostly dry, a little clear phlegm in the morning",
+      "evidence": [
+        "S7",
+        "S8"
+      ],
+      "match": [
+        [
+          "dry",
+          "phlegm",
+          "sputum"
+        ]
+      ]
+    },
+    {
+      "id": "G5",
+      "section": "symptom",
+      "polarity": "absent",
+      "text": "Fever",
+      "evidence": [
+        "S10"
+      ],
+      "match": [
+        [
+          "fever",
+          "pyrexi",
+          "febrile"
+        ]
+      ]
+    },
+    {
+      "id": "G6",
+      "section": "symptom",
+      "polarity": "uncertain",
+      "text": "Felt shivery one evening, unsure",
+      "evidence": [
+        "S11"
+      ],
+      "match": [
+        [
+          "shiver",
+          "chill",
+          "rigor"
+        ]
+      ]
+    },
+    {
+      "id": "G7",
+      "section": "symptom",
+      "polarity": "present",
+      "text": "A little breathless climbing stairs",
+      "evidence": [
+        "S13"
+      ],
+      "match": [
+        [
+          "breath",
+          "dyspn"
+        ]
+      ]
+    },
+    {
+      "id": "G8",
+      "section": "symptom",
+      "polarity": "absent",
+      "text": "Chest pain",
+      "evidence": [
+        "S14"
+      ],
+      "match": [
+        [
+          "chest pain"
+        ]
+      ]
+    },
+    {
+      "id": "G9",
+      "section": "history",
+      "polarity": "present",
+      "text": "Ex-smoker: stopped five years ago, smoked about ten years",
+      "evidence": [
+        "S16",
+        "S17"
+      ],
+      "match": [
+        [
+          "smok"
+        ]
+      ]
+    },
+    {
+      "id": "G10",
+      "section": "history",
+      "polarity": "present",
+      "text": "Pneumonia as a child",
+      "evidence": [
+        "S19"
+      ],
+      "match": [
+        [
+          "pneumonia"
+        ]
+      ]
+    },
+    {
+      "id": "G11",
+      "section": "history",
+      "polarity": "present",
+      "text": "Cetirizine 10 mg for hay fever in spring",
+      "evidence": [
+        "S21"
+      ],
+      "match": [
+        [
+          "cetirizine"
+        ]
+      ]
+    },
+    {
+      "id": "G12",
+      "section": "history",
+      "polarity": "present",
+      "text": "Hay fever",
+      "evidence": [
+        "S21"
+      ],
+      "match": [
+        [
+          "hay fever",
+          "allergic rhinitis"
+        ]
+      ]
+    },
+    {
+      "id": "G13",
+      "section": "history",
+      "polarity": "absent",
+      "text": "Medicine allergies (not that I know of)",
+      "evidence": [
+        "S23",
+        "S24"
+      ],
+      "match": [
+        [
+          "allerg"
+        ]
+      ],
+      "accept_polarity": [
+        "uncertain"
+      ]
+    },
+    {
+      "id": "G14",
+      "section": "history",
+      "polarity": "present",
+      "text": "Mother: asthma",
+      "evidence": [
+        "S26"
+      ],
+      "match": [
+        [
+          "asthma"
+        ],
+        [
+          "mother",
+          "mum",
+          "maternal",
+          "family"
+        ]
+      ]
+    },
+    {
+      "id": "G15",
+      "section": "history",
+      "polarity": "present",
+      "text": "Brother: chest infection last month",
+      "evidence": [
+        "S27"
+      ],
+      "match": [
+        [
+          "brother",
+          "sibling",
+          "family"
+        ],
+        [
+          "infection"
+        ]
+      ]
+    },
+    {
+      "id": "G16",
+      "section": "observation",
+      "polarity": "present",
+      "text": "Mild wheeze on both sides on expiration",
+      "evidence": [
+        "S29"
+      ],
+      "match": [
+        [
+          "wheez"
+        ]
+      ]
+    },
+    {
+      "id": "G17",
+      "section": "observation",
+      "polarity": "absent",
+      "text": "Crackles",
+      "evidence": [
+        "S30"
+      ],
+      "match": [
+        [
+          "crackle",
+          "crepitation"
+        ]
+      ]
+    },
+    {
+      "id": "G18",
+      "section": "observation",
+      "polarity": "present",
+      "text": "Temperature 37.1 degrees",
+      "evidence": [
+        "S31"
+      ],
+      "match": [
+        [
+          "37.1"
+        ]
+      ]
+    },
+    {
+      "id": "G19",
+      "section": "observation",
+      "polarity": "present",
+      "text": "Oxygen saturation 97 percent",
+      "evidence": [
+        "S32"
+      ],
+      "match": [
+        [
+          "97"
+        ]
+      ]
+    },
+    {
+      "id": "G20",
+      "section": "observation",
+      "polarity": "absent",
+      "text": "Signs of chest infection on listening",
+      "evidence": [
+        "S34"
+      ],
+      "match": [
+        [
+          "chest infection"
+        ],
+        [
+          "sign",
+          "hear",
+          "auscult",
+          "exam"
+        ]
+      ]
+    },
+    {
+      "id": "G21",
+      "section": "observation",
+      "polarity": "present",
+      "text": "Throat slightly red",
+      "evidence": [
+        "S35"
+      ],
+      "match": [
+        [
+          "throat",
+          "pharyn"
+        ]
+      ]
+    }
+  ],
+  "other": [
+    {
+      "text": "Nothing taken for the cough",
+      "evidence": [
+        "S22"
+      ],
+      "match": [
+        [
+          "taken anything",
+          "nothing for",
+          "no treatment",
+          "not taken",
+          "no medic",
+          "no over"
+        ]
+      ]
+    },
+    {
+      "text": "Patient asks whether it is a chest infection",
+      "evidence": [
+        "S33"
+      ],
+      "match": [
+        [
+          "infection"
+        ],
+        [
+          "worr",
+          "concern",
+          "wonder",
+          "ask",
+          "query",
+          "?",
+          "fear",
+          "scared",
+          "anxi",
+          "thinks",
+          "think",
+          "believ",
+          "read",
+          "online",
+          "suggest"
+        ]
+      ]
+    },
+    {
+      "text": "Advised to return if breathlessness worsens",
+      "evidence": [
+        "S36"
+      ],
+      "match": [
+        [
+          "come back",
+          "return",
+          "review",
+          "worse"
+        ]
+      ]
+    }
+  ],
+  "traps": [
+    {
+      "id": "T1",
+      "description": "Mother's asthma recorded as the patient's own condition",
+      "match": [
+        [
+          "asthma"
+        ]
+      ],
+      "exempt": [
+        "mother",
+        "mum",
+        "maternal",
+        "father",
+        "dad",
+        "paternal",
+        "sister",
+        "brother",
+        "sibling",
+        "son",
+        "daughter",
+        "cousin",
+        "family",
+        "relative",
+        "wife"
+      ]
+    },
+    {
+      "id": "T2",
+      "description": "Chest infection stated as a finding (clinician found no signs)",
+      "match": [
+        [
+          "chest infection"
+        ]
+      ],
+      "exempt": [
+        "mother",
+        "mum",
+        "maternal",
+        "father",
+        "dad",
+        "paternal",
+        "sister",
+        "brother",
+        "sibling",
+        "son",
+        "daughter",
+        "cousin",
+        "family",
+        "relative",
+        "wife",
+        "no ",
+        "not ",
+        "n't",
+        "denies",
+        "denied",
+        "without",
+        "negative",
+        "never",
+        "absent",
+        "worr",
+        "concern",
+        "wonder",
+        "ask",
+        "query",
+        "?",
+        "fear",
+        "scared",
+        "anxi",
+        "thinks",
+        "think",
+        "believ",
+        "read",
+        "online",
+        "suggest",
+        "might",
+        "possib",
+        "maybe",
+        "perhaps",
+        "probabl",
+        "unsure",
+        "not sure",
+        "uncertain",
+        "not measured",
+        "didn't check",
+        "did not check",
+        "not checked",
+        "unmeasured",
+        "subjective"
+      ]
+    },
+    {
+      "id": "T3",
+      "description": "A diagnosis the clinician never made",
+      "match": [
+        [
+          "bronchitis",
+          "viral",
+          "urti",
+          "copd",
+          "reactive airway"
+        ]
+      ],
+      "exempt": [
+        "no ",
+        "not ",
+        "n't",
+        "denies",
+        "denied",
+        "without",
+        "negative",
+        "never",
+        "absent",
+        "child"
+      ]
+    }
+  ]
+}

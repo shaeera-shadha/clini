@@ -9,7 +9,17 @@ from __future__ import annotations
 
 from collections.abc import Callable
 
-from app.lexicon import ALLERGY, MEDICATION, RELATIVES, SOCIAL, VITALS, mentions_drug
+from app.lexicon import (
+    ALLERGY,
+    MEDICATION,
+    ONSET,
+    RELATIVES,
+    SEVERITY,
+    SOCIAL,
+    VITALS,
+    mentions_drug,
+)
+from app.normalize import durations_in
 from app.schemas import FlaggedItem, NoteItem
 
 SECTION_ORDER = ("symptom", "history", "observation")
@@ -39,9 +49,22 @@ def _is_vital(item: NoteItem) -> bool:
     return item.section == "observation" and bool(VITALS.search(item.text))
 
 
+def _has_duration(item: NoteItem) -> bool:
+    q = item.qualifiers
+    return item.section == "symptom" and bool(
+        q.duration or q.onset or durations_in(item.text) or ONSET.search(item.text)
+    )
+
+
+def _has_severity(item: NoteItem) -> bool:
+    return item.section == "symptom" and bool(
+        item.qualifiers.severity or SEVERITY.search(item.text)
+    )
+
+
 CHECKLIST: tuple[tuple[str, Callable[[NoteItem], bool]], ...] = (
-    ("Duration of symptoms", lambda i: i.section == "symptom" and bool(i.qualifiers.duration)),
-    ("Severity", lambda i: bool(i.qualifiers.severity)),
+    ("Duration of symptoms", _has_duration),
+    ("Severity", _has_severity),
     ("Medications", _is_medication),
     ("Allergies", _is_allergy),
     ("Past medical conditions", _is_past_condition),

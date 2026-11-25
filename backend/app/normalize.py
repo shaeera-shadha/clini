@@ -21,8 +21,12 @@ _TENS = {
     "twenty": 20, "thirty": 30, "forty": 40, "fifty": 50, "sixty": 60, "seventy": 70,
     "eighty": 80, "ninety": 90,
 }  # fmt: skip
-_MULTIPLES = {"once": 1, "twice": 2, "thrice": 3, "dozen": 12, "hundred": 100}
-_VAGUE = {"a": 1.0, "an": 1.0, "a couple of": 2.0, "a couple": 2.0, "couple of": 2.0}
+# "once" is left out: "once a day" vs "every morning" is a paraphrase, not a different number.
+_MULTIPLES = {"twice": 2, "thrice": 3, "dozen": 12, "hundred": 100}
+_VAGUE = {
+    "a": 1.0, "an": 1.0, "a couple of": 2.0, "a couple": 2.0, "couple of": 2.0,
+    "the next": 1.0, "the last": 1.0, "the past": 1.0,
+}  # fmt: skip
 
 _NUMBER_WORD = (
     r"(?:(?:"
@@ -50,17 +54,17 @@ _DOSE_UNITS = {
 
 _QUANTITY_RE = re.compile(
     rf"(?<![\w.])(?P<num>{_DIGITS}|{_NUMBER_WORD}"
-    r"|a couple of|a couple|couple of|a few|few|several|an|a)"
+    r"|a couple of|a couple|couple of|a few|few|several|the next|the last|the past|an|a)"
     r"[\s-]*(?P<unit>[a-zµ]+)",
     re.IGNORECASE,
 )
 _NUMBER_RE = re.compile(
-    rf"(?<![\w.]){_DIGITS}|\b{_NUMBER_WORD}\b|\b(?:once|twice|thrice)\b", re.IGNORECASE
+    rf"(?<![\w.]){_DIGITS}|\b{_NUMBER_WORD}\b|\b(?:twice|thrice)\b", re.IGNORECASE
 )
 
 NEGATION_CUES = re.compile(
     r"\b(no|not|never|none|nothing|nobody|without|denies|denied|deny|negative|absent|free of|"
-    r"neither|nor)\b|n't\b",
+    r"neither|nor)\b|n't\b|\b\w+-free\b",
     re.IGNORECASE,
 )
 HEDGE_CUES = re.compile(
@@ -91,10 +95,14 @@ def word_to_number(token: str) -> float | None:
     return None
 
 
+# "six out of ten" / "6/10": the denominator is the scale the clinician asked about, not a finding.
+_SCALE_DENOMINATOR = re.compile(r"(?:\bout of|/)\s*(?:10|ten)\b", re.IGNORECASE)
+
+
 def numbers_in(text: str) -> set[float]:
-    """Every explicit number (digits or number words) in the text."""
+    """Every explicit number (digits or number words) in the text, ignoring scale denominators."""
     found: set[float] = set()
-    for match in _NUMBER_RE.finditer(text):
+    for match in _NUMBER_RE.finditer(_SCALE_DENOMINATOR.sub(" ", text)):
         value = word_to_number(match.group(0))
         if value is not None:
             found.add(value)
@@ -138,6 +146,17 @@ def _quantities(text: str, table: dict[str, str]) -> set[Quantity]:
                 continue
         found.add(Quantity(value, unit))
     return found
+
+
+def standalone_numbers_in(text: str) -> set[float]:
+    """Numbers that are not part of a duration or dose ("one week", "10 mg"): those are
+    compared as whole quantities by the duration and dose checks instead."""
+    tables = {**_DURATION_UNITS, **_DOSE_UNITS}
+
+    def strip(match: re.Match[str]) -> str:
+        return " " if _unit(match.group("unit"), tables) else match.group(0)
+
+    return numbers_in(_QUANTITY_RE.sub(strip, text))
 
 
 def durations_in(text: str) -> set[Quantity]:

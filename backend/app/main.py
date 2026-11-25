@@ -1,5 +1,6 @@
 """HTTP API. `POST /generate` streams stage events as SSE when the client accepts
-`text/event-stream`, otherwise it returns the final JSON result."""
+`text/event-stream`, otherwise it returns the final JSON result. `POST /baseline` returns the
+plain-summary comparison; `GET /eval` serves the latest saved evaluation report."""
 
 from __future__ import annotations
 
@@ -12,20 +13,32 @@ from fastapi import Depends, FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse, StreamingResponse
 
-from app.cache import ResultCache
-from app.clients import get_client, get_result_cache
-from app.config import Settings, get_settings
+from app.baseline import run_baseline
+from app.cache import BaselineCache, NoteCache
+from app.clients import get_baseline_cache, get_client, get_result_cache
+from app.config import DATA_DIR, Settings, get_settings
 from app.errors import PipelineError
+from app.evaluation import EvalReport
 from app.llm import LLMClient
 from app.pipeline import ResultEvent, StageEvent, generate, run_pipeline
 from app.samples import get_sample, list_samples
-from app.schemas import GenerateRequest, GenerateResult, HealthResponse, Sample, SampleSummary
+from app.schemas import (
+    BaselineResult,
+    GenerateRequest,
+    GenerateResult,
+    HealthResponse,
+    Sample,
+    SampleSummary,
+)
 
 log = logging.getLogger("clinnote")
 
 SettingsDep = Annotated[Settings, Depends(get_settings)]
 ClientDep = Annotated[LLMClient, Depends(get_client)]
-CacheDep = Annotated[ResultCache | None, Depends(get_result_cache)]
+CacheDep = Annotated[NoteCache | None, Depends(get_result_cache)]
+BaselineCacheDep = Annotated[BaselineCache | None, Depends(get_baseline_cache)]
+
+EVAL_REPORT = DATA_DIR / "eval" / "latest.json"
 
 app = FastAPI(title="ClinNote API", version="0.1.0")
 app.add_middleware(
@@ -73,7 +86,7 @@ def _sse(event: str, data: object) -> str:
 
 
 async def _stream(
-    transcript: str, client: LLMClient, settings: Settings, cache: ResultCache | None
+    transcript: str, client: LLMClient, settings: Settings, cache: NoteCache | None
 ) -> AsyncIterator[str]:
     try:
         async for event in run_pipeline(transcript, client, settings, cache):
@@ -107,3 +120,21 @@ async def generate_note(
             headers={"Cache-Control": "no-cache", "X-Accel-Buffering": "no"},
         )
     return await generate(transcript, client, settings, cache)
+
+
+@app.post("/baseline")
+async def baseline(
+    body: GenerateRequest, settings: SettingsDep, client: ClientDep, cache: BaselineCacheDep
+) -> BaselineResult:
+    return await run_baseline(_resolve_transcript(body), client, settings, cache)
+
+
+@app.get("/eval")
+def evaluation() -> EvalReport:
+    if not EVAL_REPORT.exists():
+        raise PipelineError(
+            "eval_missing",
+            "No evaluation has been run yet. From backend/, run: python -m eval.run_eval",
+            404,
+        )
+    return EvalReport.model_validate_json(EVAL_REPORT.read_text(encoding="utf-8"))

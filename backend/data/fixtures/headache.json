@@ -1,0 +1,503 @@
+{
+  "sample_id": "headache",
+  "source": "hand-made mock fixture (not model output)",
+  "extract": {
+    "items": [
+      {
+        "section": "symptom",
+        "text": "Headaches for about two weeks",
+        "polarity": "present",
+        "qualifiers": {
+          "duration": null,
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S3"
+        ]
+      },
+      {
+        "section": "symptom",
+        "text": "Headaches for two months",
+        "polarity": "present",
+        "qualifiers": {
+          "duration": "two months",
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S3"
+        ]
+      },
+      {
+        "section": "symptom",
+        "text": "Mostly right-sided",
+        "polarity": "present",
+        "qualifiers": {
+          "duration": null,
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S4"
+        ]
+      },
+      {
+        "section": "symptom",
+        "text": "Throbbing pain",
+        "polarity": "present",
+        "qualifiers": {
+          "duration": null,
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S5"
+        ]
+      },
+      {
+        "section": "symptom",
+        "text": "Pain usually around six out of ten",
+        "polarity": "present",
+        "qualifiers": {
+          "duration": null,
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S7"
+        ]
+      },
+      {
+        "section": "symptom",
+        "text": "Worst one maybe an eight out of ten",
+        "polarity": "uncertain",
+        "qualifiers": {
+          "duration": null,
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S8"
+        ]
+      },
+      {
+        "section": "symptom",
+        "text": "Bright lights bother when bad",
+        "polarity": "present",
+        "qualifiers": {
+          "duration": null,
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S10"
+        ]
+      },
+      {
+        "section": "symptom",
+        "text": "Screens may make it worse",
+        "polarity": "uncertain",
+        "qualifiers": {
+          "duration": null,
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S11"
+        ]
+      },
+      {
+        "section": "symptom",
+        "text": "Feels a bit sick with bad headaches",
+        "polarity": "present",
+        "qualifiers": {
+          "duration": null,
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S13"
+        ]
+      },
+      {
+        "section": "symptom",
+        "text": "Vomiting",
+        "polarity": "absent",
+        "qualifiers": {
+          "duration": null,
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S14"
+        ]
+      },
+      {
+        "section": "symptom",
+        "text": "Vomiting with headaches",
+        "polarity": "present",
+        "qualifiers": {
+          "duration": null,
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S14"
+        ]
+      },
+      {
+        "section": "symptom",
+        "text": "Weakness",
+        "polarity": "absent",
+        "qualifiers": {
+          "duration": null,
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S16"
+        ]
+      },
+      {
+        "section": "symptom",
+        "text": "Numbness",
+        "polarity": "absent",
+        "qualifiers": {
+          "duration": null,
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S16"
+        ]
+      },
+      {
+        "section": "symptom",
+        "text": "Zigzag lines before onset",
+        "polarity": "present",
+        "qualifiers": {
+          "duration": null,
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S17"
+        ]
+      },
+      {
+        "section": "history",
+        "text": "Ibuprofen 400 mg at onset, helps a little",
+        "polarity": "present",
+        "qualifiers": {
+          "duration": null,
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S19",
+          "S20"
+        ]
+      },
+      {
+        "section": "history",
+        "text": "Taking it probably four days a week",
+        "polarity": "uncertain",
+        "qualifiers": {
+          "duration": null,
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S22"
+        ]
+      },
+      {
+        "section": "history",
+        "text": "Past medical problems",
+        "polarity": "absent",
+        "qualifiers": {
+          "duration": null,
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S24"
+        ]
+      },
+      {
+        "section": "history",
+        "text": "Sister: migraines",
+        "polarity": "present",
+        "qualifiers": {
+          "duration": null,
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S26"
+        ]
+      },
+      {
+        "section": "history",
+        "text": "Migraine",
+        "polarity": "present",
+        "qualifiers": {
+          "duration": null,
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S26"
+        ]
+      },
+      {
+        "section": "history",
+        "text": "Father: stroke at seventy",
+        "polarity": "present",
+        "qualifiers": {
+          "duration": null,
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S27"
+        ]
+      },
+      {
+        "section": "history",
+        "text": "About three cups of coffee a day",
+        "polarity": "present",
+        "qualifiers": {
+          "duration": null,
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S29"
+        ]
+      },
+      {
+        "section": "observation",
+        "text": "Back of eyes normal",
+        "polarity": "present",
+        "qualifiers": {
+          "duration": null,
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S31"
+        ]
+      },
+      {
+        "section": "observation",
+        "text": "Eye movements normal",
+        "polarity": "present",
+        "qualifiers": {
+          "duration": null,
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S32"
+        ]
+      },
+      {
+        "section": "observation",
+        "text": "Weakness in arms or legs",
+        "polarity": "absent",
+        "qualifiers": {
+          "duration": null,
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S32"
+        ]
+      },
+      {
+        "section": "observation",
+        "text": "Neck stiffness",
+        "polarity": "absent",
+        "qualifiers": {
+          "duration": null,
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S33"
+        ]
+      }
+    ]
+  },
+  "verify": {
+    "I1": {
+      "verdict": "supported",
+      "reason": "Stated in S3."
+    },
+    "I2": {
+      "verdict": "unsupported",
+      "reason": "S3 says about two weeks, not two months."
+    },
+    "I3": {
+      "verdict": "supported",
+      "reason": "Stated in S4."
+    },
+    "I4": {
+      "verdict": "supported",
+      "reason": "Stated in S5."
+    },
+    "I5": {
+      "verdict": "supported",
+      "reason": "Stated in S7."
+    },
+    "I6": {
+      "verdict": "supported",
+      "reason": "Stated in S8."
+    },
+    "I7": {
+      "verdict": "supported",
+      "reason": "Stated in S10."
+    },
+    "I8": {
+      "verdict": "supported",
+      "reason": "Stated in S11."
+    },
+    "I9": {
+      "verdict": "supported",
+      "reason": "Stated in S13."
+    },
+    "I10": {
+      "verdict": "supported",
+      "reason": "Stated in S14."
+    },
+    "I11": {
+      "verdict": "unsupported",
+      "reason": "S14 says the patient has not vomited."
+    },
+    "I12": {
+      "verdict": "supported",
+      "reason": "Stated in S16."
+    },
+    "I13": {
+      "verdict": "supported",
+      "reason": "Stated in S16."
+    },
+    "I14": {
+      "verdict": "supported",
+      "reason": "Stated in S17."
+    },
+    "I15": {
+      "verdict": "supported",
+      "reason": "Stated in S19, S20."
+    },
+    "I16": {
+      "verdict": "supported",
+      "reason": "Stated in S22."
+    },
+    "I17": {
+      "verdict": "supported",
+      "reason": "Stated in S24."
+    },
+    "I18": {
+      "verdict": "supported",
+      "reason": "Stated in S26."
+    },
+    "I19": {
+      "verdict": "unsupported",
+      "reason": "S26 says the patient's sister gets migraines, not the patient."
+    },
+    "I20": {
+      "verdict": "supported",
+      "reason": "Stated in S27."
+    },
+    "I21": {
+      "verdict": "supported",
+      "reason": "Stated in S29."
+    },
+    "I22": {
+      "verdict": "supported",
+      "reason": "Stated in S31."
+    },
+    "I23": {
+      "verdict": "supported",
+      "reason": "Stated in S32."
+    },
+    "I24": {
+      "verdict": "supported",
+      "reason": "Stated in S32."
+    },
+    "I25": {
+      "verdict": "supported",
+      "reason": "Stated in S33."
+    },
+    "B1": {
+      "verdict": "supported",
+      "reason": "Matches the transcript."
+    },
+    "B2": {
+      "verdict": "supported",
+      "reason": "Matches the transcript."
+    },
+    "B3": {
+      "verdict": "supported",
+      "reason": "Matches the transcript."
+    },
+    "B4": {
+      "verdict": "supported",
+      "reason": "Matches the transcript."
+    },
+    "B5": {
+      "verdict": "supported",
+      "reason": "Matches the transcript."
+    },
+    "B6": {
+      "verdict": "supported",
+      "reason": "Matches the transcript."
+    },
+    "B7": {
+      "verdict": "supported",
+      "reason": "Matches the transcript."
+    },
+    "B8": {
+      "verdict": "supported",
+      "reason": "Matches the transcript."
+    },
+    "B9": {
+      "verdict": "supported",
+      "reason": "Matches the transcript."
+    },
+    "B10": {
+      "verdict": "unsupported",
+      "reason": "Not stated in the retrieved transcript sentences."
+    },
+    "B11": {
+      "verdict": "unsupported",
+      "reason": "Not stated in the retrieved transcript sentences."
+    },
+    "B12": {
+      "verdict": "supported",
+      "reason": "Matches the transcript."
+    },
+    "B13": {
+      "verdict": "unsupported",
+      "reason": "Not stated in the retrieved transcript sentences."
+    },
+    "B14": {
+      "verdict": "unsupported",
+      "reason": "Migraine recorded as the patient's diagnosis (only the sister has migraines)"
+    },
+    "B15": {
+      "verdict": "supported",
+      "reason": "Matches the transcript."
+    },
+    "B16": {
+      "verdict": "supported",
+      "reason": "Matches the transcript."
+    }
+  },
+  "baseline": {
+    "note": "Presenting complaint:\nRight-sided throbbing headaches for 2 weeks.\n\nHistory:\nPain 6 to 8 out of 10, associated with photophobia, nausea and visual aura (zigzag lines). No vomiting, weakness or numbness. Screen use worsens symptoms. Taking ibuprofen 400 mg four times a week with partial relief. Caffeine intake 3 cups a day.\n\nPast medical history: Nil.\nFamily history: Sister with migraines. Father had a stroke at 70.\n\nExamination:\nFundoscopy normal. Cranial nerves intact. No focal neurological deficit. No neck stiffness. Blood pressure normal.\n\nImpression:\nMigraine with aura, possible medication overuse headache.\n\nPlan:\nHeadache diary for one month. Reassured regarding tumour concerns."
+  }
+}

@@ -1,0 +1,428 @@
+{
+  "sample_id": "abdominal",
+  "items": [
+    {
+      "id": "G1",
+      "section": "symptom",
+      "polarity": "present",
+      "text": "Abdominal pain since yesterday evening",
+      "evidence": [
+        "S3"
+      ],
+      "match": [
+        [
+          "abdom",
+          "tummy",
+          "belly",
+          "stomach"
+        ]
+      ]
+    },
+    {
+      "id": "G2",
+      "section": "symptom",
+      "polarity": "present",
+      "text": "Started around the belly button",
+      "evidence": [
+        "S4"
+      ],
+      "match": [
+        [
+          "umbilic",
+          "belly button",
+          "navel"
+        ]
+      ]
+    },
+    {
+      "id": "G3",
+      "section": "symptom",
+      "polarity": "present",
+      "text": "Now lower right side",
+      "evidence": [
+        "S5"
+      ],
+      "match": [
+        [
+          "right"
+        ]
+      ]
+    },
+    {
+      "id": "G4",
+      "section": "symptom",
+      "polarity": "present",
+      "text": "Constant ache, worse walking or coughing",
+      "evidence": [
+        "S7"
+      ],
+      "match": [
+        [
+          "constant",
+          "walk",
+          "cough",
+          "movement"
+        ]
+      ]
+    },
+    {
+      "id": "G5",
+      "section": "symptom",
+      "polarity": "present",
+      "text": "Seven out of ten",
+      "evidence": [
+        "S8"
+      ],
+      "match": [
+        [
+          "seven",
+          "7"
+        ]
+      ]
+    },
+    {
+      "id": "G6",
+      "section": "symptom",
+      "polarity": "present",
+      "text": "Vomited once this morning",
+      "evidence": [
+        "S10"
+      ],
+      "match": [
+        [
+          "vomit"
+        ]
+      ]
+    },
+    {
+      "id": "G7",
+      "section": "symptom",
+      "polarity": "present",
+      "text": "Does not feel like eating",
+      "evidence": [
+        "S11"
+      ],
+      "match": [
+        [
+          "appetite",
+          "eating",
+          "anorexi"
+        ]
+      ]
+    },
+    {
+      "id": "G8",
+      "section": "symptom",
+      "polarity": "absent",
+      "text": "Diarrhoea",
+      "evidence": [
+        "S13"
+      ],
+      "match": [
+        [
+          "diarrh"
+        ]
+      ]
+    },
+    {
+      "id": "G9",
+      "section": "symptom",
+      "polarity": "uncertain",
+      "text": "Bowels not opened since yesterday, I think",
+      "evidence": [
+        "S14"
+      ],
+      "match": [
+        [
+          "bowel",
+          "constipat",
+          "stool"
+        ]
+      ]
+    },
+    {
+      "id": "G10",
+      "section": "symptom",
+      "polarity": "absent",
+      "text": "Burning on passing urine",
+      "evidence": [
+        "S16"
+      ],
+      "match": [
+        [
+          "urin",
+          "dysuria",
+          "burning"
+        ]
+      ]
+    },
+    {
+      "id": "G11",
+      "section": "symptom",
+      "polarity": "uncertain",
+      "text": "Might have had a temperature last night, not checked",
+      "evidence": [
+        "S18"
+      ],
+      "match": [
+        [
+          "temperature",
+          "fever",
+          "febrile"
+        ]
+      ]
+    },
+    {
+      "id": "G12",
+      "section": "history",
+      "polarity": "present",
+      "text": "Tonsils removed at age eight",
+      "evidence": [
+        "S20"
+      ],
+      "match": [
+        [
+          "tonsil"
+        ]
+      ]
+    },
+    {
+      "id": "G13",
+      "section": "history",
+      "polarity": "absent",
+      "text": "Regular medicines",
+      "evidence": [
+        "S23"
+      ],
+      "match": [
+        [
+          "regular"
+        ]
+      ]
+    },
+    {
+      "id": "G14",
+      "section": "history",
+      "polarity": "present",
+      "text": "Took two paracetamol this morning",
+      "evidence": [
+        "S24"
+      ],
+      "match": [
+        [
+          "paracetamol",
+          "acetaminophen"
+        ]
+      ]
+    },
+    {
+      "id": "G15",
+      "section": "history",
+      "polarity": "absent",
+      "text": "Pregnancy (negative test last week)",
+      "evidence": [
+        "S26"
+      ],
+      "match": [
+        [
+          "pregnan"
+        ]
+      ]
+    },
+    {
+      "id": "G16",
+      "section": "history",
+      "polarity": "present",
+      "text": "Cousin: appendix removed last year",
+      "evidence": [
+        "S31"
+      ],
+      "match": [
+        [
+          "cousin"
+        ],
+        [
+          "append"
+        ]
+      ]
+    },
+    {
+      "id": "G17",
+      "section": "observation",
+      "polarity": "present",
+      "text": "Tender in the lower right abdomen",
+      "evidence": [
+        "S28"
+      ],
+      "match": [
+        [
+          "tender"
+        ]
+      ]
+    },
+    {
+      "id": "G18",
+      "section": "observation",
+      "polarity": "present",
+      "text": "Some guarding",
+      "evidence": [
+        "S29"
+      ],
+      "match": [
+        [
+          "guard"
+        ]
+      ]
+    },
+    {
+      "id": "G19",
+      "section": "observation",
+      "polarity": "present",
+      "text": "Rest of abdomen soft",
+      "evidence": [
+        "S30"
+      ],
+      "match": [
+        [
+          "soft"
+        ]
+      ]
+    }
+  ],
+  "other": [
+    {
+      "text": "No other past problems",
+      "evidence": [
+        "S21"
+      ],
+      "match": [
+        [
+          "nothing else",
+          "no other"
+        ]
+      ]
+    },
+    {
+      "text": "Referral to the surgical team today",
+      "evidence": [
+        "S32"
+      ],
+      "match": [
+        [
+          "surg",
+          "refer"
+        ]
+      ]
+    }
+  ],
+  "traps": [
+    {
+      "id": "T1",
+      "description": "Appendicitis diagnosis the clinician never made",
+      "match": [
+        [
+          "appendicitis"
+        ]
+      ],
+      "exempt": [
+        "no ",
+        "not ",
+        "n't",
+        "denies",
+        "denied",
+        "without",
+        "negative",
+        "never",
+        "absent"
+      ]
+    },
+    {
+      "id": "T2",
+      "description": "Cousin's appendicectomy recorded as the patient's",
+      "match": [
+        [
+          "appendix out",
+          "appendicectomy",
+          "appendectomy",
+          "appendix removed"
+        ]
+      ],
+      "exempt": [
+        "mother",
+        "mum",
+        "maternal",
+        "father",
+        "dad",
+        "paternal",
+        "sister",
+        "brother",
+        "sibling",
+        "son",
+        "daughter",
+        "cousin",
+        "family",
+        "relative",
+        "wife"
+      ]
+    },
+    {
+      "id": "T3",
+      "description": "Fever stated as definite (it was not measured)",
+      "match": [
+        [
+          "fever",
+          "pyrexi",
+          "febrile",
+          "temperature"
+        ]
+      ],
+      "exempt": [
+        "no ",
+        "not ",
+        "n't",
+        "denies",
+        "denied",
+        "without",
+        "negative",
+        "never",
+        "absent",
+        "might",
+        "possib",
+        "maybe",
+        "perhaps",
+        "probabl",
+        "unsure",
+        "not sure",
+        "uncertain",
+        "not measured",
+        "didn't check",
+        "did not check",
+        "not checked",
+        "unmeasured",
+        "subjective"
+      ]
+    },
+    {
+      "id": "T4",
+      "description": "Rebound tenderness or peritonism, never stated",
+      "match": [
+        [
+          "rebound",
+          "periton",
+          "rigid"
+        ]
+      ],
+      "exempt": [
+        "no ",
+        "not ",
+        "n't",
+        "denies",
+        "denied",
+        "without",
+        "negative",
+        "never",
+        "absent"
+      ]
+    }
+  ]
+}

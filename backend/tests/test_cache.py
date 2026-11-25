@@ -7,7 +7,7 @@ from app.config import Settings
 from app.llm import FixtureKey, MockLLM
 from app.pipeline import ResultEvent, StageEvent, generate, run_pipeline
 from app.samples import get_sample
-from app.schemas import VerifierOutput
+from app.schemas import GenerateResult, VerifierOutput
 from tests.conftest import ScriptedLLM
 
 GOOD = {"verdict": "supported", "reason": "ok"}
@@ -46,7 +46,7 @@ async def test_result_cache_replays_stages_without_model_calls(
     tmp_path: Path, settings: Settings
 ) -> None:
     transcript = get_sample("cough").transcript
-    cache = ResultCache(tmp_path)
+    cache = ResultCache(tmp_path, GenerateResult)
     first = await generate(transcript, MockLLM(), settings, cache)
     assert first.note.meta.cached is False
 
@@ -66,3 +66,20 @@ async def test_result_cache_key_depends_on_models(tmp_path: Path) -> None:
     b = ResultCache.key("h", {"extractor": "x", "verifier": "z"}, {"extract": "p"})
     c = ResultCache.key("h", {"extractor": "x", "verifier": "y"}, {"extract": "p2"})
     assert len({a, b, c}) == 3
+
+
+async def test_recording_llm_keeps_responses_in_fixture_layout() -> None:
+    from app.llm import RecordingLLM
+    from app.schemas import BaselineOutput
+
+    inner = ScriptedLLM(responses={"verify": [GOOD], "baseline": [{"note": "N"}]})
+    recorder = RecordingLLM(inner)
+    await recorder.complete_json(
+        task="verify", model="m", system="s", user="u", output=VerifierOutput,
+        fixture=FixtureKey("h", "I3"),
+    )  # fmt: skip
+    await recorder.complete_json(
+        task="baseline", model="m", system="s", user="u", output=BaselineOutput,
+        fixture=FixtureKey("h"),
+    )  # fmt: skip
+    assert recorder.recorded == {"h": {"verify": {"I3": GOOD}, "baseline": {"note": "N"}}}

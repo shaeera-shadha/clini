@@ -67,11 +67,11 @@ def store() -> dict[str, Sentence]:
 
 @pytest.fixture(autouse=True)
 def _clear_caches() -> Iterator[None]:
-    from app.clients import get_client, get_result_cache
+    from app.clients import get_baseline_cache, get_client, get_result_cache
     from app.config import get_settings
 
-    for fn in (get_settings, get_client, get_result_cache):
+    for fn in (get_settings, get_client, get_result_cache, get_baseline_cache):
         fn.cache_clear()
     yield
-    for fn in (get_settings, get_client, get_result_cache):
+    for fn in (get_settings, get_client, get_result_cache, get_baseline_cache):
         fn.cache_clear()

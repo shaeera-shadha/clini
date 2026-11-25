@@ -13,6 +13,7 @@ ErrorCode = Literal[
     "bad_llm_output",
     "llm_unavailable",
     "mock_fixture_missing",
+    "eval_missing",
 ]
 
 

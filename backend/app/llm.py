@@ -26,7 +26,7 @@ from app.errors import PipelineError
 from app.preprocess import transcript_hash
 from app.samples import get_sample, list_samples
 
-Task = Literal["extract", "verify"]
+Task = Literal["extract", "verify", "baseline"]
 T = TypeVar("T", bound=BaseModel)
 
 FIXTURES_DIR = DATA_DIR / "fixtures"
@@ -101,6 +101,36 @@ class MockLLM(LLMClient):
             ) from exc
 
 
+class RecordingLLM(LLMClient):
+    """Passes calls through and keeps each response in fixture layout, so a live run can be
+    saved as mock fixtures (`eval/run_eval.py --record-fixtures`)."""
+
+    def __init__(self, inner: LLMClient) -> None:
+        self.inner = inner
+        self.recorded: dict[str, dict[str, Any]] = {}
+
+    async def complete_json(
+        self,
+        *,
+        task: Task,
+        model: str,
+        system: str,
+        user: str,
+        output: type[T],
+        fixture: FixtureKey,
+    ) -> T:
+        result = await self.inner.complete_json(
+            task=task, model=model, system=system, user=user, output=output, fixture=fixture
+        )
+        bucket = self.recorded.setdefault(fixture.transcript_hash, {})
+        payload = result.model_dump(mode="json")
+        if fixture.item_id is None:
+            bucket[task] = payload
+        else:
+            bucket.setdefault(task, {})[fixture.item_id] = payload
+        return result
+
+
 # ---- Groq ---------------------------------------------------------------------------------
 
 # Models Groq documents as supporting strict (constrained) JSON-schema decoding.
@@ -110,7 +140,7 @@ _STRICT_SCHEMA_PREFIXES = (
     "qwen/qwen3.8",
     "meta-models/",
 )
-_MAX_TOKENS: dict[Task, int] = {"extract": 8192, "verify": 1024}
+_MAX_TOKENS: dict[Task, int] = {"extract": 8192, "verify": 1024, "baseline": 4096}
 _BACKOFF_BASE_S = 2.0
 _BACKOFF_CAP_S = 60.0
 JSON_RETRIES = 2

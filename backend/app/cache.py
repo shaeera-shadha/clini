@@ -2,7 +2,8 @@
 
 - `CachingLLM` caches each model call by a hash of (task, model, prompts, output schema), so a
   run interrupted by a rate limit resumes without repeating finished calls.
-- `ResultCache` caches whole pipeline results by transcript hash + models + prompt versions.
+- `ResultCache` caches whole results (notes, baseline summaries) by transcript hash + models +
+  prompt text.
 """
 
 from __future__ import annotations
@@ -12,14 +13,15 @@ import json
 import os
 import tempfile
 from pathlib import Path
-from typing import Any, TypeVar
+from typing import Any, Generic, TypeVar
 
 from pydantic import BaseModel, ValidationError
 
 from app.llm import FixtureKey, LLMClient, Task
-from app.schemas import GenerateResult
+from app.schemas import BaselineResult, GenerateResult
 
 T = TypeVar("T", bound=BaseModel)
+R = TypeVar("R", bound=BaseModel)
 
 
 def _digest(parts: list[Any]) -> str:
@@ -77,22 +79,27 @@ class CachingLLM(LLMClient):
         return result
 
 
-class ResultCache:
-    def __init__(self, directory: Path) -> None:
+class ResultCache(Generic[R]):
+    def __init__(self, directory: Path, model: type[R]) -> None:
         self.store = JsonStore(directory)
+        self.model = model
 
     @staticmethod
     def key(transcript_hash: str, models: dict[str, str], prompts: dict[str, str]) -> str:
         return _digest([transcript_hash, models, prompts])
 
-    def get(self, key: str) -> GenerateResult | None:
+    def get(self, key: str) -> R | None:
         cached = self.store.get(key)
         if cached is None:
             return None
         try:
-            return GenerateResult.model_validate(cached)
+            return self.model.model_validate(cached)
         except ValidationError:
             return None
 
-    def put(self, key: str, result: GenerateResult) -> None:
+    def put(self, key: str, result: R) -> None:
         self.store.put(key, result.model_dump(mode="json"))
+
+
+NoteCache = ResultCache[GenerateResult]
+BaselineCache = ResultCache[BaselineResult]

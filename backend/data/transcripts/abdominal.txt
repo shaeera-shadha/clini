@@ -1,0 +1,23 @@
+Doctor: Hi there. Tell me what's been happening.
+Patient: I've had pain in my tummy since yesterday evening. It started around my belly button. Now it's more on the lower right side.
+Doctor: What's the pain like?
+Patient: It's a constant ache, and it's worse when I walk or cough. I'd say it's a seven out of ten.
+Doctor: Have you been sick?
+Patient: I vomited once this morning. I don't feel like eating anything.
+Doctor: Any diarrhoea or constipation?
+Patient: No diarrhoea. I haven't opened my bowels since yesterday, I think.
+Doctor: Any burning when you pass urine?
+Patient: No, that's normal.
+Doctor: Have you felt hot or shivery?
+Patient: I might have had a temperature last night, but I didn't check it.
+Doctor: Any past operations or medical problems?
+Patient: I had my tonsils out when I was eight. Nothing else.
+Doctor: Do you take any regular medicines?
+Patient: No regular medicines. I took two paracetamol this morning.
+Doctor: Any chance you could be pregnant?
+Patient: No, I had a negative test last week.
+Doctor: I'll examine your tummy now.
+Doctor: You're tender in the lower right side of your abdomen. There's some guarding when I press there.
+Doctor: The rest of your abdomen is soft.
+Patient: My cousin had her appendix out last year.
+Doctor: I'm going to refer you to the surgical team today.

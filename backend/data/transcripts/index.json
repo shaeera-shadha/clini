@@ -3,5 +3,30 @@
     "id": "cough",
     "title": "Persistent cough",
     "description": "Cough of uncertain duration, denies fever, mother has asthma, wheeze on examination."
+  },
+  {
+    "id": "headache",
+    "title": "Recurrent headache",
+    "description": "Two weeks of one-sided headaches with visual aura. No vital signs recorded."
+  },
+  {
+    "id": "chest",
+    "title": "Chest discomfort on exertion",
+    "description": "Exertional chest tightness, father's heart attack, raised blood pressure on examination."
+  },
+  {
+    "id": "abdominal",
+    "title": "Right lower abdominal pain",
+    "description": "Pain moving to the right lower abdomen, possible fever, cousin's appendicectomy. No vital signs recorded."
+  },
+  {
+    "id": "diabetes",
+    "title": "Diabetes follow-up",
+    "description": "Routine review with thirst, missed metformin doses and reduced foot sensation."
+  },
+  {
+    "id": "rash",
+    "title": "Itchy forearm rash",
+    "description": "Five-day itchy rash after a washing powder change; patient suspects scabies. No vital signs recorded."
   }
 ]

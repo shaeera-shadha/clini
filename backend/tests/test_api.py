@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+from pathlib import Path
 
 import pytest
 from fastapi.testclient import TestClient
@@ -104,3 +105,44 @@ def test_settings_reject_same_model_for_both_roles() -> None:
 def test_settings_require_key_in_live_mode() -> None:
     with pytest.raises(ValidationError, match="GROQ_API_KEY"):
         Settings(llm_mode="live", groq_api_key=None, _env_file=None)
+
+
+def test_baseline_endpoint_returns_scored_claims() -> None:
+    res = client.post("/baseline", json={"sample_id": "rash"})
+    assert res.status_code == 200
+    body = res.json()
+    assert body["claims"] and body["segments"] and body["sentences"]
+    flagged = [c for c in body["claims"] if c["status"] == "flagged"]
+    assert any("dermatitis" in c["text"].lower() for c in flagged)
+
+
+def test_eval_endpoint_serves_saved_report_or_explains(
+    monkeypatch: pytest.MonkeyPatch, tmp_path: Path
+) -> None:
+    import app.main as main
+
+    monkeypatch.setattr(main, "EVAL_REPORT", tmp_path / "missing.json")
+    missing = client.get("/eval")
+    assert missing.status_code == 404
+    assert "python -m eval.run_eval" in missing.json()["message"]
+
+    report = tmp_path / "latest.json"
+    report.write_text(
+        json.dumps(
+            {
+                "run_at": "2026-11-25T00:00:00+00:00",
+                "mode": "mock",
+                "fixture_source": "Hand-made mock fixtures, not model output",
+                "models": {},
+                "prompt_versions": {},
+                "definitions": {},
+                "labels": {},
+                "systems": {},
+                "verifier_audit": {},
+                "samples": [],
+            }
+        ),
+        encoding="utf-8",
+    )
+    monkeypatch.setattr(main, "EVAL_REPORT", report)
+    assert client.get("/eval").json()["mode"] == "mock"
