@@ -54,7 +54,7 @@ function MetricsTable({ report }: { report: EvalReport }) {
               <span className="block max-w-xl text-caption text-muted">{report.definitions[m.key]}</span>
             </th>
             {SYSTEMS.map((s) => (
-              <td key={s} className={cx(CELL, s === 'clinnote' && 'pr-6 font-semibold')}>
+              <td key={s} className={cx(CELL, s === 'clinnote' && 'pr-6')}>
                 {fmt(report.systems[s].rates[m.key], m.percent)}
               </td>
             ))}
@@ -146,7 +146,7 @@ export function EvaluationPage() {
       aria-label="Evaluation results"
       className="flex min-h-0 flex-1 flex-col gap-6 overflow-y-auto p-6 [&>*]:shrink-0"
     >
-      {report.fixture_source && (
+      {report.fixture_source?.includes('hand-made') && (
         <div role="note" className="rounded-control border border-border border-l-4 border-l-primary bg-primary-tint px-4 py-3">
           <p className="text-body font-semibold">Not a measurement</p>
           <p className="text-body">
@@ -159,7 +159,9 @@ export function EvaluationPage() {
       <Card
         title="Scored against gold annotations"
         labelId="metrics-title"
-        meta={`${report.samples.length} consultations · run ${formatDate(report.run_at)} · ${report.mode} mode`}
+        meta={`${report.samples.length} consultations · run ${formatDate(report.run_at)} · ${
+          report.fixture_source ? `replayed: ${report.fixture_source}` : `${report.mode} mode`
+        }`}
         bodyClassName="pb-2"
       >
         <MetricsTable report={report} />

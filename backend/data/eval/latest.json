@@ -1,7 +1,7 @@
 {
-  "run_at": "2026-11-25T05:38:42+00:00",
-  "mode": "mock",
-  "fixture_source": "Hand-made mock fixtures, not model output",
+  "run_at": "2026-11-25T06:39:21+00:00",
+  "mode": "live",
+  "fixture_source": null,
   "models": {
     "extractor": "openai/gpt-oss-120b",
     "verifier": "qwen/qwen3.8-27b",
@@ -27,79 +27,79 @@
   "systems": {
     "baseline": {
       "counts": {
-        "units": 95,
-        "supported": 67,
-        "unsupported": 28,
-        "trap_hits": 12,
+        "units": 79,
+        "supported": 61,
+        "unsupported": 18,
+        "trap_hits": 7,
         "gold_total": 118,
-        "gold_covered": 97,
-        "section_scored": 59,
-        "section_correct": 54,
-        "polarity_scored": 34,
-        "polarity_preserved": 25,
-        "verifier_flagged": 31,
+        "gold_covered": 109,
+        "section_scored": 39,
+        "section_correct": 20,
+        "polarity_scored": 39,
+        "polarity_preserved": 30,
+        "verifier_flagged": 57,
         "samples": 6
       },
       "rates": {
-        "supported_item_rate": 0.705,
-        "unsupported_per_note": 4.67,
-        "section_accuracy": 0.915,
-        "negation_preserved": 0.735,
-        "gold_coverage": 0.822
+        "supported_item_rate": 0.772,
+        "unsupported_per_note": 3.0,
+        "section_accuracy": 0.513,
+        "negation_preserved": 0.769,
+        "gold_coverage": 0.924
       }
     },
     "extractor": {
       "counts": {
-        "units": 136,
-        "supported": 118,
-        "unsupported": 18,
-        "trap_hits": 11,
+        "units": 117,
+        "supported": 117,
+        "unsupported": 0,
+        "trap_hits": 0,
         "gold_total": 118,
-        "gold_covered": 118,
-        "section_scored": 118,
-        "section_correct": 118,
-        "polarity_scored": 42,
-        "polarity_preserved": 42,
-        "verifier_flagged": 18,
+        "gold_covered": 113,
+        "section_scored": 115,
+        "section_correct": 111,
+        "polarity_scored": 40,
+        "polarity_preserved": 35,
+        "verifier_flagged": 14,
         "samples": 6
       },
       "rates": {
-        "supported_item_rate": 0.868,
-        "unsupported_per_note": 3.0,
-        "section_accuracy": 1.0,
-        "negation_preserved": 1.0,
-        "gold_coverage": 1.0
+        "supported_item_rate": 1.0,
+        "unsupported_per_note": 0.0,
+        "section_accuracy": 0.965,
+        "negation_preserved": 0.875,
+        "gold_coverage": 0.958
       }
     },
     "clinnote": {
       "counts": {
-        "units": 118,
-        "supported": 118,
+        "units": 103,
+        "supported": 103,
         "unsupported": 0,
         "trap_hits": 0,
         "gold_total": 118,
-        "gold_covered": 118,
-        "section_scored": 118,
-        "section_correct": 118,
-        "polarity_scored": 42,
-        "polarity_preserved": 42,
+        "gold_covered": 102,
+        "section_scored": 101,
+        "section_correct": 98,
+        "polarity_scored": 35,
+        "polarity_preserved": 32,
         "verifier_flagged": 0,
         "samples": 6
       },
       "rates": {
         "supported_item_rate": 1.0,
         "unsupported_per_note": 0.0,
-        "section_accuracy": 1.0,
-        "negation_preserved": 1.0,
-        "gold_coverage": 1.0
+        "section_accuracy": 0.97,
+        "negation_preserved": 0.914,
+        "gold_coverage": 0.864
       }
     }
   },
   "verifier_audit": {
-    "unsupported_caught": 18,
+    "unsupported_caught": 0,
     "unsupported_missed": 0,
-    "supported_flagged": 0,
-    "supported_kept": 118
+    "supported_flagged": 14,
+    "supported_kept": 103
   },
   "samples": [
     {
@@ -108,60 +108,60 @@
       "systems": {
         "baseline": {
           "counts": {
-            "units": 17,
-            "supported": 14,
-            "unsupported": 3,
-            "trap_hits": 2,
-            "gold_total": 21,
-            "gold_covered": 17,
-            "section_scored": 13,
-            "section_correct": 13,
-            "polarity_scored": 5,
-            "polarity_preserved": 4,
-            "verifier_flagged": 3,
-            "samples": 1
-          },
-          "rates": {
-            "supported_item_rate": 0.824,
-            "unsupported_per_note": 3.0,
-            "section_accuracy": 1.0,
-            "negation_preserved": 0.8,
-            "gold_coverage": 0.81
-          }
-        },
-        "extractor": {
-          "counts": {
-            "units": 24,
-            "supported": 21,
-            "unsupported": 3,
-            "trap_hits": 1,
-            "gold_total": 21,
-            "gold_covered": 21,
-            "section_scored": 21,
-            "section_correct": 21,
-            "polarity_scored": 7,
-            "polarity_preserved": 7,
-            "verifier_flagged": 3,
-            "samples": 1
-          },
-          "rates": {
-            "supported_item_rate": 0.875,
-            "unsupported_per_note": 3.0,
-            "section_accuracy": 1.0,
-            "negation_preserved": 1.0,
-            "gold_coverage": 1.0
-          }
-        },
-        "clinnote": {
-          "counts": {
-            "units": 21,
-            "supported": 21,
+            "units": 13,
+            "supported": 13,
             "unsupported": 0,
             "trap_hits": 0,
             "gold_total": 21,
             "gold_covered": 21,
-            "section_scored": 21,
-            "section_correct": 21,
+            "section_scored": 13,
+            "section_correct": 5,
+            "polarity_scored": 7,
+            "polarity_preserved": 5,
+            "verifier_flagged": 10,
+            "samples": 1
+          },
+          "rates": {
+            "supported_item_rate": 1.0,
+            "unsupported_per_note": 0.0,
+            "section_accuracy": 0.385,
+            "negation_preserved": 0.714,
+            "gold_coverage": 1.0
+          }
+        },
+        "extractor": {
+          "counts": {
+            "units": 20,
+            "supported": 20,
+            "unsupported": 0,
+            "trap_hits": 0,
+            "gold_total": 21,
+            "gold_covered": 20,
+            "section_scored": 20,
+            "section_correct": 20,
+            "polarity_scored": 7,
+            "polarity_preserved": 7,
+            "verifier_flagged": 1,
+            "samples": 1
+          },
+          "rates": {
+            "supported_item_rate": 1.0,
+            "unsupported_per_note": 0.0,
+            "section_accuracy": 1.0,
+            "negation_preserved": 1.0,
+            "gold_coverage": 0.952
+          }
+        },
+        "clinnote": {
+          "counts": {
+            "units": 19,
+            "supported": 19,
+            "unsupported": 0,
+            "trap_hits": 0,
+            "gold_total": 21,
+            "gold_covered": 20,
+            "section_scored": 19,
+            "section_correct": 19,
             "polarity_scored": 7,
             "polarity_preserved": 7,
             "verifier_flagged": 0,
@@ -172,42 +172,11 @@
             "unsupported_per_note": 0.0,
             "section_accuracy": 1.0,
             "negation_preserved": 1.0,
-            "gold_coverage": 1.0
+            "gold_coverage": 0.952
           }
         }
       },
-      "unsupported": [
-        {
-          "system": "baseline",
-          "text": "History of asthma.",
-          "reason": "Mother's asthma recorded as the patient's own condition"
-        },
-        {
-          "system": "baseline",
-          "text": "Likely post-viral bronchitis with possible reactive airways component.",
-          "reason": "A diagnosis the clinician never made"
-        },
-        {
-          "system": "baseline",
-          "text": "Consider a salbutamol inhaler.",
-          "reason": "Matches no fact in the gold annotation."
-        },
-        {
-          "system": "extractor",
-          "text": "Productive cough with green sputum for 3 days 3 days",
-          "reason": "Duration 3 days is not in the transcript."
-        },
-        {
-          "system": "extractor",
-          "text": "Asthma",
-          "reason": "Mother's asthma recorded as the patient's own condition"
-        },
-        {
-          "system": "extractor",
-          "text": "Possibly Chest infection",
-          "reason": "Matches no fact in the gold annotation."
-        }
-      ]
+      "unsupported": []
     },
     {
       "sample_id": "headache",
@@ -216,46 +185,46 @@
         "baseline": {
           "counts": {
             "units": 16,
-            "supported": 12,
-            "unsupported": 4,
-            "trap_hits": 1,
+            "supported": 10,
+            "unsupported": 6,
+            "trap_hits": 2,
             "gold_total": 22,
             "gold_covered": 19,
-            "section_scored": 10,
-            "section_correct": 7,
+            "section_scored": 9,
+            "section_correct": 5,
             "polarity_scored": 7,
             "polarity_preserved": 4,
-            "verifier_flagged": 4,
+            "verifier_flagged": 12,
             "samples": 1
           },
           "rates": {
-            "supported_item_rate": 0.75,
-            "unsupported_per_note": 4.0,
-            "section_accuracy": 0.7,
+            "supported_item_rate": 0.625,
+            "unsupported_per_note": 6.0,
+            "section_accuracy": 0.556,
             "negation_preserved": 0.571,
             "gold_coverage": 0.864
           }
         },
         "extractor": {
           "counts": {
-            "units": 25,
-            "supported": 22,
-            "unsupported": 3,
-            "trap_hits": 1,
+            "units": 24,
+            "supported": 24,
+            "unsupported": 0,
+            "trap_hits": 0,
             "gold_total": 22,
             "gold_covered": 22,
             "section_scored": 22,
             "section_correct": 22,
             "polarity_scored": 9,
-            "polarity_preserved": 9,
-            "verifier_flagged": 3,
+            "polarity_preserved": 7,
+            "verifier_flagged": 2,
             "samples": 1
           },
           "rates": {
-            "supported_item_rate": 0.88,
-            "unsupported_per_note": 3.0,
+            "supported_item_rate": 1.0,
+            "unsupported_per_note": 0.0,
             "section_accuracy": 1.0,
-            "negation_preserved": 1.0,
+            "negation_preserved": 0.778,
             "gold_coverage": 1.0
           }
         },
@@ -266,11 +235,11 @@
             "unsupported": 0,
             "trap_hits": 0,
             "gold_total": 22,
-            "gold_covered": 22,
-            "section_scored": 22,
-            "section_correct": 22,
-            "polarity_scored": 9,
-            "polarity_preserved": 9,
+            "gold_covered": 20,
+            "section_scored": 20,
+            "section_correct": 20,
+            "polarity_scored": 8,
+            "polarity_preserved": 7,
             "verifier_flagged": 0,
             "samples": 1
           },
@@ -278,46 +247,41 @@
             "supported_item_rate": 1.0,
             "unsupported_per_note": 0.0,
             "section_accuracy": 1.0,
-            "negation_preserved": 1.0,
-            "gold_coverage": 1.0
+            "negation_preserved": 0.875,
+            "gold_coverage": 0.909
           }
         }
       },
       "unsupported": [
         {
           "system": "baseline",
-          "text": "Cranial nerves intact.",
+          "text": "28-year-old patient presents with a 2-week history of right-sided throbbing headaches, pain rating 6/10 (worst 8/10).",
+          "reason": "Duration 28 years is not in the transcript."
+        },
+        {
+          "system": "baseline",
+          "text": "Past medical history unremarkable.",
           "reason": "Matches no fact in the gold annotation."
         },
         {
           "system": "baseline",
-          "text": "No focal neurological deficit.",
-          "reason": "Matches no fact in the gold annotation."
-        },
-        {
-          "system": "baseline",
-          "text": "Blood pressure normal.",
-          "reason": "Matches no fact in the gold annotation."
-        },
-        {
-          "system": "baseline",
-          "text": "Migraine with aura, possible medication overuse headache.",
+          "text": "Probable migraine headache, uncomplicated.",
           "reason": "Migraine recorded as the patient's diagnosis (only the sister has migraines)"
         },
         {
-          "system": "extractor",
-          "text": "Headaches for two months two months",
-          "reason": "Duration 2 months is not in the transcript."
-        },
-        {
-          "system": "extractor",
-          "text": "Vomiting with headaches",
-          "reason": "Matches no fact in the gold annotation."
-        },
-        {
-          "system": "extractor",
-          "text": "Migraine",
+          "system": "baseline",
+          "text": "1) Advise migraine diary for one month (frequency, triggers, medication use).",
           "reason": "Migraine recorded as the patient's diagnosis (only the sister has migraines)"
+        },
+        {
+          "system": "baseline",
+          "text": "2) Continue ibuprofen as needed; consider adding a triptan for moderate-to-severe attacks.",
+          "reason": "Number 2 is not in the transcript."
+        },
+        {
+          "system": "baseline",
+          "text": "4) Follow-up in 4-6 weeks or sooner if symptoms change (new neurological signs, worsening pattern).",
+          "reason": "Duration 6 weeks is not in the transcript."
         }
       ]
     },
@@ -327,63 +291,40 @@
       "systems": {
         "baseline": {
           "counts": {
-            "units": 17,
-            "supported": 12,
-            "unsupported": 5,
-            "trap_hits": 2,
+            "units": 13,
+            "supported": 11,
+            "unsupported": 2,
+            "trap_hits": 1,
             "gold_total": 20,
             "gold_covered": 20,
-            "section_scored": 11,
-            "section_correct": 11,
+            "section_scored": 9,
+            "section_correct": 6,
             "polarity_scored": 6,
             "polarity_preserved": 4,
-            "verifier_flagged": 6,
+            "verifier_flagged": 10,
             "samples": 1
           },
           "rates": {
-            "supported_item_rate": 0.706,
-            "unsupported_per_note": 5.0,
-            "section_accuracy": 1.0,
+            "supported_item_rate": 0.846,
+            "unsupported_per_note": 2.0,
+            "section_accuracy": 0.667,
             "negation_preserved": 0.667,
             "gold_coverage": 1.0
           }
         },
         "extractor": {
           "counts": {
-            "units": 23,
-            "supported": 20,
-            "unsupported": 3,
-            "trap_hits": 2,
-            "gold_total": 20,
-            "gold_covered": 20,
-            "section_scored": 20,
-            "section_correct": 20,
-            "polarity_scored": 6,
-            "polarity_preserved": 6,
-            "verifier_flagged": 3,
-            "samples": 1
-          },
-          "rates": {
-            "supported_item_rate": 0.87,
-            "unsupported_per_note": 3.0,
-            "section_accuracy": 1.0,
-            "negation_preserved": 1.0,
-            "gold_coverage": 1.0
-          }
-        },
-        "clinnote": {
-          "counts": {
-            "units": 20,
-            "supported": 20,
+            "units": 21,
+            "supported": 21,
             "unsupported": 0,
             "trap_hits": 0,
             "gold_total": 20,
             "gold_covered": 20,
-            "section_scored": 20,
-            "section_correct": 20,
+            "section_scored": 21,
+            "section_correct": 21,
             "polarity_scored": 6,
             "polarity_preserved": 6,
-            "verifier_flagged": 0,
+            "verifier_flagged": 5,
             "samples": 1
           },
           "rates": {
@@ -393,48 +334,41 @@
             "negation_preserved": 1.0,
             "gold_coverage": 1.0
           }
+        },
+        "clinnote": {
+          "counts": {
+            "units": 16,
+            "supported": 16,
+            "unsupported": 0,
+            "trap_hits": 0,
+            "gold_total": 20,
+            "gold_covered": 16,
+            "section_scored": 16,
+            "section_correct": 16,
+            "polarity_scored": 5,
+            "polarity_preserved": 5,
+            "verifier_flagged": 0,
+            "samples": 1
+          },
+          "rates": {
+            "supported_item_rate": 1.0,
+            "unsupported_per_note": 0.0,
+            "section_accuracy": 1.0,
+            "negation_preserved": 1.0,
+            "gold_coverage": 0.8
+          }
         }
       },
       "unsupported": [
         {
           "system": "baseline",
-          "text": "58-year-old with 3 days of exertional central chest tightness radiating to the left arm and jaw, relieved by rest within minutes.",
-          "reason": "Duration 58 years is not in the transcript."
+          "text": "No alcohol or drug use mentioned.",
+          "reason": "Matches no fact in the gold annotation."
         },
         {
           "system": "baseline",
-          "text": "Suspected stable angina.",
+          "text": "Likely exertional angina versus non‑cardiac chest pain; risk factors include hypertension, smoking, family history of premature CAD.",
           "reason": "Heart diagnosis the clinician never made"
-        },
-        {
-          "system": "baseline",
-          "text": "Differential includes GORD.",
-          "reason": "Indigestion stated as a finding (the wife's guess)"
-        },
-        {
-          "system": "baseline",
-          "text": "Start aspirin 75 mg and a GTN spray.",
-          "reason": "Matches no fact in the gold annotation."
-        },
-        {
-          "system": "baseline",
-          "text": "Refer to the rapid access chest pain clinic.",
-          "reason": "Matches no fact in the gold annotation."
-        },
-        {
-          "system": "extractor",
-          "text": "Amlodipine 10 mg every morning",
-          "reason": "Dose 10 mg is not in the transcript."
-        },
-        {
-          "system": "extractor",
-          "text": "Heart attack at age fifty-two",
-          "reason": "Heart attack recorded as the patient's own"
-        },
-        {
-          "system": "extractor",
-          "text": "Possible indigestion",
-          "reason": "Indigestion stated as a finding (the wife's guess)"
         }
       ]
     },
@@ -444,51 +378,28 @@
       "systems": {
         "baseline": {
           "counts": {
-            "units": 12,
-            "supported": 5,
-            "unsupported": 7,
-            "trap_hits": 3,
-            "gold_total": 19,
-            "gold_covered": 12,
-            "section_scored": 4,
-            "section_correct": 4,
-            "polarity_scored": 5,
-            "polarity_preserved": 4,
-            "verifier_flagged": 7,
-            "samples": 1
-          },
-          "rates": {
-            "supported_item_rate": 0.417,
-            "unsupported_per_note": 7.0,
-            "section_accuracy": 1.0,
-            "negation_preserved": 0.8,
-            "gold_coverage": 0.632
-          }
-        },
-        "extractor": {
-          "counts": {
-            "units": 22,
-            "supported": 19,
-            "unsupported": 3,
-            "trap_hits": 3,
+            "units": 10,
+            "supported": 8,
+            "unsupported": 2,
+            "trap_hits": 1,
             "gold_total": 19,
             "gold_covered": 19,
-            "section_scored": 19,
-            "section_correct": 19,
+            "section_scored": 0,
+            "section_correct": 0,
             "polarity_scored": 6,
             "polarity_preserved": 6,
-            "verifier_flagged": 3,
+            "verifier_flagged": 5,
             "samples": 1
           },
           "rates": {
-            "supported_item_rate": 0.864,
-            "unsupported_per_note": 3.0,
-            "section_accuracy": 1.0,
+            "supported_item_rate": 0.8,
+            "unsupported_per_note": 2.0,
+            "section_accuracy": null,
             "negation_preserved": 1.0,
             "gold_coverage": 1.0
           }
         },
-        "clinnote": {
+        "extractor": {
           "counts": {
             "units": 19,
             "supported": 19,
@@ -497,71 +408,54 @@
             "gold_total": 19,
             "gold_covered": 19,
             "section_scored": 19,
-            "section_correct": 19,
+            "section_correct": 17,
             "polarity_scored": 6,
-            "polarity_preserved": 6,
+            "polarity_preserved": 5,
+            "verifier_flagged": 2,
+            "samples": 1
+          },
+          "rates": {
+            "supported_item_rate": 1.0,
+            "unsupported_per_note": 0.0,
+            "section_accuracy": 0.895,
+            "negation_preserved": 0.833,
+            "gold_coverage": 1.0
+          }
+        },
+        "clinnote": {
+          "counts": {
+            "units": 17,
+            "supported": 17,
+            "unsupported": 0,
+            "trap_hits": 0,
+            "gold_total": 19,
+            "gold_covered": 17,
+            "section_scored": 17,
+            "section_correct": 15,
+            "polarity_scored": 5,
+            "polarity_preserved": 4,
             "verifier_flagged": 0,
             "samples": 1
           },
           "rates": {
             "supported_item_rate": 1.0,
             "unsupported_per_note": 0.0,
-            "section_accuracy": 1.0,
-            "negation_preserved": 1.0,
-            "gold_coverage": 1.0
+            "section_accuracy": 0.882,
+            "negation_preserved": 0.8,
+            "gold_coverage": 0.895
           }
         }
       },
       "unsupported": [
         {
           "system": "baseline",
-          "text": "One-day history of periumbilical pain migrating to the right iliac fossa, constant, 7 out of 10, worse on movement.",
-          "reason": "Duration 1 day is not in the transcript."
-        },
-        {
-          "system": "baseline",
-          "text": "Associated nausea, one episode of vomiting and anorexia.",
+          "text": "Associated symptoms: one episode of vomiting this morning, anorexia, possible low-grade fever, no diarrhea, constipation since yesterday, no dysuria, no urinary symptoms.",
           "reason": "Number 1 is not in the transcript."
         },
         {
           "system": "baseline",
-          "text": "Fever last night.",
-          "reason": "Fever stated as definite (it was not measured)"
-        },
-        {
-          "system": "baseline",
-          "text": "Took paracetamol 1 g this morning.",
-          "reason": "Dose 1 g is not in the transcript."
-        },
-        {
-          "system": "baseline",
-          "text": "Tender in the right iliac fossa with guarding and rebound tenderness.",
-          "reason": "Rebound tenderness or peritonism, never stated"
-        },
-        {
-          "system": "baseline",
-          "text": "Rovsing's sign positive.",
-          "reason": "Matches no fact in the gold annotation."
-        },
-        {
-          "system": "baseline",
-          "text": "Acute appendicitis.",
+          "text": "Impression: likely acute appendicitis.",
           "reason": "Appendicitis diagnosis the clinician never made"
-        },
-        {
-          "system": "extractor",
-          "text": "Fever last night",
-          "reason": "Fever stated as definite (it was not measured)"
-        },
-        {
-          "system": "extractor",
-          "text": "Appendix removed last year",
-          "reason": "Cousin's appendicectomy recorded as the patient's"
-        },
-        {
-          "system": "extractor",
-          "text": "Rebound tenderness",
-          "reason": "Rebound tenderness or peritonism, never stated"
         }
       ]
     },
@@ -572,118 +466,113 @@
         "baseline": {
           "counts": {
             "units": 18,
-            "supported": 12,
-            "unsupported": 6,
-            "trap_hits": 2,
+            "supported": 10,
+            "unsupported": 8,
+            "trap_hits": 3,
             "gold_total": 17,
             "gold_covered": 14,
-            "section_scored": 10,
-            "section_correct": 9,
-            "polarity_scored": 4,
-            "polarity_preserved": 3,
-            "verifier_flagged": 7,
+            "section_scored": 8,
+            "section_correct": 4,
+            "polarity_scored": 5,
+            "polarity_preserved": 4,
+            "verifier_flagged": 13,
             "samples": 1
           },
           "rates": {
-            "supported_item_rate": 0.667,
-            "unsupported_per_note": 6.0,
-            "section_accuracy": 0.9,
-            "negation_preserved": 0.75,
+            "supported_item_rate": 0.556,
+            "unsupported_per_note": 8.0,
+            "section_accuracy": 0.5,
+            "negation_preserved": 0.8,
             "gold_coverage": 0.824
           }
         },
         "extractor": {
           "counts": {
-            "units": 20,
-            "supported": 17,
-            "unsupported": 3,
-            "trap_hits": 2,
+            "units": 18,
+            "supported": 18,
+            "unsupported": 0,
+            "trap_hits": 0,
             "gold_total": 17,
-            "gold_covered": 17,
-            "section_scored": 17,
-            "section_correct": 17,
+            "gold_covered": 16,
+            "section_scored": 18,
+            "section_correct": 16,
             "polarity_scored": 5,
-            "polarity_preserved": 5,
+            "polarity_preserved": 4,
             "verifier_flagged": 3,
             "samples": 1
           },
           "rates": {
-            "supported_item_rate": 0.85,
-            "unsupported_per_note": 3.0,
-            "section_accuracy": 1.0,
-            "negation_preserved": 1.0,
-            "gold_coverage": 1.0
+            "supported_item_rate": 1.0,
+            "unsupported_per_note": 0.0,
+            "section_accuracy": 0.889,
+            "negation_preserved": 0.8,
+            "gold_coverage": 0.941
           }
         },
         "clinnote": {
           "counts": {
-            "units": 17,
-            "supported": 17,
+            "units": 15,
+            "supported": 15,
             "unsupported": 0,
             "trap_hits": 0,
             "gold_total": 17,
-            "gold_covered": 17,
-            "section_scored": 17,
-            "section_correct": 17,
-            "polarity_scored": 5,
-            "polarity_preserved": 5,
+            "gold_covered": 14,
+            "section_scored": 15,
+            "section_correct": 14,
+            "polarity_scored": 3,
+            "polarity_preserved": 3,
             "verifier_flagged": 0,
             "samples": 1
           },
           "rates": {
             "supported_item_rate": 1.0,
             "unsupported_per_note": 0.0,
-            "section_accuracy": 1.0,
+            "section_accuracy": 0.933,
             "negation_preserved": 1.0,
-            "gold_coverage": 1.0
+            "gold_coverage": 0.824
           }
         }
       },
       "unsupported": [
         {
           "system": "baseline",
-          "text": "Intermittent numbness in the toes, likely due to the cold weather.",
+          "text": "55-year-old male with type 2 diabetes presents for routine review.",
+          "reason": "Number 2 is not in the transcript."
+        },
+        {
+          "system": "baseline",
+          "text": "Reports increased thirst for 1 month and nocturia (2 times nightly). occasional toe numbness, likely cold‑induced.",
           "reason": "Cold weather stated as the cause of numbness"
         },
         {
           "system": "baseline",
-          "text": "Non-smoker, alcohol 1 unit a week.",
-          "reason": "Duration 1 week is not in the transcript."
-        },
-        {
-          "system": "baseline",
-          "text": "Weight 92 kg (up 3 kg since June).",
-          "reason": "Number 3 is not in the transcript."
-        },
-        {
-          "system": "baseline",
-          "text": "Reduced monofilament sensation at the left hallux consistent with peripheral neuropathy.",
+          "text": "Suboptimal glycemic control with symptomatic polyuria/polydipsia, weight gain, and early peripheral neuropathy.",
           "reason": "Neuropathy diagnosis the clinician never made"
         },
         {
           "system": "baseline",
-          "text": "Increase metformin to 1 g twice daily.",
-          "reason": "Dose 1 g is not in the transcript."
+          "text": "1) Increase Metformin dose (e.g., to 500 mg TID or consider extended‑release formulation).",
+          "reason": "Number 1 is not in the transcript."
         },
         {
           "system": "baseline",
-          "text": "Arrange retinal screening.",
-          "reason": "Matches no fact in the gold annotation."
-        },
-        {
-          "system": "extractor",
-          "text": "Toe numbness caused by the cold weather",
-          "reason": "Cold weather stated as the cause of numbness"
-        },
-        {
-          "system": "extractor",
-          "text": "Metformin 1000 mg twice a day",
-          "reason": "Dose 1000 mg is not in the transcript."
-        },
-        {
-          "system": "extractor",
-          "text": "Peripheral neuropathy",
+          "text": "3) Refer to diabetic foot clinic for neuropathy monitoring.",
           "reason": "Neuropathy diagnosis the clinician never made"
+        },
+        {
+          "system": "baseline",
+          "text": "4) Counsel on diet modification to reduce sweets and support weight loss.",
+          "reason": "Number 4 is not in the transcript."
+        },
+        {
+          "system": "baseline",
+          "text": "5) Continue current lifestyle (no smoking, limit alcohol).",
+          "reason": "Number 5 is not in the transcript."
+        },
+        {
+          "system": "baseline",
+          "text": "6) Repeat HbA1c in 3 months; monitor blood pressure.",
+          "reason": "Number 6 is not in the transcript."
         }
       ]
     },
@@ -693,62 +582,62 @@
       "systems": {
         "baseline": {
           "counts": {
-            "units": 15,
-            "supported": 12,
-            "unsupported": 3,
-            "trap_hits": 2,
+            "units": 9,
+            "supported": 9,
+            "unsupported": 0,
+            "trap_hits": 0,
             "gold_total": 19,
-            "gold_covered": 15,
-            "section_scored": 11,
-            "section_correct": 10,
-            "polarity_scored": 7,
-            "polarity_preserved": 6,
-            "verifier_flagged": 4,
+            "gold_covered": 16,
+            "section_scored": 0,
+            "section_correct": 0,
+            "polarity_scored": 8,
+            "polarity_preserved": 7,
+            "verifier_flagged": 7,
             "samples": 1
           },
           "rates": {
-            "supported_item_rate": 0.8,
-            "unsupported_per_note": 3.0,
-            "section_accuracy": 0.909,
-            "negation_preserved": 0.857,
-            "gold_coverage": 0.789
+            "supported_item_rate": 1.0,
+            "unsupported_per_note": 0.0,
+            "section_accuracy": null,
+            "negation_preserved": 0.875,
+            "gold_coverage": 0.842
           }
         },
         "extractor": {
           "counts": {
-            "units": 22,
-            "supported": 19,
-            "unsupported": 3,
-            "trap_hits": 2,
+            "units": 15,
+            "supported": 15,
+            "unsupported": 0,
+            "trap_hits": 0,
             "gold_total": 19,
-            "gold_covered": 19,
-            "section_scored": 19,
-            "section_correct": 19,
-            "polarity_scored": 9,
-            "polarity_preserved": 9,
-            "verifier_flagged": 3,
+            "gold_covered": 16,
+            "section_scored": 15,
+            "section_correct": 15,
+            "polarity_scored": 7,
+            "polarity_preserved": 6,
+            "verifier_flagged": 1,
             "samples": 1
           },
           "rates": {
-            "supported_item_rate": 0.864,
-            "unsupported_per_note": 3.0,
+            "supported_item_rate": 1.0,
+            "unsupported_per_note": 0.0,
             "section_accuracy": 1.0,
-            "negation_preserved": 1.0,
-            "gold_coverage": 1.0
+            "negation_preserved": 0.857,
+            "gold_coverage": 0.842
           }
         },
         "clinnote": {
           "counts": {
-            "units": 19,
-            "supported": 19,
+            "units": 14,
+            "supported": 14,
             "unsupported": 0,
             "trap_hits": 0,
             "gold_total": 19,
-            "gold_covered": 19,
-            "section_scored": 19,
-            "section_correct": 19,
-            "polarity_scored": 9,
-            "polarity_preserved": 9,
+            "gold_covered": 15,
+            "section_scored": 14,
+            "section_correct": 14,
+            "polarity_scored": 7,
+            "polarity_preserved": 6,
             "verifier_flagged": 0,
             "samples": 1
           },
@@ -756,43 +645,12 @@
             "supported_item_rate": 1.0,
             "unsupported_per_note": 0.0,
             "section_accuracy": 1.0,
-            "negation_preserved": 1.0,
-            "gold_coverage": 1.0
+            "negation_preserved": 0.857,
+            "gold_coverage": 0.789
           }
         }
       },
-      "unsupported": [
-        {
-          "system": "baseline",
-          "text": "Hay fever.",
-          "reason": "Son's hay fever recorded as the patient's"
-        },
-        {
-          "system": "baseline",
-          "text": "Allergic contact dermatitis secondary to the new washing powder.",
-          "reason": "Dermatitis or allergy diagnosis the clinician never made"
-        },
-        {
-          "system": "baseline",
-          "text": "Emollients and a stronger topical steroid if not improving.",
-          "reason": "Matches no fact in the gold annotation."
-        },
-        {
-          "system": "extractor",
-          "text": "Rash for five weeks five weeks",
-          "reason": "Duration 5 weeks is not in the transcript."
-        },
-        {
-          "system": "extractor",
-          "text": "Allergic contact dermatitis from the washing powder",
-          "reason": "Dermatitis or allergy diagnosis the clinician never made"
-        },
-        {
-          "system": "extractor",
-          "text": "Possibly Scabies",
-          "reason": "Scabies stated as a finding"
-        }
-      ]
+      "unsupported": []
     }
   ]
 }

@@ -5,9 +5,10 @@
  *   npm run shots
  *
  * Reuses a running app at SHOTS_URL (default http://127.0.0.1:5173). If nothing answers there,
- * it starts the backend in mock mode and the Vite dev server, and stops them afterwards.
+ * it starts the backend in mock mode with the planted-mistake fixtures (tests/fixtures) and the
+ * Vite dev server, and stops them afterwards.
  */
-import { spawn, type ChildProcess } from 'node:child_process'
+import { spawn, spawnSync, type ChildProcess } from 'node:child_process'
 import { mkdirSync } from 'node:fs'
 import { dirname, join, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -47,6 +48,13 @@ function start(commandLine: string, cwd: string, env: NodeJS.ProcessEnv = {}): C
   return spawn(commandLine, { cwd, env: { ...process.env, ...env }, stdio: 'ignore', shell: true })
 }
 
+/** Stop a server and everything it spawned (on Windows the shell wrapper hides the real process). */
+function stop(child: ChildProcess) {
+  if (child.pid === undefined) return
+  if (process.platform === 'win32') spawnSync('taskkill', ['/F', '/T', '/PID', String(child.pid)])
+  else child.kill('SIGINT')
+}
+
 async function ensureServers(): Promise<ChildProcess[]> {
   if (await reachable(`${baseUrl}/api/health`)) return []
   const python = process.platform === 'win32' ? '.venv\\Scripts\\python.exe' : '.venv/bin/python'
@@ -54,6 +62,8 @@ async function ensureServers(): Promise<ChildProcess[]> {
     start(`${python} -m uvicorn app.main:app --port 8000`, backend, {
       LLM_MODE: 'mock',
       MOCK_LATENCY_MS: '0',
+      // The click-through relies on the planted extractor mistakes (the sidebar says so).
+      FIXTURES_DIR: join(backend, 'tests', 'fixtures'),
     }),
     start('npm run dev -- --host 127.0.0.1', frontend),
   ]
@@ -129,7 +139,7 @@ async function run() {
     }
   } finally {
     await browser.close()
-    for (const child of children) child.kill()
+    for (const child of children) stop(child)
   }
   if (violations.length) {
     console.error(`\nAccessibility violations (${violations.length}):`)

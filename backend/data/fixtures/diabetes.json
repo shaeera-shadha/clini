@@ -1,14 +1,14 @@
 {
   "sample_id": "diabetes",
-  "source": "hand-made mock fixture (not model output)",
+  "source": "recorded live 2026-11-25: extractor openai/gpt-oss-120b, verifier qwen/qwen3.8-27b",
   "extract": {
     "items": [
       {
         "section": "symptom",
-        "text": "More thirsty over the last month",
+        "text": "Increased thirst",
         "polarity": "present",
         "qualifiers": {
-          "duration": null,
+          "duration": "last month",
           "severity": null,
           "onset": null
         },
@@ -18,7 +18,7 @@
       },
       {
         "section": "symptom",
-        "text": "Gets up twice a night to pass urine",
+        "text": "Nocturia",
         "polarity": "present",
         "qualifiers": {
           "duration": null,
@@ -31,7 +31,7 @@
       },
       {
         "section": "symptom",
-        "text": "Toes sometimes feel a bit numb",
+        "text": "Toe numbness",
         "polarity": "present",
         "qualifiers": {
           "duration": null,
@@ -44,21 +44,7 @@
       },
       {
         "section": "symptom",
-        "text": "Toe numbness caused by the cold weather",
-        "polarity": "present",
-        "qualifiers": {
-          "duration": null,
-          "severity": null,
-          "onset": null
-        },
-        "evidence": [
-          "S9",
-          "S10"
-        ]
-      },
-      {
-        "section": "symptom",
-        "text": "Eyesight problems (eye check in March fine)",
+        "text": "Eye problems",
         "polarity": "absent",
         "qualifiers": {
           "duration": null,
@@ -67,6 +53,32 @@
         },
         "evidence": [
           "S12"
+        ]
+      },
+      {
+        "section": "symptom",
+        "text": "Low blood sugar episodes",
+        "polarity": "absent",
+        "qualifiers": {
+          "duration": null,
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S19"
+        ]
+      },
+      {
+        "section": "symptom",
+        "text": "Smoking",
+        "polarity": "absent",
+        "qualifiers": {
+          "duration": null,
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S23"
         ]
       },
       {
@@ -84,23 +96,10 @@
       },
       {
         "section": "history",
-        "text": "Metformin 1000 mg twice a day",
+        "text": "Missed Metformin evening dose",
         "polarity": "present",
         "qualifiers": {
-          "duration": null,
-          "severity": null,
-          "onset": null
-        },
-        "evidence": [
-          "S14"
-        ]
-      },
-      {
-        "section": "history",
-        "text": "Forgets evening dose maybe two or three times a week",
-        "polarity": "uncertain",
-        "qualifiers": {
-          "duration": null,
+          "duration": "two or three times a week",
           "severity": null,
           "onset": null
         },
@@ -111,20 +110,7 @@
       },
       {
         "section": "history",
-        "text": "Low sugar episodes",
-        "polarity": "absent",
-        "qualifiers": {
-          "duration": null,
-          "severity": null,
-          "onset": null
-        },
-        "evidence": [
-          "S19"
-        ]
-      },
-      {
-        "section": "history",
-        "text": "Eating more sweets since stopping work",
+        "text": "Mother: diabetes",
         "polarity": "present",
         "qualifiers": {
           "duration": null,
@@ -132,7 +118,33 @@
           "onset": null
         },
         "evidence": [
-          "S21"
+          "S26"
+        ]
+      },
+      {
+        "section": "history",
+        "text": "Mother: toe loss",
+        "polarity": "present",
+        "qualifiers": {
+          "duration": null,
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S26"
+        ]
+      },
+      {
+        "section": "history",
+        "text": "Alcohol consumption",
+        "polarity": "present",
+        "qualifiers": {
+          "duration": "weekend",
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S24"
         ]
       },
       {
@@ -149,35 +161,8 @@
         ]
       },
       {
-        "section": "history",
-        "text": "A glass of wine at the weekend",
-        "polarity": "present",
-        "qualifiers": {
-          "duration": null,
-          "severity": null,
-          "onset": null
-        },
-        "evidence": [
-          "S24"
-        ]
-      },
-      {
-        "section": "history",
-        "text": "Mother: diabetes, lost a toe",
-        "polarity": "present",
-        "qualifiers": {
-          "duration": null,
-          "severity": null,
-          "onset": null
-        },
-        "evidence": [
-          "S25",
-          "S26"
-        ]
-      },
-      {
         "section": "observation",
-        "text": "Blood pressure 138 over 84",
+        "text": "Blood pressure 138/84",
         "polarity": "present",
         "qualifiers": {
           "duration": null,
@@ -190,7 +175,7 @@
       },
       {
         "section": "observation",
-        "text": "Weight 92 kilograms, up from 89 in June",
+        "text": "Weight 92 kg",
         "polarity": "present",
         "qualifiers": {
           "duration": null,
@@ -216,7 +201,7 @@
       },
       {
         "section": "observation",
-        "text": "Reduced monofilament sensation, left big toe",
+        "text": "Reduced sensation left big toe",
         "polarity": "present",
         "qualifiers": {
           "duration": null,
@@ -229,21 +214,8 @@
       },
       {
         "section": "observation",
-        "text": "Peripheral neuropathy",
+        "text": "Foot skin intact, no ulcers",
         "polarity": "present",
-        "qualifiers": {
-          "duration": null,
-          "severity": null,
-          "onset": null
-        },
-        "evidence": [
-          "S32"
-        ]
-      },
-      {
-        "section": "observation",
-        "text": "Foot ulcers (skin intact)",
-        "polarity": "absent",
         "qualifiers": {
           "duration": null,
           "severity": null,
@@ -255,7 +227,7 @@
       },
       {
         "section": "observation",
-        "text": "Last HbA1c 64",
+        "text": "HbA1c 64",
         "polarity": "present",
         "qualifiers": {
           "duration": null,
@@ -271,158 +243,122 @@
   "verify": {
     "I1": {
       "verdict": "supported",
-      "reason": "Stated in S5."
+      "reason": "The cited sentence explicitly states the patient has been 'a bit more thirsty over the last month,' which directly supports the symptom, polarity, and duration."
     },
     "I2": {
       "verdict": "supported",
-      "reason": "Stated in S7."
+      "reason": "The patient explicitly states getting up twice a night, which directly supports the presence of nocturia."
+    },
+    "I4": {
+      "verdict": "supported",
+      "reason": "The patient explicitly states their eye check was fine, which supports the absence of eye problems."
     },
     "I3": {
       "verdict": "supported",
-      "reason": "Stated in S9."
-    },
-    "I4": {
-      "verdict": "partial",
-      "reason": "S10 is the patient's guess ('Maybe it's the cold weather'), written here as a definite cause."
+      "reason": "The patient explicitly states 'Sometimes my toes feel a bit numb,' which directly supports the presence of toe numbness."
     },
     "I5": {
+      "verdict": "unsupported",
+      "reason": "The cited sentence is a negative response ('No, never') but lacks the preceding question or context to confirm it refers to 'Low blood sugar episodes'."
+    },
+    "I7": {
       "verdict": "supported",
-      "reason": "Stated in S12."
+      "reason": "The cited sentence explicitly states the patient is taking Metformin 500 mg twice a day, matching the note item exactly."
     },
     "I6": {
       "verdict": "supported",
-      "reason": "Stated in S14."
-    },
-    "I7": {
-      "verdict": "partial",
-      "reason": "S14 states 500 mg twice a day."
-    },
-    "I8": {
-      "verdict": "supported",
-      "reason": "Stated in S15, S17."
-    },
-    "I9": {
-      "verdict": "supported",
-      "reason": "Stated in S19."
+      "reason": "The patient explicitly states 'I don't smoke,' which directly supports the finding that smoking is absent."
     },
     "I10": {
       "verdict": "supported",
-      "reason": "Stated in S21."
+      "reason": "The cited sentence confirms the patient's mother lost a toe, which directly supports the note item."
     },
     "I11": {
       "verdict": "supported",
-      "reason": "Stated in S23."
+      "reason": "The cited sentence explicitly states the patient has a glass of wine at the weekend, which directly supports the presence of alcohol consumption with the specified duration qualifier."
     },
     "I12": {
       "verdict": "supported",
-      "reason": "Stated in S24."
+      "reason": "The patient explicitly states 'I don't smoke,' which directly supports the finding that smoking is absent."
     },
     "I13": {
       "verdict": "supported",
-      "reason": "Stated in S25, S26."
+      "reason": "The cited sentence explicitly states the doctor's observation that the patient's blood pressure is 138 over 84, which matches the note item exactly."
     },
     "I14": {
       "verdict": "supported",
-      "reason": "Stated in S29."
+      "reason": "The cited sentence explicitly states the doctor's observation that the patient's weight is 92 kilograms."
     },
     "I15": {
       "verdict": "supported",
-      "reason": "Stated in S30."
+      "reason": "The cited sentence explicitly states that the doctor observed the foot pulses are present, which directly supports the note item."
     },
     "I16": {
       "verdict": "supported",
-      "reason": "Stated in S31."
+      "reason": "The cited sentence explicitly states the doctor's observation of reduced sensation on the left big toe, matching the note item exactly."
     },
     "I17": {
       "verdict": "supported",
-      "reason": "Stated in S32."
+      "reason": "The cited sentence explicitly states the doctor's observation that the skin on the feet is intact with no ulcers, which directly supports the note item."
     },
     "I18": {
-      "verdict": "unsupported",
-      "reason": "S32 reports reduced monofilament sensation; it does not name a diagnosis."
-    },
-    "I19": {
       "verdict": "supported",
-      "reason": "Stated in S33."
+      "reason": "The cited sentence explicitly states the doctor's observation that the patient's last HbA1c was 64, which directly supports the note item."
     },
-    "I20": {
-      "verdict": "supported",
-      "reason": "Stated in S34."
-    },
-    "B1": {
-      "verdict": "supported",
-      "reason": "Matches the transcript."
+    "I9": {
+      "verdict": "partial",
+      "reason": "The cited sentence refers to a family member ('she') losing a toe, which implies a history of diabetes, but it does not explicitly state the diagnosis 'diabetes' as required by the note item."
     },
     "B2": {
-      "verdict": "supported",
-      "reason": "Matches the transcript."
-    },
-    "B3": {
-      "verdict": "unsupported",
-      "reason": "Cold weather stated as the cause of numbness"
+      "verdict": "partial",
+      "reason": "The cited sentences do not mention toe numbness or that it is cold-induced, which are key details in the note item."
     },
     "B4": {
       "verdict": "supported",
-      "reason": "Matches the transcript."
+      "reason": "The patient explicitly states in [S21] that they have been eating more sweets since stopping work (retirement), which directly supports the note item."
     },
     "B5": {
       "verdict": "supported",
-      "reason": "Matches the transcript."
-    },
-    "B6": {
-      "verdict": "supported",
-      "reason": "Matches the transcript."
+      "reason": "The cited sentences explicitly state the medication (Metformin 500 mg twice a day), the specific missed dose (evening), and the frequency (two or three times a week), fully supporting the note item."
     },
     "B7": {
-      "verdict": "unsupported",
-      "reason": "Duration 1 week is not in the transcript."
+      "verdict": "partial",
+      "reason": "The cited sentence supports the alcohol use but does not contain any information regarding smoking, so the claim 'No smoking' is unsupported."
+    },
+    "B3": {
+      "verdict": "partial",
+      "reason": "The cited sentences confirm the eye exam in March was fine, but they do not state that there were 'no visual changes,' which is an additional detail not supported by the evidence."
     },
     "B8": {
       "verdict": "supported",
-      "reason": "Matches the transcript."
+      "reason": "The cited sentences explicitly state the blood pressure as 138/84 and the weight as 92 kg, noting an increase from 89 kg in June, which matches the note item exactly."
     },
     "B9": {
       "verdict": "supported",
-      "reason": "Matches the transcript."
+      "reason": "The cited sentences explicitly state that pulses are present, skin is intact with no ulcers, and there is reduced monofilament sensation on the left big toe, which fully supports the note item."
+    },
+    "B11": {
+      "verdict": "partial",
+      "reason": "The cited sentence only supports the weight gain (92 kg up from 89 kg) but does not mention suboptimal glycemic control, polyuria, polydipsia, or peripheral neuropathy."
     },
     "B10": {
       "verdict": "supported",
-      "reason": "Matches the transcript."
-    },
-    "B11": {
-      "verdict": "unsupported",
-      "reason": "Number 3 is not in the transcript."
-    },
-    "B12": {
-      "verdict": "supported",
-      "reason": "Matches the transcript."
-    },
-    "B13": {
-      "verdict": "unsupported",
-      "reason": "Neuropathy diagnosis the clinician never made"
+      "reason": "The cited sentence explicitly states the HbA1c value is 64, which matches the number in the note item (the unit mmol/mol is the standard unit for this value)."
     },
     "B14": {
-      "verdict": "supported",
-      "reason": "Matches the transcript."
+      "verdict": "partial",
+      "reason": "The cited sentences confirm the patient forgets the evening dose (S15), supporting the need to reinforce adherence to that specific dose, but the note item's general instruction to 'Reinforce adherence' is a clinical recommendation not explicitly stated in the patient's reported history."
+    },
+    "B12": {
+      "verdict": "partial",
+      "reason": "The cited sentences confirm the family history of toe amputation (S26) and the patient's diabetes (S2), but they do not state that the patient has a 'risk of diabetic foot complications'; the finding of reduced sensation (S32) is a specific clinical observation, not a general risk assessment, and the note item presents a risk conclusion that is not explicitly stated in the text."
     },
     "B15": {
-      "verdict": "supported",
-      "reason": "Matches the transcript."
-    },
-    "B16": {
-      "verdict": "unsupported",
-      "reason": "Dose 1 g is not in the transcript."
-    },
-    "B17": {
-      "verdict": "supported",
-      "reason": "Matches the transcript."
-    },
-    "B18": {
-      "verdict": "unsupported",
-      "reason": "Not stated in the retrieved transcript sentences."
+      "verdict": "partial",
+      "reason": "The cited sentences do not mention 'neuropathy monitoring' as the specific reason for the referral, which is a detail added in the note item."
     }
   },
   "baseline": {
-    "note": "Diabetes review.\n\nSymptoms:\nPolydipsia for one month and nocturia twice a night. Intermittent numbness in the toes, likely due to the cold weather. No visual problems. No hypoglycaemia.\n\nMedications: Metformin 500 mg twice daily, poor adherence (misses the evening dose 2 to 3 times per week).\n\nSocial history: Non-smoker, alcohol 1 unit a week. Diet high in sweets since retirement.\n\nFamily history: Mother had diabetes with a toe amputation.\n\nExamination:\nBlood pressure 138/84. Weight 92 kg (up 3 kg since June). Foot pulses present. Reduced monofilament sensation at the left hallux consistent with peripheral neuropathy. No ulcers.\n\nResults: HbA1c 64 mmol/mol (poorly controlled).\n\nPlan:\nIncrease metformin to 1 g twice daily. Refer to the foot clinic. Arrange retinal screening."
+    "note": "Subjective: 55-year-old male with type 2 diabetes presents for routine review. Reports increased thirst for 1 month and nocturia (2 times nightly). occasional toe numbness, likely cold‑induced. No visual changes; last eye exam in March was normal. Diet: increased sweets since retirement. Medication adherence: Metformin 500 mg BID, missing evening dose 2‑3 times/week. No hypoglycemia. No smoking; occasional weekend wine.\nObjective: BP 138/84 mmHg, weight 92 kg (up from 89 kg in June). Foot exam: palpable pulses, intact skin, no ulcers; reduced monofilament sensation on left big toe. HbA1c 64 mmol/mol.\nAssessment: Suboptimal glycemic control with symptomatic polyuria/polydipsia, weight gain, and early peripheral neuropathy. Risk of diabetic foot complications (family history of toe amputation).\nPlan: 1) Increase Metformin dose (e.g., to 500 mg TID or consider extended‑release formulation). 2) Reinforce adherence, especially evening dose. 3) Refer to diabetic foot clinic for neuropathy monitoring. 4) Counsel on diet modification to reduce sweets and support weight loss. 5) Continue current lifestyle (no smoking, limit alcohol). 6) Repeat HbA1c in 3 months; monitor blood pressure."
   }
 }

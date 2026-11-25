@@ -1,0 +1,473 @@
+{
+  "sample_id": "chest",
+  "source": "hand-made mock fixture (not model output)",
+  "extract": {
+    "items": [
+      {
+        "section": "symptom",
+        "text": "Chest tightness on and off for three days",
+        "polarity": "present",
+        "qualifiers": {
+          "duration": null,
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S3"
+        ]
+      },
+      {
+        "section": "symptom",
+        "text": "Comes on walking uphill",
+        "polarity": "present",
+        "qualifiers": {
+          "duration": null,
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S4"
+        ]
+      },
+      {
+        "section": "symptom",
+        "text": "Lasts a few minutes, eases with rest",
+        "polarity": "present",
+        "qualifiers": {
+          "duration": null,
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S6"
+        ]
+      },
+      {
+        "section": "symptom",
+        "text": "Spreads to the left arm",
+        "polarity": "present",
+        "qualifiers": {
+          "duration": null,
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S8"
+        ]
+      },
+      {
+        "section": "symptom",
+        "text": "Unsure if it spreads to the jaw",
+        "polarity": "uncertain",
+        "qualifiers": {
+          "duration": null,
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S9"
+        ]
+      },
+      {
+        "section": "symptom",
+        "text": "A bit short of breath with it",
+        "polarity": "present",
+        "qualifiers": {
+          "duration": null,
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S11"
+        ]
+      },
+      {
+        "section": "symptom",
+        "text": "Sweating",
+        "polarity": "absent",
+        "qualifiers": {
+          "duration": null,
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S12"
+        ]
+      },
+      {
+        "section": "symptom",
+        "text": "Palpitations",
+        "polarity": "absent",
+        "qualifiers": {
+          "duration": null,
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S13"
+        ]
+      },
+      {
+        "section": "symptom",
+        "text": "Pain at present",
+        "polarity": "absent",
+        "qualifiers": {
+          "duration": null,
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S15"
+        ]
+      },
+      {
+        "section": "history",
+        "text": "High blood pressure",
+        "polarity": "present",
+        "qualifiers": {
+          "duration": null,
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S17"
+        ]
+      },
+      {
+        "section": "history",
+        "text": "Amlodipine 5 mg every morning",
+        "polarity": "present",
+        "qualifiers": {
+          "duration": null,
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S18"
+        ]
+      },
+      {
+        "section": "history",
+        "text": "Amlodipine 10 mg every morning",
+        "polarity": "present",
+        "qualifiers": {
+          "duration": null,
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S18"
+        ]
+      },
+      {
+        "section": "history",
+        "text": "Smokes about ten cigarettes a day",
+        "polarity": "present",
+        "qualifiers": {
+          "duration": null,
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S20"
+        ]
+      },
+      {
+        "section": "history",
+        "text": "Father: heart attack at fifty-two",
+        "polarity": "present",
+        "qualifiers": {
+          "duration": null,
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S22"
+        ]
+      },
+      {
+        "section": "history",
+        "text": "Heart attack at age fifty-two",
+        "polarity": "present",
+        "qualifiers": {
+          "duration": null,
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S22"
+        ]
+      },
+      {
+        "section": "history",
+        "text": "Brother: high cholesterol, I think",
+        "polarity": "uncertain",
+        "qualifiers": {
+          "duration": null,
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S23"
+        ]
+      },
+      {
+        "section": "history",
+        "text": "Penicillin allergy (rash)",
+        "polarity": "present",
+        "qualifiers": {
+          "duration": null,
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S25",
+          "S26"
+        ]
+      },
+      {
+        "section": "observation",
+        "text": "Blood pressure 152 over 94",
+        "polarity": "present",
+        "qualifiers": {
+          "duration": null,
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S28"
+        ]
+      },
+      {
+        "section": "observation",
+        "text": "Pulse 88 and regular",
+        "polarity": "present",
+        "qualifiers": {
+          "duration": null,
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S29"
+        ]
+      },
+      {
+        "section": "observation",
+        "text": "Heart sounds normal",
+        "polarity": "present",
+        "qualifiers": {
+          "duration": null,
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S30"
+        ]
+      },
+      {
+        "section": "observation",
+        "text": "Chest clear",
+        "polarity": "present",
+        "qualifiers": {
+          "duration": null,
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S30"
+        ]
+      },
+      {
+        "section": "observation",
+        "text": "Ankle swelling",
+        "polarity": "absent",
+        "qualifiers": {
+          "duration": null,
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S31"
+        ]
+      },
+      {
+        "section": "observation",
+        "text": "Possible indigestion",
+        "polarity": "uncertain",
+        "qualifiers": {
+          "duration": null,
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S32"
+        ]
+      }
+    ]
+  },
+  "verify": {
+    "I1": {
+      "verdict": "supported",
+      "reason": "Stated in S3."
+    },
+    "I2": {
+      "verdict": "supported",
+      "reason": "Stated in S4."
+    },
+    "I3": {
+      "verdict": "supported",
+      "reason": "Stated in S6."
+    },
+    "I4": {
+      "verdict": "supported",
+      "reason": "Stated in S8."
+    },
+    "I5": {
+      "verdict": "supported",
+      "reason": "Stated in S9."
+    },
+    "I6": {
+      "verdict": "supported",
+      "reason": "Stated in S11."
+    },
+    "I7": {
+      "verdict": "supported",
+      "reason": "Stated in S12."
+    },
+    "I8": {
+      "verdict": "supported",
+      "reason": "Stated in S13."
+    },
+    "I9": {
+      "verdict": "supported",
+      "reason": "Stated in S15."
+    },
+    "I10": {
+      "verdict": "supported",
+      "reason": "Stated in S17."
+    },
+    "I11": {
+      "verdict": "supported",
+      "reason": "Stated in S18."
+    },
+    "I12": {
+      "verdict": "partial",
+      "reason": "S18 states amlodipine 5 mg, not 10 mg."
+    },
+    "I13": {
+      "verdict": "supported",
+      "reason": "Stated in S20."
+    },
+    "I14": {
+      "verdict": "supported",
+      "reason": "Stated in S22."
+    },
+    "I15": {
+      "verdict": "unsupported",
+      "reason": "S22 says the patient's father had the heart attack."
+    },
+    "I16": {
+      "verdict": "supported",
+      "reason": "Stated in S23."
+    },
+    "I17": {
+      "verdict": "supported",
+      "reason": "Stated in S25, S26."
+    },
+    "I18": {
+      "verdict": "supported",
+      "reason": "Stated in S28."
+    },
+    "I19": {
+      "verdict": "supported",
+      "reason": "Stated in S29."
+    },
+    "I20": {
+      "verdict": "supported",
+      "reason": "Stated in S30."
+    },
+    "I21": {
+      "verdict": "supported",
+      "reason": "Stated in S30."
+    },
+    "I22": {
+      "verdict": "supported",
+      "reason": "Stated in S31."
+    },
+    "I23": {
+      "verdict": "unsupported",
+      "reason": "S32 is the patient reporting the wife's opinion, not a finding."
+    },
+    "B1": {
+      "verdict": "unsupported",
+      "reason": "Duration 58 years is not in the transcript."
+    },
+    "B2": {
+      "verdict": "supported",
+      "reason": "Matches the transcript."
+    },
+    "B3": {
+      "verdict": "supported",
+      "reason": "Matches the transcript."
+    },
+    "B4": {
+      "verdict": "supported",
+      "reason": "Matches the transcript."
+    },
+    "B5": {
+      "verdict": "supported",
+      "reason": "Matches the transcript."
+    },
+    "B6": {
+      "verdict": "supported",
+      "reason": "Matches the transcript."
+    },
+    "B7": {
+      "verdict": "supported",
+      "reason": "Matches the transcript."
+    },
+    "B8": {
+      "verdict": "supported",
+      "reason": "Matches the transcript."
+    },
+    "B9": {
+      "verdict": "supported",
+      "reason": "Matches the transcript."
+    },
+    "B10": {
+      "verdict": "supported",
+      "reason": "Matches the transcript."
+    },
+    "B11": {
+      "verdict": "supported",
+      "reason": "Matches the transcript."
+    },
+    "B12": {
+      "verdict": "supported",
+      "reason": "Matches the transcript."
+    },
+    "B13": {
+      "verdict": "unsupported",
+      "reason": "Heart diagnosis the clinician never made"
+    },
+    "B14": {
+      "verdict": "unsupported",
+      "reason": "Indigestion stated as a finding (the wife's guess)"
+    },
+    "B15": {
+      "verdict": "supported",
+      "reason": "Matches the transcript."
+    },
+    "B16": {
+      "verdict": "unsupported",
+      "reason": "Not stated in the retrieved transcript sentences."
+    },
+    "B17": {
+      "verdict": "unsupported",
+      "reason": "Not stated in the retrieved transcript sentences."
+    }
+  },
+  "baseline": {
+    "note": "Subjective:\n58-year-old with 3 days of exertional central chest tightness radiating to the left arm and jaw, relieved by rest within minutes. Associated shortness of breath. No sweating or palpitations. Currently pain-free.\n\nPast medical history: Hypertension on amlodipine 5 mg once daily. Smoker, 10 cigarettes a day. Penicillin allergy (rash).\nFamily history: Father had a myocardial infarction at 52. Brother has hypercholesterolaemia.\n\nObjective:\nBlood pressure 152/94, heart rate 88 regular. Heart sounds normal, chest clear. No peripheral oedema.\n\nAssessment:\nSuspected stable angina. Differential includes GORD.\n\nPlan:\nECG today. Start aspirin 75 mg and a GTN spray. Refer to the rapid access chest pain clinic."
+  }
+}

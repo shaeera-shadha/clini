@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom'
 
 import { useAppState } from '../../state/context'
 import { cx } from '../../lib/cx'
+import type { Health } from '../../lib/types'
 import { Icon } from '../ui/primitives'
 
 const NAV: { to: string; label: string; icon: LucideIcon }[] = [
@@ -11,6 +12,14 @@ const NAV: { to: string; label: string; icon: LucideIcon }[] = [
   { to: '/compare', label: 'Compare', icon: Columns2 },
   { to: '/evaluation', label: 'Evaluation', icon: BarChart3 },
 ]
+
+function modeLabel(health: Health | null): string {
+  if (!health) return 'Unknown'
+  if (health.mode === 'live') return 'Live (Groq)'
+  return health.fixtures?.includes('hand-made')
+    ? 'Mock: planted extractor mistakes'
+    : 'Mock: replaying a recorded live run'
+}
 
 /** Left navigation. Full labels at >= 1280px; icons only below (labels stay as accessible names). */
 export function Sidebar() {
@@ -57,7 +66,7 @@ export function Sidebar() {
           <div>
             <dt className="text-muted">Mode</dt>
             <dd className="font-medium">
-              {health ? (health.mode === 'mock' ? 'Mock (recorded responses)' : 'Live (Groq)') : 'Unknown'}
+              {modeLabel(health)}
             </dd>
           </div>
           <div>

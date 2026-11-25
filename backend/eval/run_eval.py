@@ -40,7 +40,7 @@ from app.evaluation import (
     score_system,
     unsupported_reason,
 )
-from app.llm import FIXTURES_DIR, LLMClient, RecordingLLM
+from app.llm import LLMClient, MockLLM, RecordingLLM
 from app.pipeline import generate
 from app.preprocess import transcript_hash
 from app.prompts import PROMPT_VERSIONS
@@ -93,11 +93,11 @@ async def evaluate(
             )
         )
 
-    mock = settings.llm_mode == "mock"
+    sources = client.sources if isinstance(client, MockLLM) else set()
     return EvalReport(
         run_at=datetime.now(UTC).isoformat(timespec="seconds"),
         mode=settings.llm_mode,
-        fixture_source="Hand-made mock fixtures, not model output" if mock else None,
+        fixture_source="; ".join(sorted(sources)) or None,
         models={
             "extractor": settings.extractor_model,
             "verifier": settings.verifier_model,
@@ -144,8 +144,10 @@ def render_table(report: EvalReport) -> str:
         f"{a.supported_flagged} of {a.supported_flagged + a.supported_kept} supported items.",
         f"Mode: {report.mode}. Models: {json.dumps(report.models)}. Run at {report.run_at}.",
     ]
-    if report.fixture_source:
+    if report.fixture_source and "hand-made" in report.fixture_source:
         lines.append(f"NOTE: {report.fixture_source}. Do not report these numbers.")
+    elif report.fixture_source:
+        lines.append(f"Replayed responses: {report.fixture_source}.")
     return "\n".join(lines)
 
 
@@ -161,7 +163,7 @@ def save_fixtures(recorder: RecordingLLM, sample_ids: list[str], settings: Setti
             f"verifier {settings.verifier_model}",
             **recorded,
         }
-        path = FIXTURES_DIR / f"{sample_id}.json"
+        path = settings.fixtures_dir / f"{sample_id}.json"
         path.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
         print(f"  recorded fixture -> {path}", file=sys.stderr)
 

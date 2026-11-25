@@ -1,14 +1,14 @@
 {
   "sample_id": "chest",
-  "source": "hand-made mock fixture (not model output)",
+  "source": "recorded live 2026-11-25: extractor openai/gpt-oss-120b, verifier qwen/qwen3.8-27b",
   "extract": {
     "items": [
       {
         "section": "symptom",
-        "text": "Chest tightness on and off for three days",
+        "text": "Chest tightness",
         "polarity": "present",
         "qualifiers": {
-          "duration": null,
+          "duration": "three days",
           "severity": null,
           "onset": null
         },
@@ -18,7 +18,7 @@
       },
       {
         "section": "symptom",
-        "text": "Comes on walking uphill",
+        "text": "Chest tightness triggered by walking uphill",
         "polarity": "present",
         "qualifiers": {
           "duration": null,
@@ -31,10 +31,10 @@
       },
       {
         "section": "symptom",
-        "text": "Lasts a few minutes, eases with rest",
+        "text": "Chest tightness lasts a few minutes",
         "polarity": "present",
         "qualifiers": {
-          "duration": null,
+          "duration": "a few minutes",
           "severity": null,
           "onset": null
         },
@@ -44,7 +44,7 @@
       },
       {
         "section": "symptom",
-        "text": "Spreads to the left arm",
+        "text": "Radiation to left arm",
         "polarity": "present",
         "qualifiers": {
           "duration": null,
@@ -57,7 +57,7 @@
       },
       {
         "section": "symptom",
-        "text": "Unsure if it spreads to the jaw",
+        "text": "Radiation to jaw",
         "polarity": "uncertain",
         "qualifiers": {
           "duration": null,
@@ -70,7 +70,7 @@
       },
       {
         "section": "symptom",
-        "text": "A bit short of breath with it",
+        "text": "Shortness of breath with chest tightness",
         "polarity": "present",
         "qualifiers": {
           "duration": null,
@@ -109,7 +109,7 @@
       },
       {
         "section": "symptom",
-        "text": "Pain at present",
+        "text": "Current chest pain",
         "polarity": "absent",
         "qualifiers": {
           "duration": null,
@@ -122,7 +122,7 @@
       },
       {
         "section": "history",
-        "text": "High blood pressure",
+        "text": "Hypertension",
         "polarity": "present",
         "qualifiers": {
           "duration": null,
@@ -148,20 +148,7 @@
       },
       {
         "section": "history",
-        "text": "Amlodipine 10 mg every morning",
-        "polarity": "present",
-        "qualifiers": {
-          "duration": null,
-          "severity": null,
-          "onset": null
-        },
-        "evidence": [
-          "S18"
-        ]
-      },
-      {
-        "section": "history",
-        "text": "Smokes about ten cigarettes a day",
+        "text": "Smoking ten cigarettes a day",
         "polarity": "present",
         "qualifiers": {
           "duration": null,
@@ -187,20 +174,7 @@
       },
       {
         "section": "history",
-        "text": "Heart attack at age fifty-two",
-        "polarity": "present",
-        "qualifiers": {
-          "duration": null,
-          "severity": null,
-          "onset": null
-        },
-        "evidence": [
-          "S22"
-        ]
-      },
-      {
-        "section": "history",
-        "text": "Brother: high cholesterol, I think",
+        "text": "Brother: high cholesterol",
         "polarity": "uncertain",
         "qualifiers": {
           "duration": null,
@@ -213,7 +187,7 @@
       },
       {
         "section": "history",
-        "text": "Penicillin allergy (rash)",
+        "text": "Penicillin allergy",
         "polarity": "present",
         "qualifiers": {
           "duration": null,
@@ -221,13 +195,25 @@
           "onset": null
         },
         "evidence": [
-          "S25",
+          "S25"
+        ]
+      },
+      {
+        "section": "history",
+        "text": "Rash from penicillin",
+        "polarity": "present",
+        "qualifiers": {
+          "duration": null,
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
           "S26"
         ]
       },
       {
         "section": "observation",
-        "text": "Blood pressure 152 over 94",
+        "text": "Blood pressure 152/94",
         "polarity": "present",
         "qualifiers": {
           "duration": null,
@@ -240,7 +226,7 @@
       },
       {
         "section": "observation",
-        "text": "Pulse 88 and regular",
+        "text": "Pulse 88 regular",
         "polarity": "present",
         "qualifiers": {
           "duration": null,
@@ -289,185 +275,140 @@
         "evidence": [
           "S31"
         ]
-      },
-      {
-        "section": "observation",
-        "text": "Possible indigestion",
-        "polarity": "uncertain",
-        "qualifiers": {
-          "duration": null,
-          "severity": null,
-          "onset": null
-        },
-        "evidence": [
-          "S32"
-        ]
       }
     ]
   },
   "verify": {
     "I1": {
       "verdict": "supported",
-      "reason": "Stated in S3."
+      "reason": "The cited sentence explicitly states the patient has had a tight feeling in the chest for three days, matching the symptom, polarity, and duration."
     },
     "I2": {
-      "verdict": "supported",
-      "reason": "Stated in S4."
+      "verdict": "partial",
+      "reason": "The cited sentence confirms the trigger (walking uphill) but does not mention the specific symptom 'chest tightness', leaving the core finding unsupported by the evidence."
     },
     "I3": {
-      "verdict": "supported",
-      "reason": "Stated in S6."
-    },
-    "I4": {
-      "verdict": "supported",
-      "reason": "Stated in S8."
+      "verdict": "partial",
+      "reason": "The cited sentence confirms the duration ('A few minutes') but does not mention the specific symptom 'Chest tightness', leaving the core finding unsupported by the provided text."
     },
     "I5": {
       "verdict": "supported",
-      "reason": "Stated in S9."
+      "reason": "The cited sentence explicitly states the patient is unsure if the pain radiates to the jaw, which directly supports the finding with an uncertain polarity."
     },
     "I6": {
-      "verdict": "supported",
-      "reason": "Stated in S11."
+      "verdict": "partial",
+      "reason": "The cited sentence only mentions shortness of breath and does not state the presence of chest tightness, which is a key detail in the note item."
     },
-    "I7": {
+    "I4": {
       "verdict": "supported",
-      "reason": "Stated in S12."
+      "reason": "The cited sentence explicitly states the symptom radiates 'into my left arm', which directly supports the note item."
     },
     "I8": {
       "verdict": "supported",
-      "reason": "Stated in S13."
+      "reason": "The patient explicitly states 'No palpitations', which directly supports the finding that palpitations are absent."
+    },
+    "I7": {
+      "verdict": "supported",
+      "reason": "The patient explicitly states 'No sweating', which directly supports the finding of sweating being absent."
     },
     "I9": {
-      "verdict": "supported",
-      "reason": "Stated in S15."
+      "verdict": "unsupported",
+      "reason": "The cited sentence is a general statement of well-being ('I'm fine') and does not explicitly deny the presence of chest pain, which is required for an 'absent' polarity."
     },
     "I10": {
       "verdict": "supported",
-      "reason": "Stated in S17."
-    },
-    "I11": {
-      "verdict": "supported",
-      "reason": "Stated in S18."
+      "reason": "The patient explicitly states 'I have high blood pressure,' which directly supports the presence of hypertension."
     },
     "I12": {
-      "verdict": "partial",
-      "reason": "S18 states amlodipine 5 mg, not 10 mg."
+      "verdict": "supported",
+      "reason": "The cited sentence explicitly states the patient smokes 'about ten cigarettes a day', which directly supports the note item's finding and quantity."
     },
     "I13": {
       "verdict": "supported",
-      "reason": "Stated in S20."
+      "reason": "The cited sentence explicitly states that the patient's father had a heart attack at age fifty-two, which matches the note item exactly."
+    },
+    "I11": {
+      "verdict": "supported",
+      "reason": "The cited sentence explicitly states the patient takes amlodipine 5 mg every morning, matching the note item exactly."
+    },
+    "I15": {
+      "verdict": "supported",
+      "reason": "The patient explicitly states 'I'm allergic to penicillin', which directly supports the note item."
     },
     "I14": {
       "verdict": "supported",
-      "reason": "Stated in S22."
-    },
-    "I15": {
-      "verdict": "unsupported",
-      "reason": "S22 says the patient's father had the heart attack."
-    },
-    "I16": {
-      "verdict": "supported",
-      "reason": "Stated in S23."
-    },
-    "I17": {
-      "verdict": "supported",
-      "reason": "Stated in S25, S26."
+      "reason": "The cited sentence explicitly states 'I think' regarding the brother's high cholesterol, which matches the 'uncertain' polarity and the specific detail in the note item."
     },
     "I18": {
       "verdict": "supported",
-      "reason": "Stated in S28."
+      "reason": "The cited sentence explicitly states the doctor's observation that the pulse is 88 and regular, matching the note item exactly."
     },
     "I19": {
       "verdict": "supported",
-      "reason": "Stated in S29."
+      "reason": "The cited sentence explicitly states the doctor's observation that the patient's heart sounds are normal, matching the note item exactly."
     },
     "I20": {
       "verdict": "supported",
-      "reason": "Stated in S30."
+      "reason": "The cited sentence explicitly states the doctor's observation that the patient's chest is clear, matching the note item exactly."
     },
     "I21": {
       "verdict": "supported",
-      "reason": "Stated in S30."
+      "reason": "The cited sentence explicitly states 'There's no swelling in your ankles', which directly supports the observation of ankle swelling being absent."
     },
-    "I22": {
+    "I17": {
       "verdict": "supported",
-      "reason": "Stated in S31."
-    },
-    "I23": {
-      "verdict": "unsupported",
-      "reason": "S32 is the patient reporting the wife's opinion, not a finding."
-    },
-    "B1": {
-      "verdict": "unsupported",
-      "reason": "Duration 58 years is not in the transcript."
+      "reason": "The cited sentence explicitly states the doctor's observation that the patient's blood pressure is 152 over 94, which matches the note item exactly."
     },
     "B2": {
-      "verdict": "supported",
-      "reason": "Matches the transcript."
+      "verdict": "partial",
+      "reason": "The note states 'no jaw pain reported' as a definitive absence, but the patient in [S9] explicitly hedges with 'I'm not sure if it goes to my jaw,' indicating uncertainty rather than a confirmed absence."
     },
     "B3": {
-      "verdict": "supported",
-      "reason": "Matches the transcript."
+      "verdict": "partial",
+      "reason": "The cited sentences do not contain a patient response denying sweating (diaphoresis), only a denial of palpitations, so the claim that there is 'no associated diaphoresis' is unsupported."
     },
     "B4": {
-      "verdict": "supported",
-      "reason": "Matches the transcript."
+      "verdict": "unsupported",
+      "reason": "The cited sentences are questions asked by the doctor and do not contain the patient's response or a statement confirming the absence of pain."
     },
     "B5": {
-      "verdict": "supported",
-      "reason": "Matches the transcript."
+      "verdict": "partial",
+      "reason": "The cited sentence confirms the medication (amlodipine 5 mg daily) but does not state the diagnosis of hypertension, which is a key detail in the note item."
     },
     "B6": {
       "verdict": "supported",
-      "reason": "Matches the transcript."
-    },
-    "B7": {
-      "verdict": "supported",
-      "reason": "Matches the transcript."
+      "reason": "The patient explicitly states in [S20] that they smoke about ten cigarettes a day, which directly supports the note item."
     },
     "B8": {
-      "verdict": "supported",
-      "reason": "Matches the transcript."
+      "verdict": "partial",
+      "reason": "The note states the brother has hypercholesterolemia as a definite fact, whereas the cited sentence [S23] includes the hedge 'I think', making the certainty level in the note overstated."
     },
     "B9": {
       "verdict": "supported",
-      "reason": "Matches the transcript."
+      "reason": "The cited sentences explicitly state the patient's allergy to penicillin and identify the reaction as a rash, fully supporting the note item."
+    },
+    "B1": {
+      "verdict": "supported",
+      "reason": "The cited sentences explicitly state the symptom is a 'tight feeling' (S3), occurring 'on and off' (intermittent) for 'three days' (S3), precipitated by walking up a hill (S4), lasting 'a few minutes' (S6), and relieved by rest (S6), matching all details in the note item."
     },
     "B10": {
-      "verdict": "supported",
-      "reason": "Matches the transcript."
+      "verdict": "partial",
+      "reason": "The note item claims the review is 'Negative except for' the symptoms, implying other symptoms (like sweating or palpitations) were explicitly denied, but the cited sentences only show the doctor asking about them and the patient answering only about shortness of breath, leaving the status of sweating and palpitations unstated in the evidence."
     },
     "B11": {
-      "verdict": "supported",
-      "reason": "Matches the transcript."
-    },
-    "B12": {
-      "verdict": "supported",
-      "reason": "Matches the transcript."
+      "verdict": "partial",
+      "reason": "The cited sentences do not state the absence of peripheral edema, which is included in the note item."
     },
     "B13": {
-      "verdict": "unsupported",
-      "reason": "Heart diagnosis the clinician never made"
+      "verdict": "partial",
+      "reason": "The cited sentences only support the ECG and blood pressure details; they do not mention the stress test, lipid panel, smoking cessation, or specific warning signs (jaw pain, sweating, syncope) included in the note item."
     },
-    "B14": {
+    "B12": {
       "verdict": "unsupported",
-      "reason": "Indigestion stated as a finding (the wife's guess)"
-    },
-    "B15": {
-      "verdict": "supported",
-      "reason": "Matches the transcript."
-    },
-    "B16": {
-      "verdict": "unsupported",
-      "reason": "Not stated in the retrieved transcript sentences."
-    },
-    "B17": {
-      "verdict": "unsupported",
-      "reason": "Not stated in the retrieved transcript sentences."
+      "reason": "The cited sentences do not mention hypertension, smoking, or a specific family history of premature CAD, nor do they confirm the pain is exertional, leaving the majority of the note item unsupported."
     }
   },
   "baseline": {
-    "note": "Subjective:\n58-year-old with 3 days of exertional central chest tightness radiating to the left arm and jaw, relieved by rest within minutes. Associated shortness of breath. No sweating or palpitations. Currently pain-free.\n\nPast medical history: Hypertension on amlodipine 5 mg once daily. Smoker, 10 cigarettes a day. Penicillin allergy (rash).\nFamily history: Father had a myocardial infarction at 52. Brother has hypercholesterolaemia.\n\nObjective:\nBlood pressure 152/94, heart rate 88 regular. Heart sounds normal, chest clear. No peripheral oedema.\n\nAssessment:\nSuspected stable angina. Differential includes GORD.\n\nPlan:\nECG today. Start aspirin 75 mg and a GTN spray. Refer to the rapid access chest pain clinic."
+    "note": "Chief Complaint: Intermittent tight chest sensation for 3 days, precipitated by exertion (walking up a hill), lasting a few minutes and relieved by rest.\n\nHistory of Present Illness: Chest tightness associated with mild dyspnea; occasional radiation to left arm; no jaw pain reported. No associated diaphoresis or palpitations. No current pain at exam.\n\nPast Medical History: Hypertension, on amlodipine 5 mg daily.\n\nSocial History: Smokes ~10 cigarettes per day. No alcohol or drug use mentioned.\n\nFamily History: Father had myocardial infarction at age 52; brother with hypercholesterolemia.\n\nAllergies: Penicillin (rash).\n\nReview of Systems: Negative except for described chest discomfort and mild shortness of breath during episodes.\n\nPhysical Examination: BP 152/94 mmHg, HR 88 regular, heart sounds normal, lungs clear, no peripheral edema.\n\nAssessment: Likely exertional angina versus non‑cardiac chest pain; risk factors include hypertension, smoking, family history of premature CAD.\n\nPlan: Obtain ECG today; consider further cardiac work‑up (stress test, lipid panel) based on results; counsel smoking cessation; optimize blood pressure control; advise to seek immediate care if pain becomes persistent, radiates to jaw, or is accompanied by sweating or syncope.\n"
   }
 }

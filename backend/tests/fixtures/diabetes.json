@@ -1,0 +1,428 @@
+{
+  "sample_id": "diabetes",
+  "source": "hand-made mock fixture (not model output)",
+  "extract": {
+    "items": [
+      {
+        "section": "symptom",
+        "text": "More thirsty over the last month",
+        "polarity": "present",
+        "qualifiers": {
+          "duration": null,
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S5"
+        ]
+      },
+      {
+        "section": "symptom",
+        "text": "Gets up twice a night to pass urine",
+        "polarity": "present",
+        "qualifiers": {
+          "duration": null,
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S7"
+        ]
+      },
+      {
+        "section": "symptom",
+        "text": "Toes sometimes feel a bit numb",
+        "polarity": "present",
+        "qualifiers": {
+          "duration": null,
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S9"
+        ]
+      },
+      {
+        "section": "symptom",
+        "text": "Toe numbness caused by the cold weather",
+        "polarity": "present",
+        "qualifiers": {
+          "duration": null,
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S9",
+          "S10"
+        ]
+      },
+      {
+        "section": "symptom",
+        "text": "Eyesight problems (eye check in March fine)",
+        "polarity": "absent",
+        "qualifiers": {
+          "duration": null,
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S12"
+        ]
+      },
+      {
+        "section": "history",
+        "text": "Metformin 500 mg twice a day",
+        "polarity": "present",
+        "qualifiers": {
+          "duration": null,
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S14"
+        ]
+      },
+      {
+        "section": "history",
+        "text": "Metformin 1000 mg twice a day",
+        "polarity": "present",
+        "qualifiers": {
+          "duration": null,
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S14"
+        ]
+      },
+      {
+        "section": "history",
+        "text": "Forgets evening dose maybe two or three times a week",
+        "polarity": "uncertain",
+        "qualifiers": {
+          "duration": null,
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S15",
+          "S17"
+        ]
+      },
+      {
+        "section": "history",
+        "text": "Low sugar episodes",
+        "polarity": "absent",
+        "qualifiers": {
+          "duration": null,
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S19"
+        ]
+      },
+      {
+        "section": "history",
+        "text": "Eating more sweets since stopping work",
+        "polarity": "present",
+        "qualifiers": {
+          "duration": null,
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S21"
+        ]
+      },
+      {
+        "section": "history",
+        "text": "Smoking",
+        "polarity": "absent",
+        "qualifiers": {
+          "duration": null,
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S23"
+        ]
+      },
+      {
+        "section": "history",
+        "text": "A glass of wine at the weekend",
+        "polarity": "present",
+        "qualifiers": {
+          "duration": null,
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S24"
+        ]
+      },
+      {
+        "section": "history",
+        "text": "Mother: diabetes, lost a toe",
+        "polarity": "present",
+        "qualifiers": {
+          "duration": null,
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S25",
+          "S26"
+        ]
+      },
+      {
+        "section": "observation",
+        "text": "Blood pressure 138 over 84",
+        "polarity": "present",
+        "qualifiers": {
+          "duration": null,
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S29"
+        ]
+      },
+      {
+        "section": "observation",
+        "text": "Weight 92 kilograms, up from 89 in June",
+        "polarity": "present",
+        "qualifiers": {
+          "duration": null,
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S30"
+        ]
+      },
+      {
+        "section": "observation",
+        "text": "Foot pulses present",
+        "polarity": "present",
+        "qualifiers": {
+          "duration": null,
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S31"
+        ]
+      },
+      {
+        "section": "observation",
+        "text": "Reduced monofilament sensation, left big toe",
+        "polarity": "present",
+        "qualifiers": {
+          "duration": null,
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S32"
+        ]
+      },
+      {
+        "section": "observation",
+        "text": "Peripheral neuropathy",
+        "polarity": "present",
+        "qualifiers": {
+          "duration": null,
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S32"
+        ]
+      },
+      {
+        "section": "observation",
+        "text": "Foot ulcers (skin intact)",
+        "polarity": "absent",
+        "qualifiers": {
+          "duration": null,
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S33"
+        ]
+      },
+      {
+        "section": "observation",
+        "text": "Last HbA1c 64",
+        "polarity": "present",
+        "qualifiers": {
+          "duration": null,
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S34"
+        ]
+      }
+    ]
+  },
+  "verify": {
+    "I1": {
+      "verdict": "supported",
+      "reason": "Stated in S5."
+    },
+    "I2": {
+      "verdict": "supported",
+      "reason": "Stated in S7."
+    },
+    "I3": {
+      "verdict": "supported",
+      "reason": "Stated in S9."
+    },
+    "I4": {
+      "verdict": "partial",
+      "reason": "S10 is the patient's guess ('Maybe it's the cold weather'), written here as a definite cause."
+    },
+    "I5": {
+      "verdict": "supported",
+      "reason": "Stated in S12."
+    },
+    "I6": {
+      "verdict": "supported",
+      "reason": "Stated in S14."
+    },
+    "I7": {
+      "verdict": "partial",
+      "reason": "S14 states 500 mg twice a day."
+    },
+    "I8": {
+      "verdict": "supported",
+      "reason": "Stated in S15, S17."
+    },
+    "I9": {
+      "verdict": "supported",
+      "reason": "Stated in S19."
+    },
+    "I10": {
+      "verdict": "supported",
+      "reason": "Stated in S21."
+    },
+    "I11": {
+      "verdict": "supported",
+      "reason": "Stated in S23."
+    },
+    "I12": {
+      "verdict": "supported",
+      "reason": "Stated in S24."
+    },
+    "I13": {
+      "verdict": "supported",
+      "reason": "Stated in S25, S26."
+    },
+    "I14": {
+      "verdict": "supported",
+      "reason": "Stated in S29."
+    },
+    "I15": {
+      "verdict": "supported",
+      "reason": "Stated in S30."
+    },
+    "I16": {
+      "verdict": "supported",
+      "reason": "Stated in S31."
+    },
+    "I17": {
+      "verdict": "supported",
+      "reason": "Stated in S32."
+    },
+    "I18": {
+      "verdict": "unsupported",
+      "reason": "S32 reports reduced monofilament sensation; it does not name a diagnosis."
+    },
+    "I19": {
+      "verdict": "supported",
+      "reason": "Stated in S33."
+    },
+    "I20": {
+      "verdict": "supported",
+      "reason": "Stated in S34."
+    },
+    "B1": {
+      "verdict": "supported",
+      "reason": "Matches the transcript."
+    },
+    "B2": {
+      "verdict": "supported",
+      "reason": "Matches the transcript."
+    },
+    "B3": {
+      "verdict": "unsupported",
+      "reason": "Cold weather stated as the cause of numbness"
+    },
+    "B4": {
+      "verdict": "supported",
+      "reason": "Matches the transcript."
+    },
+    "B5": {
+      "verdict": "supported",
+      "reason": "Matches the transcript."
+    },
+    "B6": {
+      "verdict": "supported",
+      "reason": "Matches the transcript."
+    },
+    "B7": {
+      "verdict": "unsupported",
+      "reason": "Duration 1 week is not in the transcript."
+    },
+    "B8": {
+      "verdict": "supported",
+      "reason": "Matches the transcript."
+    },
+    "B9": {
+      "verdict": "supported",
+      "reason": "Matches the transcript."
+    },
+    "B10": {
+      "verdict": "supported",
+      "reason": "Matches the transcript."
+    },
+    "B11": {
+      "verdict": "unsupported",
+      "reason": "Number 3 is not in the transcript."
+    },
+    "B12": {
+      "verdict": "supported",
+      "reason": "Matches the transcript."
+    },
+    "B13": {
+      "verdict": "unsupported",
+      "reason": "Neuropathy diagnosis the clinician never made"
+    },
+    "B14": {
+      "verdict": "supported",
+      "reason": "Matches the transcript."
+    },
+    "B15": {
+      "verdict": "supported",
+      "reason": "Matches the transcript."
+    },
+    "B16": {
+      "verdict": "unsupported",
+      "reason": "Dose 1 g is not in the transcript."
+    },
+    "B17": {
+      "verdict": "supported",
+      "reason": "Matches the transcript."
+    },
+    "B18": {
+      "verdict": "unsupported",
+      "reason": "Not stated in the retrieved transcript sentences."
+    }
+  },
+  "baseline": {
+    "note": "Diabetes review.\n\nSymptoms:\nPolydipsia for one month and nocturia twice a night. Intermittent numbness in the toes, likely due to the cold weather. No visual problems. No hypoglycaemia.\n\nMedications: Metformin 500 mg twice daily, poor adherence (misses the evening dose 2 to 3 times per week).\n\nSocial history: Non-smoker, alcohol 1 unit a week. Diet high in sweets since retirement.\n\nFamily history: Mother had diabetes with a toe amputation.\n\nExamination:\nBlood pressure 138/84. Weight 92 kg (up 3 kg since June). Foot pulses present. Reduced monofilament sensation at the left hallux consistent with peripheral neuropathy. No ulcers.\n\nResults: HbA1c 64 mmol/mol (poorly controlled).\n\nPlan:\nIncrease metformin to 1 g twice daily. Refer to the foot clinic. Arrange retinal screening."
+  }
+}

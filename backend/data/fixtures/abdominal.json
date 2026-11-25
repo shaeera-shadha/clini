@@ -1,14 +1,14 @@
 {
   "sample_id": "abdominal",
-  "source": "hand-made mock fixture (not model output)",
+  "source": "recorded live 2026-11-25: extractor openai/gpt-oss-120b, verifier qwen/qwen3.8-27b",
   "extract": {
     "items": [
       {
         "section": "symptom",
-        "text": "Abdominal pain since yesterday evening",
+        "text": "Abdominal pain",
         "polarity": "present",
         "qualifiers": {
-          "duration": null,
+          "duration": "since yesterday evening",
           "severity": null,
           "onset": null
         },
@@ -18,7 +18,7 @@
       },
       {
         "section": "symptom",
-        "text": "Started around the belly button",
+        "text": "Pain around belly button",
         "polarity": "present",
         "qualifiers": {
           "duration": null,
@@ -31,7 +31,7 @@
       },
       {
         "section": "symptom",
-        "text": "Now lower right side",
+        "text": "Pain lower right side of abdomen",
         "polarity": "present",
         "qualifiers": {
           "duration": null,
@@ -44,7 +44,7 @@
       },
       {
         "section": "symptom",
-        "text": "Constant ache, worse walking or coughing",
+        "text": "Constant ache, worsened by walking or coughing",
         "polarity": "present",
         "qualifiers": {
           "duration": null,
@@ -57,11 +57,11 @@
       },
       {
         "section": "symptom",
-        "text": "Seven out of ten",
+        "text": "Pain severity 7/10",
         "polarity": "present",
         "qualifiers": {
           "duration": null,
-          "severity": null,
+          "severity": "7/10",
           "onset": null
         },
         "evidence": [
@@ -70,10 +70,10 @@
       },
       {
         "section": "symptom",
-        "text": "Vomited once this morning",
+        "text": "Vomited once",
         "polarity": "present",
         "qualifiers": {
-          "duration": null,
+          "duration": "this morning",
           "severity": null,
           "onset": null
         },
@@ -83,7 +83,7 @@
       },
       {
         "section": "symptom",
-        "text": "Does not feel like eating",
+        "text": "Loss of appetite",
         "polarity": "present",
         "qualifiers": {
           "duration": null,
@@ -109,10 +109,10 @@
       },
       {
         "section": "symptom",
-        "text": "Bowels not opened since yesterday, I think",
-        "polarity": "uncertain",
+        "text": "Constipation",
+        "polarity": "present",
         "qualifiers": {
-          "duration": null,
+          "duration": "since yesterday",
           "severity": null,
           "onset": null
         },
@@ -122,7 +122,7 @@
       },
       {
         "section": "symptom",
-        "text": "Burning on passing urine",
+        "text": "Burning on urination",
         "polarity": "absent",
         "qualifiers": {
           "duration": null,
@@ -135,10 +135,10 @@
       },
       {
         "section": "symptom",
-        "text": "Might have had a temperature last night, not checked",
+        "text": "Fever",
         "polarity": "uncertain",
         "qualifiers": {
-          "duration": null,
+          "duration": "last night",
           "severity": null,
           "onset": null
         },
@@ -148,32 +148,6 @@
       },
       {
         "section": "symptom",
-        "text": "Fever last night",
-        "polarity": "present",
-        "qualifiers": {
-          "duration": null,
-          "severity": null,
-          "onset": null
-        },
-        "evidence": [
-          "S18"
-        ]
-      },
-      {
-        "section": "history",
-        "text": "Tonsils removed at age eight",
-        "polarity": "present",
-        "qualifiers": {
-          "duration": null,
-          "severity": null,
-          "onset": null
-        },
-        "evidence": [
-          "S20"
-        ]
-      },
-      {
-        "section": "history",
         "text": "Regular medicines",
         "polarity": "absent",
         "qualifiers": {
@@ -186,11 +160,11 @@
         ]
       },
       {
-        "section": "history",
-        "text": "Took two paracetamol this morning",
+        "section": "symptom",
+        "text": "Paracetamol taken",
         "polarity": "present",
         "qualifiers": {
-          "duration": null,
+          "duration": "this morning",
           "severity": null,
           "onset": null
         },
@@ -200,10 +174,23 @@
       },
       {
         "section": "history",
-        "text": "Pregnancy (negative test last week)",
-        "polarity": "absent",
+        "text": "Tonsillectomy at age eight",
+        "polarity": "present",
         "qualifiers": {
           "duration": null,
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S20"
+        ]
+      },
+      {
+        "section": "history",
+        "text": "Negative pregnancy test last week",
+        "polarity": "present",
+        "qualifiers": {
+          "duration": "last week",
           "severity": null,
           "onset": null
         },
@@ -213,20 +200,7 @@
       },
       {
         "section": "history",
-        "text": "Cousin: appendix removed last year",
-        "polarity": "present",
-        "qualifiers": {
-          "duration": null,
-          "severity": null,
-          "onset": null
-        },
-        "evidence": [
-          "S31"
-        ]
-      },
-      {
-        "section": "history",
-        "text": "Appendix removed last year",
+        "text": "Cousin: appendix removal",
         "polarity": "present",
         "qualifiers": {
           "duration": null,
@@ -239,7 +213,7 @@
       },
       {
         "section": "observation",
-        "text": "Tender in the lower right abdomen",
+        "text": "Tenderness in lower right abdomen",
         "polarity": "present",
         "qualifiers": {
           "duration": null,
@@ -252,7 +226,7 @@
       },
       {
         "section": "observation",
-        "text": "Some guarding",
+        "text": "Guarding on palpation",
         "polarity": "present",
         "qualifiers": {
           "duration": null,
@@ -265,20 +239,7 @@
       },
       {
         "section": "observation",
-        "text": "Rebound tenderness",
-        "polarity": "present",
-        "qualifiers": {
-          "duration": null,
-          "severity": null,
-          "onset": null
-        },
-        "evidence": [
-          "S29"
-        ]
-      },
-      {
-        "section": "observation",
-        "text": "Rest of abdomen soft",
+        "text": "Abdomen soft elsewhere",
         "polarity": "present",
         "qualifiers": {
           "duration": null,
@@ -294,142 +255,118 @@
   "verify": {
     "I1": {
       "verdict": "supported",
-      "reason": "Stated in S3."
+      "reason": "The patient explicitly states having pain in the tummy (abdominal pain) since yesterday evening, which matches the finding, polarity, and duration in the note item."
     },
     "I2": {
       "verdict": "supported",
-      "reason": "Stated in S4."
+      "reason": "The cited sentence explicitly states the pain started around the belly button, supporting the finding and polarity."
     },
     "I3": {
-      "verdict": "supported",
-      "reason": "Stated in S5."
+      "verdict": "partial",
+      "reason": "The cited sentence confirms the location (lower right side) but does not explicitly state the symptom is 'pain'; it only describes the location of an unspecified condition ('it'), making the specific symptom detail unsupported by the text alone."
     },
     "I4": {
       "verdict": "supported",
-      "reason": "Stated in S7."
-    },
-    "I5": {
-      "verdict": "supported",
-      "reason": "Stated in S8."
+      "reason": "The cited sentence explicitly states the symptom is a 'constant ache' that is 'worse when I walk or cough', which directly matches the note item's description and polarity."
     },
     "I6": {
       "verdict": "supported",
-      "reason": "Stated in S10."
+      "reason": "The cited sentence explicitly states the patient vomited once this morning, matching the finding, polarity, and duration in the note item."
     },
-    "I7": {
+    "I5": {
       "verdict": "supported",
-      "reason": "Stated in S11."
+      "reason": "The cited sentence explicitly states the patient rates the pain as 'a seven out of ten', which directly supports the severity qualifier in the note item."
     },
     "I8": {
       "verdict": "supported",
-      "reason": "Stated in S13."
+      "reason": "The patient explicitly states 'No diarrhoea', which directly supports the finding that diarrhoea is absent."
+    },
+    "I7": {
+      "verdict": "supported",
+      "reason": "The patient's statement 'I don't feel like eating anything' directly supports the presence of a loss of appetite."
+    },
+    "I10": {
+      "verdict": "unsupported",
+      "reason": "The cited sentence is a vague denial ('No, that's normal') that does not explicitly mention or deny the specific symptom of 'Burning on urination'."
     },
     "I9": {
       "verdict": "supported",
-      "reason": "Stated in S14."
-    },
-    "I10": {
-      "verdict": "supported",
-      "reason": "Stated in S16."
+      "reason": "The patient explicitly states they have not opened their bowels since yesterday, which directly supports the presence of constipation with the specified duration."
     },
     "I11": {
       "verdict": "supported",
-      "reason": "Stated in S18."
-    },
-    "I12": {
-      "verdict": "partial",
-      "reason": "S18 is hedged ('might have had a temperature') and it was not checked; the item states it as definite."
+      "reason": "The patient explicitly states 'I might have had a temperature last night', which matches the symptom (Fever), the uncertainty (might), and the duration (last night)."
     },
     "I13": {
       "verdict": "supported",
-      "reason": "Stated in S20."
+      "reason": "The cited sentence explicitly states the patient took paracetamol this morning, matching the drug, action, and duration in the note item."
     },
     "I14": {
       "verdict": "supported",
-      "reason": "Stated in S23."
+      "reason": "The cited sentence explicitly states the patient had their tonsils removed at age eight, which directly supports the note item."
     },
     "I15": {
       "verdict": "supported",
-      "reason": "Stated in S24."
+      "reason": "The cited sentence explicitly states the patient had a negative test last week, which directly supports the note item's finding, polarity, and duration."
+    },
+    "I12": {
+      "verdict": "supported",
+      "reason": "The patient explicitly states 'No regular medicines', which directly supports the finding that regular medicines are absent."
     },
     "I16": {
       "verdict": "supported",
-      "reason": "Stated in S26."
-    },
-    "I17": {
-      "verdict": "supported",
-      "reason": "Stated in S31."
+      "reason": "The cited sentence explicitly states that the patient's cousin had her appendix removed, which directly supports the note item."
     },
     "I18": {
-      "verdict": "unsupported",
-      "reason": "S31 says the patient's cousin had her appendix out."
+      "verdict": "supported",
+      "reason": "The cited sentence explicitly states the doctor's observation of 'guarding when I press there', which directly supports the note item 'Guarding on palpation' with the correct polarity."
     },
     "I19": {
       "verdict": "supported",
-      "reason": "Stated in S28."
+      "reason": "The cited sentence explicitly states the doctor's observation that the rest of the abdomen is soft, which directly supports the note item."
     },
-    "I20": {
+    "I17": {
       "verdict": "supported",
-      "reason": "Stated in S29."
-    },
-    "I21": {
-      "verdict": "unsupported",
-      "reason": "S29 states guarding; rebound tenderness is not mentioned."
-    },
-    "I22": {
-      "verdict": "supported",
-      "reason": "Stated in S30."
+      "reason": "The cited sentence explicitly states the doctor's observation that the patient is tender in the lower right side of the abdomen, which directly supports the note item."
     },
     "B1": {
-      "verdict": "unsupported",
-      "reason": "Duration 1 day is not in the transcript."
+      "verdict": "partial",
+      "reason": "The cited sentences confirm the onset (yesterday evening), initial location (belly button/umbilicus), and current location (lower right side), but they do not state that the onset was 'acute' (a specific clinical descriptor not present in the patient's description of 'since yesterday evening')."
     },
     "B2": {
-      "verdict": "unsupported",
-      "reason": "Number 1 is not in the transcript."
-    },
-    "B3": {
-      "verdict": "unsupported",
-      "reason": "Fever stated as definite (it was not measured)"
-    },
-    "B4": {
       "verdict": "supported",
-      "reason": "Matches the transcript."
+      "reason": "The cited sentences explicitly state the pain is a 'constant ache' (S7), 'worse when I walk or cough' (S7), and rated as 'seven out of ten' (S8), fully supporting the note item."
     },
     "B5": {
       "verdict": "supported",
-      "reason": "Matches the transcript."
+      "reason": "The note states the patient took paracetamol 'today', while the cited sentence [S24] specifies 'this morning', which is a more precise time frame than the note provides, making the note's detail less specific but not contradictory; however, typically 'today' is an acceptable generalization of 'this morning' in clinical notes unless strict temporal precision is required, but looking closely, 'today' encompasses 'this morning', so the core facts (no regular meds, 2 paracetamol) are supported."
     },
     "B6": {
       "verdict": "supported",
-      "reason": "Matches the transcript."
+      "reason": "The cited sentence S26 explicitly states 'I had a negative test last week', which directly supports the note item."
+    },
+    "B4": {
+      "verdict": "partial",
+      "reason": "The cited sentences confirm the tonsillectomy and the absence of regular medicines, but they do not explicitly state that there is no other significant past medical or surgical history, as the patient only answered the specific questions asked without providing a comprehensive negative history."
     },
     "B7": {
-      "verdict": "unsupported",
-      "reason": "Dose 1 g is not in the transcript."
-    },
-    "B8": {
       "verdict": "supported",
-      "reason": "Matches the transcript."
+      "reason": "The cited sentences explicitly state the doctor's findings of tenderness and guarding in the lower right side (right lower quadrant) and that the rest of the abdomen is soft, fully supporting the note item."
     },
     "B9": {
       "verdict": "unsupported",
-      "reason": "Rebound tenderness or peritonism, never stated"
+      "reason": "The cited sentence reports a family member's history, not a clinical finding or impression for the patient."
     },
     "B10": {
-      "verdict": "unsupported",
-      "reason": "Not stated in the retrieved transcript sentences."
+      "verdict": "partial",
+      "reason": "The cited sentence confirms the referral to the surgical team but does not state the purpose ('for further evaluation and management'), which is an added detail not present in the evidence."
     },
-    "B11": {
-      "verdict": "unsupported",
-      "reason": "Appendicitis diagnosis the clinician never made"
-    },
-    "B12": {
+    "B8": {
       "verdict": "supported",
-      "reason": "Matches the transcript."
+      "reason": "The cited sentence explicitly states that the patient's cousin had her appendix removed (appendectomy) last year, which directly supports the note item."
     }
   },
   "baseline": {
-    "note": "History of presenting complaint:\nOne-day history of periumbilical pain migrating to the right iliac fossa, constant, 7 out of 10, worse on movement. Associated nausea, one episode of vomiting and anorexia. Fever last night. No diarrhoea or urinary symptoms. Bowels not opened since yesterday.\n\nPast medical history: Tonsillectomy. No regular medications. Took paracetamol 1 g this morning.\nPregnancy: Negative pregnancy test last week.\n\nExamination:\nTemperature 38.1 C. Tender in the right iliac fossa with guarding and rebound tenderness. Rovsing's sign positive.\n\nImpression:\nAcute appendicitis.\n\nPlan:\nSurgical referral, nil by mouth, IV fluids and bloods."
+    "note": "Patient presents with acute onset abdominal pain starting around the umbilicus yesterday evening, now localized to the right lower quadrant. Describes constant ache, 7/10, worsened by walking and coughing. Associated symptoms: one episode of vomiting this morning, anorexia, possible low-grade fever, no diarrhea, constipation since yesterday, no dysuria, no urinary symptoms. No significant past medical or surgical history except tonsillectomy. No regular medications; took two paracetamol today. Negative pregnancy test last week. Physical exam: tenderness and guarding in the right lower quadrant, otherwise soft abdomen. Family history notable for cousin with appendectomy. Impression: likely acute appendicitis. Plan: referral to surgical team for further evaluation and management."
   }
 }

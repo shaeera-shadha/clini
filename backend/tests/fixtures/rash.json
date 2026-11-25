@@ -1,0 +1,451 @@
+{
+  "sample_id": "rash",
+  "source": "hand-made mock fixture (not model output)",
+  "extract": {
+    "items": [
+      {
+        "section": "symptom",
+        "text": "Itchy rash on both forearms",
+        "polarity": "present",
+        "qualifiers": {
+          "duration": null,
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S3"
+        ]
+      },
+      {
+        "section": "symptom",
+        "text": "Came up about five days ago",
+        "polarity": "present",
+        "qualifiers": {
+          "duration": null,
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S4"
+        ]
+      },
+      {
+        "section": "symptom",
+        "text": "Rash for five weeks",
+        "polarity": "present",
+        "qualifiers": {
+          "duration": "five weeks",
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S3",
+          "S4"
+        ]
+      },
+      {
+        "section": "symptom",
+        "text": "Small patch on the neck",
+        "polarity": "present",
+        "qualifiers": {
+          "duration": null,
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S6"
+        ]
+      },
+      {
+        "section": "symptom",
+        "text": "On the face",
+        "polarity": "absent",
+        "qualifiers": {
+          "duration": null,
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S7"
+        ]
+      },
+      {
+        "section": "symptom",
+        "text": "Pain",
+        "polarity": "absent",
+        "qualifiers": {
+          "duration": null,
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S9"
+        ]
+      },
+      {
+        "section": "symptom",
+        "text": "Very itchy, especially at night",
+        "polarity": "present",
+        "qualifiers": {
+          "duration": null,
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S9"
+        ]
+      },
+      {
+        "section": "history",
+        "text": "New washing powder last week, unsure if related",
+        "polarity": "uncertain",
+        "qualifiers": {
+          "duration": null,
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S11",
+          "S12"
+        ]
+      },
+      {
+        "section": "history",
+        "text": "Allergic contact dermatitis from the washing powder",
+        "polarity": "present",
+        "qualifiers": {
+          "duration": null,
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S11"
+        ]
+      },
+      {
+        "section": "history",
+        "text": "New medicines",
+        "polarity": "absent",
+        "qualifiers": {
+          "duration": null,
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S14"
+        ]
+      },
+      {
+        "section": "symptom",
+        "text": "Fever",
+        "polarity": "absent",
+        "qualifiers": {
+          "duration": null,
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S16"
+        ]
+      },
+      {
+        "section": "symptom",
+        "text": "Feels fine otherwise",
+        "polarity": "present",
+        "qualifiers": {
+          "duration": null,
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S17"
+        ]
+      },
+      {
+        "section": "history",
+        "text": "Eczema as a child, cleared about age ten",
+        "polarity": "present",
+        "qualifiers": {
+          "duration": null,
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S19",
+          "S20"
+        ]
+      },
+      {
+        "section": "history",
+        "text": "Anyone at home with the rash",
+        "polarity": "absent",
+        "qualifiers": {
+          "duration": null,
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S22"
+        ]
+      },
+      {
+        "section": "history",
+        "text": "Son: hay fever",
+        "polarity": "present",
+        "qualifiers": {
+          "duration": null,
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S23"
+        ]
+      },
+      {
+        "section": "history",
+        "text": "Hydrocortisone cream 1 percent twice a day, helps a bit",
+        "polarity": "present",
+        "qualifiers": {
+          "duration": null,
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S25",
+          "S26"
+        ]
+      },
+      {
+        "section": "observation",
+        "text": "Red, slightly raised patches on both forearms with scratch marks",
+        "polarity": "present",
+        "qualifiers": {
+          "duration": null,
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S28"
+        ]
+      },
+      {
+        "section": "observation",
+        "text": "Blisters",
+        "polarity": "absent",
+        "qualifiers": {
+          "duration": null,
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S29"
+        ]
+      },
+      {
+        "section": "observation",
+        "text": "Broken or weeping skin",
+        "polarity": "absent",
+        "qualifiers": {
+          "duration": null,
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S29"
+        ]
+      },
+      {
+        "section": "observation",
+        "text": "Neck patch looks similar",
+        "polarity": "present",
+        "qualifiers": {
+          "duration": null,
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S30"
+        ]
+      },
+      {
+        "section": "observation",
+        "text": "Burrows",
+        "polarity": "absent",
+        "qualifiers": {
+          "duration": null,
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S32"
+        ]
+      },
+      {
+        "section": "observation",
+        "text": "Scabies",
+        "polarity": "uncertain",
+        "qualifiers": {
+          "duration": null,
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S31"
+        ]
+      }
+    ]
+  },
+  "verify": {
+    "I1": {
+      "verdict": "supported",
+      "reason": "Stated in S3."
+    },
+    "I2": {
+      "verdict": "supported",
+      "reason": "Stated in S4."
+    },
+    "I3": {
+      "verdict": "partial",
+      "reason": "S4 says about five days ago, not five weeks."
+    },
+    "I4": {
+      "verdict": "supported",
+      "reason": "Stated in S6."
+    },
+    "I5": {
+      "verdict": "supported",
+      "reason": "Stated in S7."
+    },
+    "I6": {
+      "verdict": "supported",
+      "reason": "Stated in S9."
+    },
+    "I7": {
+      "verdict": "supported",
+      "reason": "Stated in S9."
+    },
+    "I8": {
+      "verdict": "supported",
+      "reason": "Stated in S11, S12."
+    },
+    "I9": {
+      "verdict": "unsupported",
+      "reason": "S11 only says the washing powder was changed; no diagnosis is stated."
+    },
+    "I10": {
+      "verdict": "supported",
+      "reason": "Stated in S14."
+    },
+    "I11": {
+      "verdict": "supported",
+      "reason": "Stated in S16."
+    },
+    "I12": {
+      "verdict": "supported",
+      "reason": "Stated in S17."
+    },
+    "I13": {
+      "verdict": "supported",
+      "reason": "Stated in S19, S20."
+    },
+    "I14": {
+      "verdict": "supported",
+      "reason": "Stated in S22."
+    },
+    "I15": {
+      "verdict": "supported",
+      "reason": "Stated in S23."
+    },
+    "I16": {
+      "verdict": "supported",
+      "reason": "Stated in S25, S26."
+    },
+    "I17": {
+      "verdict": "supported",
+      "reason": "Stated in S28."
+    },
+    "I18": {
+      "verdict": "supported",
+      "reason": "Stated in S29."
+    },
+    "I19": {
+      "verdict": "supported",
+      "reason": "Stated in S29."
+    },
+    "I20": {
+      "verdict": "supported",
+      "reason": "Stated in S30."
+    },
+    "I21": {
+      "verdict": "supported",
+      "reason": "Stated in S32."
+    },
+    "I22": {
+      "verdict": "unsupported",
+      "reason": "S31 is the patient repeating something read online, not a clinician finding."
+    },
+    "B1": {
+      "verdict": "supported",
+      "reason": "Matches the transcript."
+    },
+    "B2": {
+      "verdict": "supported",
+      "reason": "Matches the transcript."
+    },
+    "B3": {
+      "verdict": "supported",
+      "reason": "Matches the transcript."
+    },
+    "B4": {
+      "verdict": "supported",
+      "reason": "Matches the transcript."
+    },
+    "B5": {
+      "verdict": "supported",
+      "reason": "Matches the transcript."
+    },
+    "B6": {
+      "verdict": "unsupported",
+      "reason": "Son's hay fever recorded as the patient's"
+    },
+    "B7": {
+      "verdict": "supported",
+      "reason": "Matches the transcript."
+    },
+    "B8": {
+      "verdict": "supported",
+      "reason": "Matches the transcript."
+    },
+    "B9": {
+      "verdict": "supported",
+      "reason": "Matches the transcript."
+    },
+    "B10": {
+      "verdict": "supported",
+      "reason": "Matches the transcript."
+    },
+    "B11": {
+      "verdict": "supported",
+      "reason": "Matches the transcript."
+    },
+    "B12": {
+      "verdict": "supported",
+      "reason": "Matches the transcript."
+    },
+    "B13": {
+      "verdict": "unsupported",
+      "reason": "Dermatitis or allergy diagnosis the clinician never made"
+    },
+    "B14": {
+      "verdict": "supported",
+      "reason": "Matches the transcript."
+    },
+    "B15": {
+      "verdict": "unsupported",
+      "reason": "Not stated in the retrieved transcript sentences."
+    }
+  },
+  "baseline": {
+    "note": "Presenting complaint:\nItchy erythematous rash on both forearms for 5 days, also on the neck. Not painful, worse at night. No facial involvement.\n\nTriggers: Recently changed washing powder.\n\nPast medical history: Childhood eczema. Hay fever.\nMedications: Hydrocortisone 1 percent cream twice daily with some benefit. No new medications.\n\nExamination:\nErythematous, slightly raised plaques on both forearms with excoriations. No vesicles, no weeping. Similar lesion on the neck. No burrows seen.\n\nDiagnosis:\nAllergic contact dermatitis secondary to the new washing powder.\n\nPlan:\nStop the washing powder for 2 weeks. Emollients and a stronger topical steroid if not improving."
+  }
+}

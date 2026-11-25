@@ -19,7 +19,7 @@ from app.clients import get_baseline_cache, get_client, get_result_cache
 from app.config import DATA_DIR, Settings, get_settings
 from app.errors import PipelineError
 from app.evaluation import EvalReport
-from app.llm import LLMClient
+from app.llm import LLMClient, MockLLM
 from app.pipeline import ResultEvent, StageEvent, generate, run_pipeline
 from app.samples import get_sample, list_samples
 from app.schemas import (
@@ -55,11 +55,12 @@ async def _pipeline_error(_: Request, exc: PipelineError) -> JSONResponse:
 
 
 @app.get("/health")
-def health(settings: SettingsDep) -> HealthResponse:
+def health(settings: SettingsDep, client: ClientDep) -> HealthResponse:
     return HealthResponse(
         status="ok",
         mode=settings.llm_mode,
         models={"extractor": settings.extractor_model, "verifier": settings.verifier_model},
+        fixtures="; ".join(sorted(client.sources)) if isinstance(client, MockLLM) else None,
     )
 
 

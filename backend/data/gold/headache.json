@@ -224,7 +224,8 @@
           "no medical",
           "no significant",
           "nil",
-          "pmh"
+          "pmh",
+          "unremarkable"
         ]
       ]
     },
@@ -410,6 +411,22 @@
       "match": [
         [
           "diary"
+        ]
+      ]
+    },
+    {
+      "text": "Neck moves freely",
+      "evidence": [
+        "S33"
+      ],
+      "match": [
+        [
+          "neck"
+        ],
+        [
+          "free",
+          "full range",
+          "normal"
         ]
       ]
     }

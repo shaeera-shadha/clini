@@ -1,14 +1,14 @@
 {
   "sample_id": "headache",
-  "source": "hand-made mock fixture (not model output)",
+  "source": "recorded live 2026-11-25: extractor openai/gpt-oss-120b, verifier qwen/qwen3.8-27b",
   "extract": {
     "items": [
       {
         "section": "symptom",
-        "text": "Headaches for about two weeks",
+        "text": "Headache",
         "polarity": "present",
         "qualifiers": {
-          "duration": null,
+          "duration": "two weeks",
           "severity": null,
           "onset": null
         },
@@ -18,20 +18,7 @@
       },
       {
         "section": "symptom",
-        "text": "Headaches for two months",
-        "polarity": "present",
-        "qualifiers": {
-          "duration": "two months",
-          "severity": null,
-          "onset": null
-        },
-        "evidence": [
-          "S3"
-        ]
-      },
-      {
-        "section": "symptom",
-        "text": "Mostly right-sided",
+        "text": "Right side of head",
         "polarity": "present",
         "qualifiers": {
           "duration": null,
@@ -57,11 +44,11 @@
       },
       {
         "section": "symptom",
-        "text": "Pain usually around six out of ten",
+        "text": "Pain severity 6/10",
         "polarity": "present",
         "qualifiers": {
           "duration": null,
-          "severity": null,
+          "severity": "6",
           "onset": null
         },
         "evidence": [
@@ -70,11 +57,11 @@
       },
       {
         "section": "symptom",
-        "text": "Worst one maybe an eight out of ten",
-        "polarity": "uncertain",
+        "text": "Pain severity 8/10",
+        "polarity": "present",
         "qualifiers": {
           "duration": null,
-          "severity": null,
+          "severity": "8",
           "onset": null
         },
         "evidence": [
@@ -83,7 +70,7 @@
       },
       {
         "section": "symptom",
-        "text": "Bright lights bother when bad",
+        "text": "Photophobia (bright lights)",
         "polarity": "present",
         "qualifiers": {
           "duration": null,
@@ -96,7 +83,7 @@
       },
       {
         "section": "symptom",
-        "text": "Screens may make it worse",
+        "text": "Screens worsen headache",
         "polarity": "uncertain",
         "qualifiers": {
           "duration": null,
@@ -109,7 +96,7 @@
       },
       {
         "section": "symptom",
-        "text": "Feels a bit sick with bad headaches",
+        "text": "Nausea",
         "polarity": "present",
         "qualifiers": {
           "duration": null,
@@ -124,19 +111,6 @@
         "section": "symptom",
         "text": "Vomiting",
         "polarity": "absent",
-        "qualifiers": {
-          "duration": null,
-          "severity": null,
-          "onset": null
-        },
-        "evidence": [
-          "S14"
-        ]
-      },
-      {
-        "section": "symptom",
-        "text": "Vomiting with headaches",
-        "polarity": "present",
         "qualifiers": {
           "duration": null,
           "severity": null,
@@ -174,7 +148,7 @@
       },
       {
         "section": "symptom",
-        "text": "Zigzag lines before onset",
+        "text": "Visual aura (zigzag lines)",
         "polarity": "present",
         "qualifiers": {
           "duration": null,
@@ -183,33 +157,6 @@
         },
         "evidence": [
           "S17"
-        ]
-      },
-      {
-        "section": "history",
-        "text": "Ibuprofen 400 mg at onset, helps a little",
-        "polarity": "present",
-        "qualifiers": {
-          "duration": null,
-          "severity": null,
-          "onset": null
-        },
-        "evidence": [
-          "S19",
-          "S20"
-        ]
-      },
-      {
-        "section": "history",
-        "text": "Taking it probably four days a week",
-        "polarity": "uncertain",
-        "qualifiers": {
-          "duration": null,
-          "severity": null,
-          "onset": null
-        },
-        "evidence": [
-          "S22"
         ]
       },
       {
@@ -227,7 +174,7 @@
       },
       {
         "section": "history",
-        "text": "Sister: migraines",
+        "text": "Ibuprofen 400 mg",
         "polarity": "present",
         "qualifiers": {
           "duration": null,
@@ -235,12 +182,38 @@
           "onset": null
         },
         "evidence": [
-          "S26"
+          "S19"
         ]
       },
       {
         "section": "history",
-        "text": "Migraine",
+        "text": "Ibuprofen frequency four days a week",
+        "polarity": "present",
+        "qualifiers": {
+          "duration": "four days a week",
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S22"
+        ]
+      },
+      {
+        "section": "history",
+        "text": "Coffee intake three cups a day",
+        "polarity": "present",
+        "qualifiers": {
+          "duration": null,
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S29"
+        ]
+      },
+      {
+        "section": "history",
+        "text": "Sister: migraines",
         "polarity": "present",
         "qualifiers": {
           "duration": null,
@@ -262,19 +235,6 @@
         },
         "evidence": [
           "S27"
-        ]
-      },
-      {
-        "section": "history",
-        "text": "About three cups of coffee a day",
-        "polarity": "present",
-        "qualifiers": {
-          "duration": null,
-          "severity": null,
-          "onset": null
-        },
-        "evidence": [
-          "S29"
         ]
       },
       {
@@ -305,8 +265,8 @@
       },
       {
         "section": "observation",
-        "text": "Weakness in arms or legs",
-        "polarity": "absent",
+        "text": "No weakness in arms or legs",
+        "polarity": "present",
         "qualifiers": {
           "duration": null,
           "severity": null,
@@ -314,6 +274,19 @@
         },
         "evidence": [
           "S32"
+        ]
+      },
+      {
+        "section": "observation",
+        "text": "Neck moves freely",
+        "polarity": "present",
+        "qualifiers": {
+          "duration": null,
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S33"
         ]
       },
       {
@@ -328,176 +301,173 @@
         "evidence": [
           "S33"
         ]
+      },
+      {
+        "section": "observation",
+        "text": "No serious findings",
+        "polarity": "present",
+        "qualifiers": {
+          "duration": null,
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S35"
+        ]
       }
     ]
   },
   "verify": {
     "I1": {
       "verdict": "supported",
-      "reason": "Stated in S3."
+      "reason": "The cited sentence explicitly states the patient has been getting headaches for about two weeks, which matches the symptom, polarity, and duration in the note item."
     },
     "I2": {
-      "verdict": "unsupported",
-      "reason": "S3 says about two weeks, not two months."
+      "verdict": "supported",
+      "reason": "The cited sentence explicitly states that the symptoms are 'mostly on the right side of my head', which directly supports the note item."
     },
     "I3": {
       "verdict": "supported",
-      "reason": "Stated in S4."
-    },
-    "I4": {
-      "verdict": "supported",
-      "reason": "Stated in S5."
+      "reason": "The patient explicitly states 'It feels like a throbbing pain', which directly supports the symptom with 'present' polarity."
     },
     "I5": {
       "verdict": "supported",
-      "reason": "Stated in S7."
+      "reason": "The cited sentence explicitly states the patient's worst pain was 'maybe an eight', which directly supports the severity of 8/10."
     },
     "I6": {
       "verdict": "supported",
-      "reason": "Stated in S8."
+      "reason": "The patient explicitly states that bright lights bother them, which directly supports the presence of photophobia."
     },
     "I7": {
       "verdict": "supported",
-      "reason": "Stated in S10."
+      "reason": "The patient explicitly states 'I think screens make it worse, but I'm not certain,' which directly supports the finding with the 'uncertain' polarity."
     },
     "I8": {
       "verdict": "supported",
-      "reason": "Stated in S11."
+      "reason": "The patient's statement 'I feel a bit sick' is a direct report of nausea, supporting the symptom's presence."
+    },
+    "I4": {
+      "verdict": "supported",
+      "reason": "The cited sentence explicitly states the pain level is 'around six', which supports the severity detail of 6/10."
     },
     "I9": {
       "verdict": "supported",
-      "reason": "Stated in S13."
+      "reason": "The patient explicitly states 'I haven't vomited,' which directly supports the finding that vomiting is absent."
     },
     "I10": {
       "verdict": "supported",
-      "reason": "Stated in S14."
+      "reason": "The patient explicitly states 'No weakness', which directly supports the finding of weakness being absent."
     },
     "I11": {
-      "verdict": "unsupported",
-      "reason": "S14 says the patient has not vomited."
+      "verdict": "supported",
+      "reason": "The patient explicitly states 'No weakness or numbness', which directly supports the finding that numbness is absent."
     },
     "I12": {
       "verdict": "supported",
-      "reason": "Stated in S16."
+      "reason": "The cited sentence explicitly states the patient sees zigzag lines before the event starts, which directly supports the presence of the visual aura symptom."
     },
     "I13": {
       "verdict": "supported",
-      "reason": "Stated in S16."
-    },
-    "I14": {
-      "verdict": "supported",
-      "reason": "Stated in S17."
-    },
-    "I15": {
-      "verdict": "supported",
-      "reason": "Stated in S19, S20."
+      "reason": "The patient explicitly states they have 'always been healthy,' which supports the polarity 'absent' for past medical problems."
     },
     "I16": {
-      "verdict": "supported",
-      "reason": "Stated in S22."
+      "verdict": "partial",
+      "reason": "The cited sentence confirms the quantity 'three cups a day' but does not mention 'coffee', so the specific substance is not stated in the evidence."
     },
     "I17": {
       "verdict": "supported",
-      "reason": "Stated in S24."
+      "reason": "The cited sentence explicitly states that the patient's sister gets migraines, which directly supports the note item."
+    },
+    "I14": {
+      "verdict": "supported",
+      "reason": "The cited sentence explicitly states the patient takes ibuprofen 400 mg, which directly supports the note item."
     },
     "I18": {
       "verdict": "supported",
-      "reason": "Stated in S26."
+      "reason": "The cited sentence explicitly states that the patient's father had a stroke at seventy, which fully supports the note item."
     },
     "I19": {
-      "verdict": "unsupported",
-      "reason": "S26 says the patient's sister gets migraines, not the patient."
+      "verdict": "supported",
+      "reason": "The cited sentence explicitly states the doctor's observation that the back of the eyes looks normal, which directly supports the note item."
     },
     "I20": {
       "verdict": "supported",
-      "reason": "Stated in S27."
-    },
-    "I21": {
-      "verdict": "supported",
-      "reason": "Stated in S29."
+      "reason": "The cited sentence explicitly states the doctor's observation that the patient's eye movements are normal, matching the note item exactly."
     },
     "I22": {
       "verdict": "supported",
-      "reason": "Stated in S31."
+      "reason": "The cited sentence explicitly states the doctor's observation that the neck moves freely, matching the note item exactly."
     },
     "I23": {
       "verdict": "supported",
-      "reason": "Stated in S32."
+      "reason": "The cited sentence explicitly states 'there's no stiffness' and that the neck 'moves freely', which directly supports the observation of absent neck stiffness."
+    },
+    "I21": {
+      "verdict": "supported",
+      "reason": "The cited sentence explicitly states the doctor's observation that 'I can't find any weakness in your arms or legs', which directly supports the note item."
     },
     "I24": {
       "verdict": "supported",
-      "reason": "Stated in S32."
-    },
-    "I25": {
-      "verdict": "supported",
-      "reason": "Stated in S33."
-    },
-    "B1": {
-      "verdict": "supported",
-      "reason": "Matches the transcript."
-    },
-    "B2": {
-      "verdict": "supported",
-      "reason": "Matches the transcript."
+      "reason": "The cited sentence explicitly states that nothing found points to anything serious, which directly supports the observation of 'No serious findings'."
     },
     "B3": {
-      "verdict": "supported",
-      "reason": "Matches the transcript."
+      "verdict": "unsupported",
+      "reason": "The cited sentences do not state that the patient has nausea; the doctor asks about it, but the patient only denies vomiting, leaving the presence of nausea unconfirmed."
     },
     "B4": {
       "verdict": "supported",
-      "reason": "Matches the transcript."
+      "reason": "The cited sentence explicitly states the patient sees zigzag lines before the attack starts, which supports the finding of a visual aura with the specific description and timing, although the frequency 'occasional' is inferred from 'sometimes'."
     },
-    "B5": {
-      "verdict": "supported",
-      "reason": "Matches the transcript."
+    "B2": {
+      "verdict": "partial",
+      "reason": "The cited sentences do not mention photophobia, and the patient's statement about screens is explicitly hedged ('I'm not certain'), which contradicts the note's definitive assertion that screens 'may exacerbate pain' as a noted finding."
     },
     "B6": {
       "verdict": "supported",
-      "reason": "Matches the transcript."
+      "reason": "The cited sentence explicitly states that the doctor observed the neck moves freely and there is no stiffness, directly supporting the note item."
     },
     "B7": {
-      "verdict": "supported",
-      "reason": "Matches the transcript."
+      "verdict": "unsupported",
+      "reason": "The cited sentence is a question from the doctor, not a statement of the patient's history, so it does not support the finding that the history is unremarkable."
+    },
+    "B5": {
+      "verdict": "partial",
+      "reason": "The cited sentences confirm the absence of weakness and numbness, but they do not state the absence of focal neurological deficits, which is a distinct clinical finding not covered by the specific symptoms mentioned."
     },
     "B8": {
       "verdict": "supported",
-      "reason": "Matches the transcript."
+      "reason": "The cited sentences explicitly state that the patient's sister has migraines and that the patient's father had a stroke at age seventy, which fully supports the note item."
+    },
+    "B10": {
+      "verdict": "partial",
+      "reason": "The cited sentences do not state that the patient experiences 'partial relief' from the medication."
     },
     "B9": {
       "verdict": "supported",
-      "reason": "Matches the transcript."
-    },
-    "B10": {
-      "verdict": "unsupported",
-      "reason": "Not stated in the retrieved transcript sentences."
-    },
-    "B11": {
-      "verdict": "unsupported",
-      "reason": "Not stated in the retrieved transcript sentences."
+      "reason": "The patient explicitly states in S29 that they drink 'About three cups a day' in response to the doctor's question about coffee in S28, which directly supports the note item."
     },
     "B12": {
-      "verdict": "supported",
-      "reason": "Matches the transcript."
+      "verdict": "unsupported",
+      "reason": "The cited sentences do not state the diagnosis of 'migraine' or the severity 'uncomplicated'; they only report the patient's headache frequency and a family history of migraines in the sister."
     },
     "B13": {
-      "verdict": "unsupported",
-      "reason": "Not stated in the retrieved transcript sentences."
+      "verdict": "partial",
+      "reason": "The cited sentence [S36] only mentions keeping a 'headache diary' and does not specify the details listed in the note item (frequency, triggers, medication use), which are added details not present in the evidence."
     },
     "B14": {
       "verdict": "unsupported",
-      "reason": "Migraine recorded as the patient's diagnosis (only the sister has migraines)"
+      "reason": "The cited sentences do not mention triptans, moderate-to-severe attacks, or a recommendation to add a new medication, which are key details in the note item."
+    },
+    "B11": {
+      "verdict": "partial",
+      "reason": "The cited sentences do not mention neck range of motion or meningeal signs, which are explicitly stated in the note item."
     },
     "B15": {
-      "verdict": "supported",
-      "reason": "Matches the transcript."
-    },
-    "B16": {
-      "verdict": "supported",
-      "reason": "Matches the transcript."
+      "verdict": "partial",
+      "reason": "The cited sentences do not mention caffeine as a trigger or the need for its moderation; S29 only states the patient's consumption amount ('About three cups a day') without linking it to symptom exacerbation or providing a recommendation."
     }
   },
   "baseline": {
-    "note": "Presenting complaint:\nRight-sided throbbing headaches for 2 weeks.\n\nHistory:\nPain 6 to 8 out of 10, associated with photophobia, nausea and visual aura (zigzag lines). No vomiting, weakness or numbness. Screen use worsens symptoms. Taking ibuprofen 400 mg four times a week with partial relief. Caffeine intake 3 cups a day.\n\nPast medical history: Nil.\nFamily history: Sister with migraines. Father had a stroke at 70.\n\nExamination:\nFundoscopy normal. Cranial nerves intact. No focal neurological deficit. No neck stiffness. Blood pressure normal.\n\nImpression:\nMigraine with aura, possible medication overuse headache.\n\nPlan:\nHeadache diary for one month. Reassured regarding tumour concerns."
+    "note": "Subjective: 28-year-old patient presents with a 2-week history of right-sided throbbing headaches, pain rating 6/10 (worst 8/10). Photophobia noted; screens may exacerbate pain. Mild nausea without vomiting. Occasional visual aura (zigzag lines) preceding attacks. No focal neurological deficits, weakness, or numbness. No neck stiffness. Past medical history unremarkable. Family history: sister with migraines, father had stroke at age 70. Social: drinks ~3 cups coffee daily. Uses ibuprofen 400 mg ~4 days/week with partial relief.\n\nObjective: Fundoscopic exam normal, extraocular movements intact, no motor weakness in extremities, neck range of motion normal, no meningeal signs.\n\nAssessment: Probable migraine headache, uncomplicated.\n\nPlan: 1) Advise migraine diary for one month (frequency, triggers, medication use). 2) Continue ibuprofen as needed; consider adding a triptan for moderate-to-severe attacks. 3) Counsel on trigger avoidance (bright light, screen time, caffeine moderation). 4) Follow-up in 4-6 weeks or sooner if symptoms change (new neurological signs, worsening pattern)."
   }
 }

@@ -21,7 +21,7 @@ from typing import Any, Literal, TypeVar
 import groq
 from pydantic import BaseModel, ValidationError
 
-from app.config import DATA_DIR
+from app.config import DATA_DIR, get_settings
 from app.errors import PipelineError
 from app.preprocess import transcript_hash
 from app.samples import get_sample, list_samples
@@ -59,14 +59,18 @@ class LLMClient(ABC):
 
 
 class MockLLM(LLMClient):
-    def __init__(self, fixtures_dir: Path = FIXTURES_DIR, latency_ms: int = 0) -> None:
+    def __init__(self, fixtures_dir: Path | None = None, latency_ms: int = 0) -> None:
+        directory = fixtures_dir or get_settings().fixtures_dir
         self._latency_s = latency_ms / 1000
         self._by_hash: dict[str, dict[str, Any]] = {}
+        #: Where the replayed responses came from ("recorded live ..." or "hand-made ...").
+        self.sources: set[str] = set()
         for summary in list_samples():
-            path = fixtures_dir / f"{summary.id}.json"
+            path = directory / f"{summary.id}.json"
             if path.exists():
                 data = json.loads(path.read_text(encoding="utf-8"))
                 self._by_hash[transcript_hash(get_sample(summary.id).transcript)] = data
+                self.sources.add(str(data.get("source", "unknown source")))
 
     async def complete_json(
         self,

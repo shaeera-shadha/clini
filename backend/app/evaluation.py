@@ -101,6 +101,14 @@ class Unit:
     flagged: bool = False
 
     @property
+    def effective_polarity(self) -> Polarity | None:
+        """Polarity as a reader understands it: "Negative pregnancy test" or "No weakness in
+        arms" are denials even when the field says "present"."""
+        if self.polarity == "present" and NEGATION_CUES.search(self.text):
+            return "absent"
+        return self.polarity
+
+    @property
     def rendered(self) -> str:
         """What the statement says, polarity included ("No fever"), as a reader sees it."""
         if self.polarity == "absent" and not NEGATION_CUES.search(self.text):
@@ -130,8 +138,8 @@ def _cited(unit: Unit, evidence: list[str]) -> bool:
 
 def _polarity_compatible(unit: Unit, item: GoldItem) -> bool:
     """A statement that contradicts the gold polarity (present vs denied) is not a match."""
-    if unit.polarity is not None:
-        return {unit.polarity, item.polarity} != {"present", "absent"}
+    if unit.effective_polarity is not None:
+        return {unit.effective_polarity, item.polarity} != {"present", "absent"}
     return item.polarity != "absent" or bool(NEGATION_CUES.search(unit.text))
 
 
@@ -244,8 +252,8 @@ class SystemMetrics(BaseModel):
 
 def _keeps_polarity(unit: Unit, gold_item: GoldItem) -> bool:
     allowed = {gold_item.polarity, *gold_item.accept_polarity}
-    if unit.polarity is not None:
-        if unit.polarity in allowed:
+    if unit.effective_polarity is not None:
+        if unit.effective_polarity in allowed:
             return True
         # A hedge kept in the wording or qualifier ("maybe a week") still preserves uncertainty.
         return gold_item.polarity == "uncertain" and bool(HEDGE_CUES.search(unit.text))

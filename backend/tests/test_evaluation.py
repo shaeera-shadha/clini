@@ -149,3 +149,8 @@ def test_bundled_gold_files_load() -> None:
     for sample_id in ("cough", "headache", "chest", "abdominal", "diabetes", "rash"):
         gold = load_gold(sample_id)
         assert gold.items and gold.traps
+
+
+def test_negation_in_wording_counts_as_denial() -> None:
+    worded = item("No fever reported", "symptom", "present", ["S1"])
+    assert score_unit(worded, GOLD, SENTENCES).supported

@@ -1,13 +1,14 @@
-"""Build offline mock fixtures (data/fixtures/<sample>.json) for all bundled samples.
+"""Build the hand-made test fixtures (tests/fixtures/<sample>.json) for all bundled samples.
 
-These are HAND-MADE stand-ins so the UI can be built and demoed with no API key:
+These are HAND-MADE stand-ins used by the test suite (and usable offline with
+FIXTURES_DIR=tests/fixtures):
 - extractor output = the gold items plus a few realistic extractor mistakes per sample;
 - verifier verdicts = "supported" for gold items, written verdicts for the mistakes;
 - baseline = a hand-written naive summary (eval/mock_baseline_notes/) in the style a plain
   prompt produces, with its claim verdicts derived from the gold annotations.
 
-They are not model output and must never be reported as results. Replace them with recorded
-live responses via `python -m eval.run_eval --record-fixtures` once a Groq key is configured.
+They are not model output and must never be reported as results. The default mock mode replays
+data/fixtures instead, which `python -m eval.run_eval --record-fixtures` records from a live run.
 
 Usage (from backend/): python -m eval.build_mock_fixtures
 """
@@ -20,8 +21,8 @@ from pathlib import Path
 from typing import Any
 
 from app.baseline import split_claims
+from app.config import BACKEND_DIR
 from app.evaluation import Unit, load_gold, score_unit, unsupported_reason
-from app.llm import FIXTURES_DIR
 from app.preprocess import preprocess
 from app.samples import get_sample, list_samples
 
@@ -221,6 +222,7 @@ MISTAKES: dict[str, list[Mistake]] = {
 }
 
 BASELINE_NOTES_DIR = Path(__file__).resolve().parent / "mock_baseline_notes"
+TEST_FIXTURES = BACKEND_DIR / "tests" / "fixtures"
 
 
 def _item(
@@ -275,7 +277,7 @@ def build(sample_id: str) -> dict[str, Any]:
 def main() -> None:
     for summary in list_samples():
         data = build(summary.id)
-        path = FIXTURES_DIR / f"{summary.id}.json"
+        path = TEST_FIXTURES / f"{summary.id}.json"
         path.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
         print(f"{summary.id}: {len(data['extract']['items'])} items -> {path.name}")
 

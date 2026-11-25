@@ -25,6 +25,8 @@ class Settings(BaseSettings):
     max_retries: int = Field(default=5, ge=0)
     mock_latency_ms: int = Field(default=0, ge=0)
     cache_dir: Path = BACKEND_DIR / ".cache"
+    # Mock-mode responses. data/fixtures holds responses recorded from a live run.
+    fixtures_dir: Path = DATA_DIR / "fixtures"
     max_transcript_chars: int = 20_000
     cors_origins: str = "http://localhost:5173,http://127.0.0.1:5173"
 

@@ -1,6 +1,6 @@
 {
   "sample_id": "cough",
-  "source": "hand-made mock fixture (not model output)",
+  "source": "recorded live 2026-11-25: extractor openai/gpt-oss-120b, verifier qwen/qwen3.8-27b",
   "extract": {
     "items": [
       {
@@ -8,7 +8,7 @@
         "text": "Cough",
         "polarity": "present",
         "qualifiers": {
-          "duration": null,
+          "duration": "maybe a week",
           "severity": null,
           "onset": null
         },
@@ -19,20 +19,7 @@
       },
       {
         "section": "symptom",
-        "text": "Duration maybe a week, possibly longer",
-        "polarity": "uncertain",
-        "qualifiers": {
-          "duration": null,
-          "severity": null,
-          "onset": null
-        },
-        "evidence": [
-          "S4"
-        ]
-      },
-      {
-        "section": "symptom",
-        "text": "Cough worse at night",
+        "text": "Dry cough",
         "polarity": "present",
         "qualifiers": {
           "duration": null,
@@ -40,29 +27,15 @@
           "onset": null
         },
         "evidence": [
-          "S5"
+          "S7"
         ]
       },
       {
         "section": "symptom",
-        "text": "Mostly dry, a little clear phlegm in the morning",
+        "text": "Clear phlegm in cough",
         "polarity": "present",
         "qualifiers": {
           "duration": null,
-          "severity": null,
-          "onset": null
-        },
-        "evidence": [
-          "S7",
-          "S8"
-        ]
-      },
-      {
-        "section": "symptom",
-        "text": "Productive cough with green sputum for 3 days",
-        "polarity": "present",
-        "qualifiers": {
-          "duration": "3 days",
           "severity": null,
           "onset": null
         },
@@ -85,7 +58,7 @@
       },
       {
         "section": "symptom",
-        "text": "Felt shivery one evening, unsure",
+        "text": "Shivering",
         "polarity": "uncertain",
         "qualifiers": {
           "duration": null,
@@ -98,7 +71,7 @@
       },
       {
         "section": "symptom",
-        "text": "A little breathless climbing stairs",
+        "text": "Breathlessness on exertion",
         "polarity": "present",
         "qualifiers": {
           "duration": null,
@@ -124,21 +97,7 @@
       },
       {
         "section": "history",
-        "text": "Ex-smoker: stopped five years ago, smoked about ten years",
-        "polarity": "present",
-        "qualifiers": {
-          "duration": null,
-          "severity": null,
-          "onset": null
-        },
-        "evidence": [
-          "S16",
-          "S17"
-        ]
-      },
-      {
-        "section": "history",
-        "text": "Pneumonia as a child",
+        "text": "Pneumonia (childhood)",
         "polarity": "present",
         "qualifiers": {
           "duration": null,
@@ -164,20 +123,7 @@
       },
       {
         "section": "history",
-        "text": "Hay fever",
-        "polarity": "present",
-        "qualifiers": {
-          "duration": null,
-          "severity": null,
-          "onset": null
-        },
-        "evidence": [
-          "S21"
-        ]
-      },
-      {
-        "section": "history",
-        "text": "Medicine allergies (not that I know of)",
+        "text": "Allergy to medicines",
         "polarity": "absent",
         "qualifiers": {
           "duration": null,
@@ -185,8 +131,33 @@
           "onset": null
         },
         "evidence": [
-          "S23",
           "S24"
+        ]
+      },
+      {
+        "section": "history",
+        "text": "Former smoker, stopped 5 years ago",
+        "polarity": "present",
+        "qualifiers": {
+          "duration": "5 years ago",
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S16"
+        ]
+      },
+      {
+        "section": "history",
+        "text": "Smoked for about ten years",
+        "polarity": "present",
+        "qualifiers": {
+          "duration": "ten years",
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S17"
         ]
       },
       {
@@ -204,23 +175,10 @@
       },
       {
         "section": "history",
-        "text": "Asthma",
+        "text": "Brother: chest infection",
         "polarity": "present",
         "qualifiers": {
-          "duration": null,
-          "severity": null,
-          "onset": null
-        },
-        "evidence": [
-          "S26"
-        ]
-      },
-      {
-        "section": "history",
-        "text": "Brother: chest infection last month",
-        "polarity": "present",
-        "qualifiers": {
-          "duration": null,
+          "duration": "last month",
           "severity": null,
           "onset": null
         },
@@ -230,7 +188,7 @@
       },
       {
         "section": "observation",
-        "text": "Mild wheeze on both sides on expiration",
+        "text": "Mild wheeze on exhalation bilaterally",
         "polarity": "present",
         "qualifiers": {
           "duration": null,
@@ -256,7 +214,7 @@
       },
       {
         "section": "observation",
-        "text": "Temperature 37.1 degrees",
+        "text": "Temperature 37.1 degrees Celsius",
         "polarity": "present",
         "qualifiers": {
           "duration": null,
@@ -282,19 +240,6 @@
       },
       {
         "section": "observation",
-        "text": "Signs of chest infection on listening",
-        "polarity": "absent",
-        "qualifiers": {
-          "duration": null,
-          "severity": null,
-          "onset": null
-        },
-        "evidence": [
-          "S34"
-        ]
-      },
-      {
-        "section": "observation",
         "text": "Throat slightly red",
         "polarity": "present",
         "qualifiers": {
@@ -308,15 +253,15 @@
       },
       {
         "section": "observation",
-        "text": "Chest infection",
-        "polarity": "uncertain",
+        "text": "Signs of chest infection",
+        "polarity": "absent",
         "qualifiers": {
           "duration": null,
           "severity": null,
           "onset": null
         },
         "evidence": [
-          "S33"
+          "S34"
         ]
       }
     ]
@@ -324,170 +269,134 @@
   "verify": {
     "I1": {
       "verdict": "supported",
-      "reason": "Stated in S3, S4."
+      "reason": "The cited sentences explicitly state the patient has a cough (S3) and that it started 'maybe a week ago' (S4), which directly supports the finding, polarity, and duration qualifier."
     },
     "I2": {
-      "verdict": "supported",
-      "reason": "Stated in S4."
+      "verdict": "partial",
+      "reason": "The cited sentence 'Mostly dry' confirms the quality of the cough but does not explicitly state the presence of the symptom itself (i.e., that the patient has a cough), making the finding partially supported."
     },
     "I3": {
       "verdict": "supported",
-      "reason": "Stated in S5."
+      "reason": "The cited sentence explicitly states the patient has 'a little clear phlegm', which directly supports the finding of clear phlegm in the cough."
     },
     "I4": {
       "verdict": "supported",
-      "reason": "Stated in S7, S8."
+      "reason": "The cited sentence explicitly states 'No fever', which directly supports the finding of fever being absent."
     },
     "I5": {
-      "verdict": "unsupported",
-      "reason": "S8 mentions a little clear phlegm; green sputum and a 3-day duration are not stated."
+      "verdict": "supported",
+      "reason": "The patient explicitly states feeling 'a bit shivery' but adds 'but I'm not sure that was anything', which matches the 'uncertain' polarity and the symptom of shivering."
     },
     "I6": {
       "verdict": "supported",
-      "reason": "Stated in S10."
+      "reason": "The patient explicitly states 'I get a little breathless climbing stairs', which directly supports the presence of breathlessness on exertion."
     },
     "I7": {
       "verdict": "supported",
-      "reason": "Stated in S11."
+      "reason": "The patient explicitly states 'No chest pain at all', which directly supports the finding that chest pain is absent."
     },
     "I8": {
       "verdict": "supported",
-      "reason": "Stated in S13."
+      "reason": "The cited sentence explicitly states the patient had pneumonia as a child, which directly supports the note item."
     },
     "I9": {
       "verdict": "supported",
-      "reason": "Stated in S14."
+      "reason": "The cited sentence explicitly states the patient takes 'cetirizine 10 mg for hay fever in the spring', which matches the drug, dosage, indication, and timing in the note item."
     },
     "I10": {
       "verdict": "supported",
-      "reason": "Stated in S16, S17."
+      "reason": "The cited sentence is a direct denial ('Not that I know of') which supports the polarity 'absent' for the history item."
     },
     "I11": {
       "verdict": "supported",
-      "reason": "Stated in S19."
+      "reason": "The cited sentence explicitly states the patient stopped smoking five years ago, which directly supports the finding and the duration qualifier."
     },
     "I12": {
       "verdict": "supported",
-      "reason": "Stated in S21."
+      "reason": "The cited sentence explicitly states the patient smoked for about ten years, matching the finding, polarity, and duration in the note item."
     },
     "I13": {
       "verdict": "supported",
-      "reason": "Stated in S21."
+      "reason": "The cited sentence explicitly states 'My mother has asthma,' which directly supports the note item regarding the mother's asthma."
     },
     "I14": {
       "verdict": "supported",
-      "reason": "Stated in S23, S24."
+      "reason": "The cited sentence explicitly states that the patient's brother had a bad chest infection last month, which fully supports the finding, polarity, and duration specified in the note item."
     },
     "I15": {
       "verdict": "supported",
-      "reason": "Stated in S26."
+      "reason": "The cited sentence explicitly states the doctor hears a 'mild wheeze on both sides when you breathe out', which directly supports the finding of mild bilateral wheeze on exhalation."
     },
     "I16": {
-      "verdict": "unsupported",
-      "reason": "S26 says the patient's mother has asthma; it does not say the patient has asthma."
+      "verdict": "supported",
+      "reason": "The cited sentence explicitly states 'There are no crackles', which directly supports the finding of crackles being absent."
     },
     "I17": {
       "verdict": "supported",
-      "reason": "Stated in S27."
+      "reason": "The cited sentence explicitly states the doctor's observation that the patient's temperature is 37.1 degrees, which matches the note item exactly."
     },
     "I18": {
       "verdict": "supported",
-      "reason": "Stated in S29."
+      "reason": "The cited sentence explicitly states the doctor's observation that the oxygen saturation is 97 percent, matching the note item exactly."
     },
     "I19": {
       "verdict": "supported",
-      "reason": "Stated in S30."
+      "reason": "The cited sentence explicitly states the doctor's observation that the throat looks slightly red, matching the note item exactly."
     },
     "I20": {
       "verdict": "supported",
-      "reason": "Stated in S31."
-    },
-    "I21": {
-      "verdict": "supported",
-      "reason": "Stated in S32."
-    },
-    "I22": {
-      "verdict": "supported",
-      "reason": "Stated in S34."
-    },
-    "I23": {
-      "verdict": "supported",
-      "reason": "Stated in S35."
-    },
-    "I24": {
-      "verdict": "unsupported",
-      "reason": "S33 is the patient's question, not a clinician finding."
-    },
-    "B1": {
-      "verdict": "supported",
-      "reason": "Matches the transcript."
+      "reason": "The cited sentence explicitly states that the doctor does not hear signs of a chest infection, which directly supports the observation with 'absent' polarity."
     },
     "B2": {
-      "verdict": "supported",
-      "reason": "Matches the transcript."
+      "verdict": "partial",
+      "reason": "The cited sentences do not contain the patient's response to the question about fever or chills, so the details 'No fever' and 'occasional shivering' are unsupported."
     },
     "B3": {
-      "verdict": "supported",
-      "reason": "Matches the transcript."
+      "verdict": "partial",
+      "reason": "The cited sentences confirm the history of childhood pneumonia but do not contain any statement supporting the claim that the patient is 'otherwise healthy' (e.g., no other conditions)."
     },
     "B4": {
-      "verdict": "supported",
-      "reason": "Matches the transcript."
+      "verdict": "partial",
+      "reason": "The cited sentences state the patient smoked for ten years and quit five years ago, but they do not specify the daily consumption (e.g., packs per day) required to calculate the '10 pack-years' figure stated in the note item."
     },
     "B5": {
-      "verdict": "supported",
-      "reason": "Matches the transcript."
+      "verdict": "partial",
+      "reason": "The cited sentence S21 states the medication is for 'hay fever', whereas the note item specifies 'seasonal allergic rhinitis'; while these are clinically synonymous, the note adds a specific medical diagnosis not explicitly stated in the patient's words, making it a partial match due to the change in terminology/description."
     },
     "B6": {
-      "verdict": "supported",
-      "reason": "Matches the transcript."
+      "verdict": "unsupported",
+      "reason": "The cited sentence is a question from the doctor, not a statement of fact, and does not contain the patient's response confirming the absence of allergies."
     },
     "B7": {
-      "verdict": "unsupported",
-      "reason": "Mother's asthma recorded as the patient's own condition"
+      "verdict": "supported",
+      "reason": "The cited sentences explicitly state that the patient's mother has asthma and that the patient's brother had a bad chest infection last month, which fully supports the note item."
     },
     "B8": {
-      "verdict": "supported",
-      "reason": "Matches the transcript."
+      "verdict": "partial",
+      "reason": "The note item claims 'mild dyspnea' is present, but the cited sentences only mention a cough and a doctor's observation of a 'mild wheeze'; dyspnea is not stated in the evidence."
     },
     "B9": {
-      "verdict": "supported",
-      "reason": "Matches the transcript."
+      "verdict": "partial",
+      "reason": "The cited sentences state the temperature and oxygen saturation values but do not mention that the patient is on room air, which is a specific detail included in the note item."
     },
     "B10": {
       "verdict": "supported",
-      "reason": "Matches the transcript."
+      "reason": "The cited sentence states the throat is 'slightly red,' which is a direct paraphrase of 'mildly erythematous,' and the observation is made by the doctor."
     },
     "B11": {
       "verdict": "supported",
-      "reason": "Matches the transcript."
+      "reason": "The cited sentences explicitly state the doctor's findings of a 'mild wheeze on both sides when you breathe out' (S29) and 'no crackles' (S30), which fully support the note item."
     },
     "B12": {
-      "verdict": "supported",
-      "reason": "Matches the transcript."
+      "verdict": "partial",
+      "reason": "The cited sentences only support the absence of chest infection signs (S34) and the presence of a cough (S3), but they do not contain the doctor's assessment of the condition as 'Likely viral upper respiratory infection or post-viral cough'."
     },
     "B13": {
-      "verdict": "supported",
-      "reason": "Matches the transcript."
-    },
-    "B14": {
-      "verdict": "supported",
-      "reason": "Matches the transcript."
-    },
-    "B15": {
       "verdict": "unsupported",
-      "reason": "A diagnosis the clinician never made"
-    },
-    "B16": {
-      "verdict": "supported",
-      "reason": "Matches the transcript."
-    },
-    "B17": {
-      "verdict": "unsupported",
-      "reason": "Not stated in the retrieved transcript sentences."
+      "reason": "The cited sentences do not contain the doctor's plan to reassure, monitor symptoms, advise returning if worsening, or consider a cough suppressant; they only list the patient's symptoms and medication history."
     }
   },
   "baseline": {
-    "note": "Presenting complaint:\nPersistent cough for one week, worse at night.\n\nHistory of presenting complaint:\nDry cough with occasional clear sputum in the mornings. No fever. Mild shortness of breath on exertion. No chest pain.\n\nPast medical history:\nChildhood pneumonia. History of asthma.\nEx-smoker (quit 5 years ago, 10 pack-years).\n\nMedications:\nCetirizine 10 mg daily.\n\nAllergies:\nNo known drug allergies.\n\nFamily history:\nBrother recently had a chest infection.\n\nExamination:\nTemperature 37.1 C, SpO2 97 percent. Mild bilateral expiratory wheeze, no crackles. Mild pharyngeal erythema.\n\nAssessment:\nLikely post-viral bronchitis with possible reactive airways component.\n\nPlan:\nReturn if breathlessness worsens. Consider a salbutamol inhaler."
+    "note": "Chief complaint: Persistent cough for ~1 week, worse at night, mostly dry with occasional clear sputum in the morning. History: No fever, occasional shivering, mild exertional dyspnea (climbing stairs), no chest pain. Past medical history: Childhood pneumonia, otherwise healthy. Social: Former smoker (10 pack-years, quit 5 years ago). Medications: Cetirizine 10 mg for seasonal allergic rhinitis. Allergies: No known drug allergies. Family history: Mother with asthma, brother recent chest infection. Review of systems: Negative except cough and mild dyspnea. Physical exam: Temp 37.1°C, SpO2 97% on room air. Throat mildly erythematous. Lung auscultation: mild bilateral wheezes on expiration, no crackles. Assessment: Likely viral upper respiratory infection or post‑viral cough; no clear signs of bacterial chest infection. Plan: Reassure, supportive care, monitor symptoms, advise to return if worsening dyspnea or new fever, consider trial of a cough suppressant if needed, continue cetirizine for allergy symptoms."
   }
 }

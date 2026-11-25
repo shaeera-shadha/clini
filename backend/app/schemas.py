@@ -191,3 +191,5 @@ class HealthResponse(BaseModel):
     status: Literal["ok"]
     mode: Literal["live", "mock"]
     models: dict[str, str]
+    # Mock mode only: what the replayed responses are ("recorded live ..." or "hand-made ...").
+    fixtures: str | None = None

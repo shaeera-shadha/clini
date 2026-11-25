@@ -5,6 +5,8 @@ import os
 # Tests always run offline against recorded fixtures, whatever a local .env says.
 os.environ["LLM_MODE"] = "mock"
 os.environ["MOCK_LATENCY_MS"] = "0"
+# Hand-made fixtures with deliberate extractor mistakes, so the checks have something to catch.
+os.environ["FIXTURES_DIR"] = os.path.join(os.path.dirname(__file__), "fixtures")
 
 from collections.abc import Iterator
 from dataclasses import dataclass, field

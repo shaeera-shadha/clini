@@ -14,7 +14,7 @@ from app.schemas import BaselineResult, GenerateResult
 
 def build_client(settings: Settings) -> LLMClient:
     if settings.llm_mode == "mock":
-        return MockLLM(latency_ms=settings.mock_latency_ms)
+        return MockLLM(settings.fixtures_dir, latency_ms=settings.mock_latency_ms)
     # SDK retries are disabled: GroqLLM owns retry and backoff so it can honour retry-after.
     api = groq.AsyncGroq(api_key=settings.groq_api_key, max_retries=0, timeout=60.0)
     live = GroqLLM(api, max_concurrency=settings.max_concurrency, max_retries=settings.max_retries)

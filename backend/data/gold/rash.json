@@ -352,7 +352,8 @@
       "match": [
         [
           "stop",
-          "avoid"
+          "avoid",
+          "discontinu"
         ],
         [
           "washing",

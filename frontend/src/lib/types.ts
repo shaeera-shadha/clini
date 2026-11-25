@@ -85,6 +85,8 @@ export interface Health {
   status: 'ok'
   mode: 'live' | 'mock'
   models: Record<string, string>
+  /** Mock mode: where the replayed responses come from. */
+  fixtures?: string | null
 }
 
 export interface StageEvent {

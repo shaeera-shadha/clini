@@ -26,6 +26,7 @@ def test_health_reports_mode_and_models() -> None:
     assert body["status"] == "ok"
     assert body["mode"] in {"mock", "live"}
     assert body["models"]["extractor"] != body["models"]["verifier"]
+    assert "hand-made" in body["fixtures"]  # tests replay tests/fixtures
 
 
 def test_samples_list_and_detail() -> None:

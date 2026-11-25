@@ -1,0 +1,435 @@
+{
+  "sample_id": "abdominal",
+  "source": "hand-made mock fixture (not model output)",
+  "extract": {
+    "items": [
+      {
+        "section": "symptom",
+        "text": "Abdominal pain since yesterday evening",
+        "polarity": "present",
+        "qualifiers": {
+          "duration": null,
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S3"
+        ]
+      },
+      {
+        "section": "symptom",
+        "text": "Started around the belly button",
+        "polarity": "present",
+        "qualifiers": {
+          "duration": null,
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S4"
+        ]
+      },
+      {
+        "section": "symptom",
+        "text": "Now lower right side",
+        "polarity": "present",
+        "qualifiers": {
+          "duration": null,
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S5"
+        ]
+      },
+      {
+        "section": "symptom",
+        "text": "Constant ache, worse walking or coughing",
+        "polarity": "present",
+        "qualifiers": {
+          "duration": null,
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S7"
+        ]
+      },
+      {
+        "section": "symptom",
+        "text": "Seven out of ten",
+        "polarity": "present",
+        "qualifiers": {
+          "duration": null,
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S8"
+        ]
+      },
+      {
+        "section": "symptom",
+        "text": "Vomited once this morning",
+        "polarity": "present",
+        "qualifiers": {
+          "duration": null,
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S10"
+        ]
+      },
+      {
+        "section": "symptom",
+        "text": "Does not feel like eating",
+        "polarity": "present",
+        "qualifiers": {
+          "duration": null,
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S11"
+        ]
+      },
+      {
+        "section": "symptom",
+        "text": "Diarrhoea",
+        "polarity": "absent",
+        "qualifiers": {
+          "duration": null,
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S13"
+        ]
+      },
+      {
+        "section": "symptom",
+        "text": "Bowels not opened since yesterday, I think",
+        "polarity": "uncertain",
+        "qualifiers": {
+          "duration": null,
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S14"
+        ]
+      },
+      {
+        "section": "symptom",
+        "text": "Burning on passing urine",
+        "polarity": "absent",
+        "qualifiers": {
+          "duration": null,
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S16"
+        ]
+      },
+      {
+        "section": "symptom",
+        "text": "Might have had a temperature last night, not checked",
+        "polarity": "uncertain",
+        "qualifiers": {
+          "duration": null,
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S18"
+        ]
+      },
+      {
+        "section": "symptom",
+        "text": "Fever last night",
+        "polarity": "present",
+        "qualifiers": {
+          "duration": null,
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S18"
+        ]
+      },
+      {
+        "section": "history",
+        "text": "Tonsils removed at age eight",
+        "polarity": "present",
+        "qualifiers": {
+          "duration": null,
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S20"
+        ]
+      },
+      {
+        "section": "history",
+        "text": "Regular medicines",
+        "polarity": "absent",
+        "qualifiers": {
+          "duration": null,
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S23"
+        ]
+      },
+      {
+        "section": "history",
+        "text": "Took two paracetamol this morning",
+        "polarity": "present",
+        "qualifiers": {
+          "duration": null,
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S24"
+        ]
+      },
+      {
+        "section": "history",
+        "text": "Pregnancy (negative test last week)",
+        "polarity": "absent",
+        "qualifiers": {
+          "duration": null,
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S26"
+        ]
+      },
+      {
+        "section": "history",
+        "text": "Cousin: appendix removed last year",
+        "polarity": "present",
+        "qualifiers": {
+          "duration": null,
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S31"
+        ]
+      },
+      {
+        "section": "history",
+        "text": "Appendix removed last year",
+        "polarity": "present",
+        "qualifiers": {
+          "duration": null,
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S31"
+        ]
+      },
+      {
+        "section": "observation",
+        "text": "Tender in the lower right abdomen",
+        "polarity": "present",
+        "qualifiers": {
+          "duration": null,
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S28"
+        ]
+      },
+      {
+        "section": "observation",
+        "text": "Some guarding",
+        "polarity": "present",
+        "qualifiers": {
+          "duration": null,
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S29"
+        ]
+      },
+      {
+        "section": "observation",
+        "text": "Rebound tenderness",
+        "polarity": "present",
+        "qualifiers": {
+          "duration": null,
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S29"
+        ]
+      },
+      {
+        "section": "observation",
+        "text": "Rest of abdomen soft",
+        "polarity": "present",
+        "qualifiers": {
+          "duration": null,
+          "severity": null,
+          "onset": null
+        },
+        "evidence": [
+          "S30"
+        ]
+      }
+    ]
+  },
+  "verify": {
+    "I1": {
+      "verdict": "supported",
+      "reason": "Stated in S3."
+    },
+    "I2": {
+      "verdict": "supported",
+      "reason": "Stated in S4."
+    },
+    "I3": {
+      "verdict": "supported",
+      "reason": "Stated in S5."
+    },
+    "I4": {
+      "verdict": "supported",
+      "reason": "Stated in S7."
+    },
+    "I5": {
+      "verdict": "supported",
+      "reason": "Stated in S8."
+    },
+    "I6": {
+      "verdict": "supported",
+      "reason": "Stated in S10."
+    },
+    "I7": {
+      "verdict": "supported",
+      "reason": "Stated in S11."
+    },
+    "I8": {
+      "verdict": "supported",
+      "reason": "Stated in S13."
+    },
+    "I9": {
+      "verdict": "supported",
+      "reason": "Stated in S14."
+    },
+    "I10": {
+      "verdict": "supported",
+      "reason": "Stated in S16."
+    },
+    "I11": {
+      "verdict": "supported",
+      "reason": "Stated in S18."
+    },
+    "I12": {
+      "verdict": "partial",
+      "reason": "S18 is hedged ('might have had a temperature') and it was not checked; the item states it as definite."
+    },
+    "I13": {
+      "verdict": "supported",
+      "reason": "Stated in S20."
+    },
+    "I14": {
+      "verdict": "supported",
+      "reason": "Stated in S23."
+    },
+    "I15": {
+      "verdict": "supported",
+      "reason": "Stated in S24."
+    },
+    "I16": {
+      "verdict": "supported",
+      "reason": "Stated in S26."
+    },
+    "I17": {
+      "verdict": "supported",
+      "reason": "Stated in S31."
+    },
+    "I18": {
+      "verdict": "unsupported",
+      "reason": "S31 says the patient's cousin had her appendix out."
+    },
+    "I19": {
+      "verdict": "supported",
+      "reason": "Stated in S28."
+    },
+    "I20": {
+      "verdict": "supported",
+      "reason": "Stated in S29."
+    },
+    "I21": {
+      "verdict": "unsupported",
+      "reason": "S29 states guarding; rebound tenderness is not mentioned."
+    },
+    "I22": {
+      "verdict": "supported",
+      "reason": "Stated in S30."
+    },
+    "B1": {
+      "verdict": "unsupported",
+      "reason": "Duration 1 day is not in the transcript."
+    },
+    "B2": {
+      "verdict": "unsupported",
+      "reason": "Number 1 is not in the transcript."
+    },
+    "B3": {
+      "verdict": "unsupported",
+      "reason": "Fever stated as definite (it was not measured)"
+    },
+    "B4": {
+      "verdict": "supported",
+      "reason": "Matches the transcript."
+    },
+    "B5": {
+      "verdict": "supported",
+      "reason": "Matches the transcript."
+    },
+    "B6": {
+      "verdict": "supported",
+      "reason": "Matches the transcript."
+    },
+    "B7": {
+      "verdict": "unsupported",
+      "reason": "Dose 1 g is not in the transcript."
+    },
+    "B8": {
+      "verdict": "supported",
+      "reason": "Matches the transcript."
+    },
+    "B9": {
+      "verdict": "unsupported",
+      "reason": "Rebound tenderness or peritonism, never stated"
+    },
+    "B10": {
+      "verdict": "unsupported",
+      "reason": "Not stated in the retrieved transcript sentences."
+    },
+    "B11": {
+      "verdict": "unsupported",
+      "reason": "Appendicitis diagnosis the clinician never made"
+    },
+    "B12": {
+      "verdict": "supported",
+      "reason": "Matches the transcript."
+    }
+  },
+  "baseline": {
+    "note": "History of presenting complaint:\nOne-day history of periumbilical pain migrating to the right iliac fossa, constant, 7 out of 10, worse on movement. Associated nausea, one episode of vomiting and anorexia. Fever last night. No diarrhoea or urinary symptoms. Bowels not opened since yesterday.\n\nPast medical history: Tonsillectomy. No regular medications. Took paracetamol 1 g this morning.\nPregnancy: Negative pregnancy test last week.\n\nExamination:\nTemperature 38.1 C. Tender in the right iliac fossa with guarding and rebound tenderness. Rovsing's sign positive.\n\nImpression:\nAcute appendicitis.\n\nPlan:\nSurgical referral, nil by mouth, IV fluids and bloods."
+  }
+}
