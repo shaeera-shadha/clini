@@ -1,0 +1,130 @@
+@import 'tailwindcss';
+@import './tokens.css';
+
+/*
+ * Tailwind theme built ONLY from tokens.css. Defaults are reset so a utility outside the
+ * design system (bg-blue-500, rounded-3xl, shadow-lg, text-5xl) does not exist.
+ */
+@theme {
+  --color-*: initial;
+  --radius-*: initial;
+  --shadow-*: initial;
+  --text-*: initial;
+  --font-*: initial;
+  --drop-shadow-*: initial;
+  --inset-shadow-*: initial;
+}
+
+@theme inline {
+  --color-canvas: var(--canvas);
+  --color-panel: var(--panel);
+  --color-surface: var(--surface);
+  --color-border: var(--border);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-tint: var(--primary-tint);
+  --color-evidence: var(--evidence);
+  --color-verified: var(--verified);
+  --color-flagged: var(--flagged);
+  --color-white: #ffffff;
+  --color-transparent: transparent;
+
+  --radius-card: var(--radius-card);
+  --radius-control: var(--radius-control);
+  --radius-chip: var(--radius-chip);
+  --radius-panel: var(--radius-panel);
+  --radius-pill: 9999px;
+
+  --shadow-card: var(--shadow-card);
+  --shadow-popover: var(--shadow-popover);
+
+  --font-ui: var(--font-ui);
+  --font-note: var(--font-note);
+  --font-id: var(--font-id);
+
+  /* Type scale: 12/13 caption, 14 body, 16 card title, 24 page title, 32 numerals */
+  --text-caption: 12px;
+  --text-caption--line-height: 1.4;
+  --text-small: 13px;
+  --text-small--line-height: 1.45;
+  --text-body: 14px;
+  --text-body--line-height: 1.45;
+  /* Note body: the 16px step of the scale at regular weight, serif, document leading */
+  --text-doc: 16px;
+  --text-doc--line-height: 1.5;
+  --text-title: 16px;
+  --text-title--line-height: 1.35;
+  --text-page: 24px;
+  --text-page--line-height: 1.25;
+  --text-numeral: 32px;
+  --text-numeral--line-height: 1.1;
+
+  --container-content: var(--content-max);
+  --spacing-sidebar: var(--sidebar);
+}
+
+@layer base {
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+
+  body {
+    margin: 0;
+    background: var(--canvas);
+    color: var(--ink);
+    font-family: var(--font-ui);
+    font-size: 14px;
+    line-height: 1.45;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+  }
+
+  button {
+    cursor: pointer;
+  }
+
+  button:disabled {
+    cursor: not-allowed;
+  }
+}
+
+/* Print: the note only, as a clean clinical document (Export > Print / PDF). */
+@media print {
+  @page {
+    margin: 18mm;
+  }
+
+  body {
+    background: #ffffff;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .print-only {
+    display: block !important;
+  }
+
+  .print-reset {
+    position: static !important;
+    overflow: visible !important;
+    height: auto !important;
+    max-height: none !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    background: #ffffff !important;
+    grid-template-columns: 1fr !important;
+    display: block !important;
+  }
+}

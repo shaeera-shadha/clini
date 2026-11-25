@@ -1,0 +1,53 @@
+/*
+ * ClinNote design tokens. The ONLY colours, radii, shadows and type sizes used in the app.
+ * Tailwind's theme (theme.css) maps onto these; its default palette is switched off.
+ */
+:root {
+  /* Surfaces */
+  --canvas: #f3eff8;
+  --panel: #fbfafd;
+  --surface: #ffffff;
+  --border: #e6e0ef;
+
+  /* Text */
+  --ink: #221e2b;
+  --muted: #6a6378;
+
+  /* Brand */
+  --primary: #46306f;
+  --primary-hover: #38255a;
+  --primary-tint: #ece6f6;
+
+  /* Meaning (always paired with a text label) */
+  --evidence: rgb(246 220 154 / 0.55);
+  --verified: #2f7a5a;
+  --flagged: #b23a55;
+
+  /* Radii */
+  --radius-card: 16px;
+  --radius-control: 10px;
+  --radius-chip: 6px;
+  --radius-panel: 24px;
+
+  /* Elevation */
+  --shadow-card: 0 1px 2px rgb(34 30 43 / 0.05);
+  --shadow-popover: 0 8px 24px rgb(34 30 43 / 0.12);
+
+  /* Type */
+  --font-ui: 'Figtree', system-ui, sans-serif;
+  --font-note: 'Source Serif 4', Georgia, serif;
+  --font-id: 'IBM Plex Mono', ui-monospace, monospace;
+
+  /* Layout */
+  --sidebar: 232px;
+  --content-max: 1600px;
+
+  /* Motion */
+  --ease: 150ms ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --ease: 0ms linear;
+  }
+}
