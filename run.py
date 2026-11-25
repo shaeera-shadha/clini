@@ -10,6 +10,8 @@ Creates backend/.venv and installs Python dependencies, runs `npm install` for t
 creates backend/.env from .env.example if missing, then starts the API (port 8000) and the web
 app (port 5173) and opens the browser. Ctrl+C stops both.
 """
+#jrhgiergijerbgijerbgijerngierngpierghpireghpeirhgeprigheripg
+#nlkrenkjgnerljgnerlkgnrelgnlerkgnergnerkgnerkgnerlkgnergergergergr
 
 from __future__ import annotations
 
