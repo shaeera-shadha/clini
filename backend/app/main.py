@@ -12,9 +12,11 @@ from fastapi import Depends, FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse, StreamingResponse
 
+from app.cache import ResultCache
+from app.clients import get_client, get_result_cache
 from app.config import Settings, get_settings
 from app.errors import PipelineError
-from app.llm import LLMClient, get_client
+from app.llm import LLMClient
 from app.pipeline import ResultEvent, StageEvent, generate, run_pipeline
 from app.samples import get_sample, list_samples
 from app.schemas import GenerateRequest, GenerateResult, HealthResponse, Sample, SampleSummary
@@ -23,6 +25,7 @@ log = logging.getLogger("clinnote")
 
 SettingsDep = Annotated[Settings, Depends(get_settings)]
 ClientDep = Annotated[LLMClient, Depends(get_client)]
+CacheDep = Annotated[ResultCache | None, Depends(get_result_cache)]
 
 app = FastAPI(title="ClinNote API", version="0.1.0")
 app.add_middleware(
@@ -69,9 +72,11 @@ def _sse(event: str, data: object) -> str:
     return f"event: {event}\ndata: {json.dumps(data, ensure_ascii=False)}\n\n"
 
 
-async def _stream(transcript: str, client: LLMClient, settings: Settings) -> AsyncIterator[str]:
+async def _stream(
+    transcript: str, client: LLMClient, settings: Settings, cache: ResultCache | None
+) -> AsyncIterator[str]:
     try:
-        async for event in run_pipeline(transcript, client, settings):
+        async for event in run_pipeline(transcript, client, settings, cache):
             if isinstance(event, StageEvent):
                 yield _sse("stage", {"stage": event.stage, "state": event.state, "ms": event.ms})
             elif isinstance(event, ResultEvent):
@@ -92,12 +97,13 @@ async def generate_note(
     request: Request,
     settings: SettingsDep,
     client: ClientDep,
+    cache: CacheDep,
 ) -> StreamingResponse | GenerateResult:
     transcript = _resolve_transcript(body)
     if "text/event-stream" in request.headers.get("accept", ""):
         return StreamingResponse(
-            _stream(transcript, client, settings),
+            _stream(transcript, client, settings, cache),
             media_type="text/event-stream",
             headers={"Cache-Control": "no-cache", "X-Accel-Buffering": "no"},
         )
-    return await generate(transcript, client, settings)
+    return await generate(transcript, client, settings, cache)
