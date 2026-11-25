@@ -82,7 +82,7 @@ export function Stepper({ steps }: { steps: Step[] }) {
               >
                 {STATE_TEXT[step.state]}
               </span>
-              {step.ms !== null && <span className="ml-2 font-id text-muted tabular-nums">{formatMs(step.ms)}</span>}
+              {step.ms !== null && <span className="ml-2 text-muted tabular-nums">{formatMs(step.ms)}</span>}
             </p>
           </div>
         </li>

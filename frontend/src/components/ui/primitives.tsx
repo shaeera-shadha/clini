@@ -102,7 +102,10 @@ export function Card({
   className,
   bodyClassName,
   labelId,
+  scrollRegion,
 }: {
+  /** Accessible name for a scrolling body with no focusable content, so keyboards can reach it. */
+  scrollRegion?: string
   title?: ReactNode
   meta?: ReactNode
   actions?: ReactNode
@@ -130,7 +133,10 @@ export function Card({
           {actions}
         </header>
       )}
-      <div className={cx('min-h-0 flex-1', !title && 'pt-6', bodyClassName ?? 'px-6 pb-6')}>
+      <div
+        className={cx('min-h-0 flex-1', !title && 'pt-6', bodyClassName ?? 'px-6 pb-6')}
+        {...(scrollRegion ? { tabIndex: 0, role: 'region', 'aria-label': scrollRegion } : {})}
+      >
         {children}
       </div>
     </section>
@@ -149,12 +155,17 @@ export function Eyebrow({ children, className }: { children: ReactNode; classNam
 /** Status is never colour alone: the word is always there. */
 export function StatusText({
   tone,
+  onHighlight = false,
   children,
 }: {
   tone: 'verified' | 'flagged' | 'muted'
+  /** On the evidence highlight the status colours fall below AA contrast; the word stays. */
+  onHighlight?: boolean
   children: ReactNode
 }) {
-  const color = { verified: 'text-verified', flagged: 'text-flagged', muted: 'text-muted' }[tone]
+  const color = onHighlight
+    ? 'text-ink'
+    : { verified: 'text-verified', flagged: 'text-flagged', muted: 'text-muted' }[tone]
   return <span className={cx('text-caption font-semibold', color)}>{children}</span>
 }
 

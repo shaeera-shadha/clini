@@ -55,12 +55,14 @@ export function TopBar({ title, subtitle }: { title: string; subtitle: string })
   ]
 
   return (
-    <header className="no-print flex flex-wrap items-start justify-between gap-4 px-6 pt-6">
-      <div className="min-w-0">
-        <h1 className="text-page font-semibold">{title}</h1>
+    <header className="no-print flex flex-wrap items-start justify-between gap-x-6 gap-y-4 px-6 pt-6 lg:flex-nowrap">
+      <div className="min-w-0 flex-1">
+        <h1 tabIndex={-1} className="text-page font-semibold outline-none">
+          {title}
+        </h1>
         <p className="mt-1 text-body text-muted">{subtitle}</p>
       </div>
-      <div className="flex flex-wrap items-center gap-3">
+      <div className="flex shrink-0 flex-wrap items-center gap-3">
         <label className="sr-only" htmlFor="sample-select">
           Sample consultation
         </label>
@@ -69,7 +71,7 @@ export function TopBar({ title, subtitle }: { title: string; subtitle: string })
             id="sample-select"
             value={selectedSample ?? ''}
             onChange={(event) => selectSample(event.target.value || null)}
-            className="h-10 w-60 appearance-none rounded-control border border-border bg-surface pr-9 pl-3 text-body"
+            className="h-10 w-56 appearance-none rounded-control border border-border bg-surface pr-9 pl-3 text-body"
           >
             <option value="">{pasted ? 'Pasted transcript' : 'Choose a sample'}</option>
             {samples.map((s) => (
@@ -86,7 +88,7 @@ export function TopBar({ title, subtitle }: { title: string; subtitle: string })
           items={exportItems}
           disabled={!note}
           trigger={(props) => (
-            <Button {...props} title={note ? 'Export the note' : 'Generate a note first'}>
+            <Button {...props}>
               Export
               <Icon icon={ChevronDown} />
             </Button>

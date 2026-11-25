@@ -96,42 +96,72 @@ export function Menu({
   )
 }
 
-/** Click-to-open explanation (a toggletip), e.g. why an item was flagged. */
+const POPOVER_WIDTH = 320
+const EDGE = 8
+
+/**
+ * Click-to-open explanation (a toggletip), e.g. why a sentence was not confirmed. Positioned
+ * against the viewport so scrolling cards never clip it; closes on Escape, outside click or scroll.
+ */
 export function Popover({
   label,
   trigger,
   children,
-  align = 'right',
 }: {
   label: string
   trigger: ReactNode
   children: ReactNode
-  align?: 'left' | 'right'
 }) {
-  const [open, setOpen] = useState(false)
+  const [position, setPosition] = useState<{ top: number; left: number } | null>(null)
   const root = useRef<HTMLSpanElement>(null)
+  const button = useRef<HTMLButtonElement>(null)
   const id = useId()
-  useDismiss(open, () => setOpen(false), root)
+  const open = position !== null
+  const close = () => setPosition(null)
+  useDismiss(open, close, root)
+
+  useEffect(() => {
+    if (!open) return
+    const onScroll = (event: Event) => {
+      if (!root.current?.contains(event.target as Node)) setPosition(null)
+    }
+    window.addEventListener('scroll', onScroll, true)
+    window.addEventListener('resize', close)
+    return () => {
+      window.removeEventListener('scroll', onScroll, true)
+      window.removeEventListener('resize', close)
+    }
+  }, [open])
+
+  const toggle = () => {
+    const rect = button.current?.getBoundingClientRect()
+    if (open || !rect) return close()
+    const left = Math.min(Math.max(EDGE, rect.left), window.innerWidth - POPOVER_WIDTH - EDGE)
+    setPosition({ top: rect.bottom + EDGE, left })
+  }
+
   return (
-    <span ref={root} className="relative inline-flex">
+    <span ref={root} className="inline-flex font-ui">
       <button
+        ref={button}
         type="button"
         aria-label={label}
         aria-expanded={open}
         aria-controls={id}
         onClick={(event) => {
           event.stopPropagation()
-          setOpen((o) => !o)
+          toggle()
         }}
         className="inline-flex items-center gap-1 rounded-chip px-1 hover:bg-primary-tint"
       >
         {trigger}
       </button>
-      {open && (
+      {position && (
         <span
           id={id}
           role="status"
-          className={cx(PANEL, 'top-full block w-72 p-4 text-body', align === 'right' ? 'right-0' : 'left-0')}
+          style={{ top: position.top, left: position.left, width: POPOVER_WIDTH }}
+          className="fixed z-30 block max-h-[60vh] overflow-y-auto rounded-control border border-border bg-surface p-4 text-left font-ui text-body text-ink shadow-popover"
         >
           {children}
         </span>

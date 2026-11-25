@@ -39,7 +39,6 @@ export function TranscriptCard({
                   id={`sentence-${sentence.id}`}
                   type="button"
                   aria-pressed={isPinned}
-                  aria-label={`${sentence.id}, ${SPEAKER_LABEL[sentence.speaker]}: ${sentence.text}`}
                   onClick={() => onPin(isPinned ? null : { kind: 'sentence', id: sentence.id })}
                   className={cx(
                     'grid w-full grid-cols-[40px_1fr] items-baseline gap-x-2 px-6 py-1.5 text-left',

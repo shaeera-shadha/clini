@@ -1,4 +1,13 @@
-import type { ApiErrorBody, GenerateResult, Health, Sample, SampleSummary, StageEvent } from './types'
+import type {
+  ApiErrorBody,
+  BaselineResult,
+  EvalReport,
+  GenerateResult,
+  Health,
+  Sample,
+  SampleSummary,
+  StageEvent,
+} from './types'
 
 const BASE = import.meta.env.VITE_API_BASE ?? '/api'
 
@@ -39,13 +48,20 @@ async function toApiError(response: Response): Promise<ApiError> {
   return new ApiError('error', `The server returned an error (${response.status}). Try again.`)
 }
 
+export type GenerateInput = { sample_id: string } | { transcript: string }
+
 export const api = {
   health: () => request<Health>('/health'),
   samples: () => request<SampleSummary[]>('/samples'),
   sample: (id: string) => request<Sample>(`/samples/${encodeURIComponent(id)}`),
+  baseline: (input: GenerateInput) =>
+    request<BaselineResult>('/baseline', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(input),
+    }),
+  evaluation: () => request<EvalReport>('/eval'),
 }
-
-export type GenerateInput = { sample_id: string } | { transcript: string }
 
 /**
  * POST /generate and read stage events from the SSE stream. Resolves with the result, or

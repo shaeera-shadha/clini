@@ -11,7 +11,7 @@ import {
 
 import { api, ApiError, generateNote, type GenerateInput } from '../lib/api'
 import { draftReducer, EMPTY_DRAFT, type Draft, type DraftAction } from '../lib/draft'
-import type { GenerateResult, Health, SampleSummary, Stage, StageEvent } from '../lib/types'
+import type { BaselineResult, GenerateResult, Health, SampleSummary, Stage, StageEvent } from '../lib/types'
 import { AppStateContext } from './context'
 
 export type StepState = 'waiting' | 'running' | 'done' | 'failed'
@@ -35,6 +35,22 @@ const WAITING: Steps = {
 
 const IDLE: RunState = { status: 'idle', steps: WAITING, error: null, result: null, source: null }
 
+export interface BaselineState {
+  key: string
+  status: 'loading' | 'done' | 'error'
+  result: BaselineResult | null
+  error: string | null
+}
+
+function sourceKey(source: Source | null): string {
+  if (!source) return ''
+  return source.kind === 'sample' ? `sample:${source.id}` : `pasted:${source.text}`
+}
+
+function toInput(source: Source): GenerateInput {
+  return source.kind === 'sample' ? { sample_id: source.id } : { transcript: source.text }
+}
+
 export interface AppStateValue {
   health: Health | null
   healthError: string | null
@@ -48,8 +64,10 @@ export interface AppStateValue {
   draft: Draft
   dispatchDraft: Dispatch<DraftAction>
   title: string
+  /** Plain-summary baseline for the current consultation, or null if not requested yet. */
+  baseline: BaselineState | null
+  loadBaseline: () => void
 }
-
 
 function applyStage(steps: Steps, event: StageEvent): Steps {
   return { ...steps, [event.stage]: { state: event.state, ms: event.ms } }
@@ -72,6 +90,7 @@ export function AppStateProvider({ children }: { children: ReactNode }) {
   const [run, setRun] = useState<RunState>(IDLE)
   const [draft, dispatchDraft] = useReducer(draftReducer, EMPTY_DRAFT)
   const abort = useRef<AbortController | null>(null)
+  const [baselineState, setBaselineState] = useState<BaselineState | null>(null)
 
   useEffect(() => {
     let live = true
@@ -96,8 +115,7 @@ export function AppStateProvider({ children }: { children: ReactNode }) {
     abort.current = controller
     setRun({ ...IDLE, status: 'running', source })
     dispatchDraft({ type: 'reset', items: [] })
-    const input: GenerateInput =
-      source.kind === 'sample' ? { sample_id: source.id } : { transcript: source.text }
+    const input = toInput(source)
     try {
       const result = await generateNote(
         input,
@@ -128,6 +146,24 @@ export function AppStateProvider({ children }: { children: ReactNode }) {
     [run.source, clear],
   )
 
+  const currentKey = sourceKey(run.source)
+  // A baseline belongs to one consultation; switching consultations hides the old one.
+  const baseline = baselineState && baselineState.key === currentKey ? baselineState : null
+
+  const loadBaseline = useCallback(() => {
+    const source = run.source
+    if (!source || run.status !== 'done') return
+    const key = sourceKey(source)
+    setBaselineState({ key, status: 'loading', result: null, error: null })
+    api
+      .baseline(toInput(source))
+      .then((result) => setBaselineState((b) => (b?.key === key ? { ...b, status: 'done', result } : b)))
+      .catch((error: unknown) => {
+        const message = error instanceof ApiError ? error.message : 'Something went wrong. Try again.'
+        setBaselineState((b) => (b?.key === key ? { ...b, status: 'error', error: message } : b))
+      })
+  }, [run.source, run.status])
+
   const title = useMemo(() => {
     const source = run.source
     if (source?.kind === 'sample') return samples.find((s) => s.id === source.id)?.title ?? 'Consultation'
@@ -149,8 +185,10 @@ export function AppStateProvider({ children }: { children: ReactNode }) {
       draft,
       dispatchDraft,
       title,
+      baseline,
+      loadBaseline,
     }),
-    [health, healthError, samples, selectedSample, selectSample, run, generate, clear, draft, title],
+    [health, healthError, samples, selectedSample, selectSample, run, generate, clear, draft, title, baseline, loadBaseline],
   )
 
   return <AppStateContext.Provider value={value}>{children}</AppStateContext.Provider>

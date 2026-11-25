@@ -107,7 +107,11 @@ function NoteItemRow({ item, linking, dispatch }: { item: DraftItem; linking: Li
                   No source sentence
                 </span>
               )}
-              {item.origin === 'pipeline' && !item.edited && <StatusText tone="verified">Verified</StatusText>}
+              {item.origin === 'pipeline' && !item.edited && (
+                <StatusText tone="verified" onHighlight={lit}>
+                  Verified
+                </StatusText>
+              )}
               {item.origin === 'clinician' && <span className="text-caption text-muted">Added by clinician</span>}
               {item.edited && <span className="text-caption text-muted">Edited</span>}
             </div>

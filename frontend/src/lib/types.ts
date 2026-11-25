@@ -97,3 +97,92 @@ export interface ApiErrorBody {
   code: string
   message: string
 }
+
+// ---- Plain-summary baseline (POST /baseline) ----------------------------------------------
+
+export interface Segment {
+  line: number
+  kind: 'heading' | 'claim' | 'text'
+  text: string
+  claim_id: string | null
+}
+
+export interface BaselineClaim {
+  id: string
+  text: string
+  heading: string | null
+  section_guess: Section | null
+  /** Retrieved, not cited: the plain summary has no citations of its own. */
+  evidence: string[]
+  status: Status
+  verification: Verification
+}
+
+export interface BaselineResult {
+  text: string
+  segments: Segment[]
+  claims: BaselineClaim[]
+  meta: {
+    models: Record<string, string>
+    prompt_versions: Record<string, string>
+    mode: 'live' | 'mock'
+    timings_ms: Record<string, number>
+    transcript_hash: string
+    cached: boolean
+  }
+  sentences: Sentence[]
+}
+
+// ---- Evaluation report (GET /eval) --------------------------------------------------------
+
+export type SystemName = 'baseline' | 'extractor' | 'clinnote'
+
+export type MetricName =
+  | 'supported_item_rate'
+  | 'unsupported_per_note'
+  | 'section_accuracy'
+  | 'negation_preserved'
+  | 'gold_coverage'
+
+export interface SystemCounts {
+  units: number
+  supported: number
+  unsupported: number
+  trap_hits: number
+  gold_total: number
+  gold_covered: number
+  section_scored: number
+  section_correct: number
+  polarity_scored: number
+  polarity_preserved: number
+  verifier_flagged: number
+  samples: number
+}
+
+export interface SystemReport {
+  counts: SystemCounts
+  rates: Record<MetricName, number | null>
+}
+
+export interface EvalReport {
+  run_at: string
+  mode: 'live' | 'mock'
+  fixture_source: string | null
+  models: Record<string, string>
+  prompt_versions: Record<string, string>
+  definitions: Record<MetricName, string>
+  labels: Record<SystemName, string>
+  systems: Record<SystemName, SystemReport>
+  verifier_audit: {
+    unsupported_caught: number
+    unsupported_missed: number
+    supported_flagged: number
+    supported_kept: number
+  }
+  samples: {
+    sample_id: string
+    title: string
+    systems: Record<SystemName, SystemReport>
+    unsupported: { system: SystemName; text: string; reason: string }[]
+  }[]
+}

@@ -1,5 +1,6 @@
 /**
  * Design-QA screenshots: every page at 1440px and 1280px wide, saved to ../design/shots/.
+ * Each captured view is also checked with axe (WCAG 2.1 A/AA); any violation fails the run.
  *
  *   npm run shots
  *
@@ -11,6 +12,7 @@ import { mkdirSync } from 'node:fs'
 import { dirname, join, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
+import AxeBuilder from '@axe-core/playwright'
 import { chromium, type Page } from '@playwright/test'
 
 const here = dirname(fileURLToPath(import.meta.url))
@@ -64,11 +66,22 @@ async function settle(page: Page) {
   await page.waitForTimeout(400)
 }
 
+const violations: string[] = []
+
+async function audit(page: Page, label: string) {
+  const result = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa']).analyze()
+  for (const v of result.violations) {
+    const targets = v.nodes.slice(0, 3).map((n) => n.target.join(' ')).join(' | ')
+    violations.push(`${label}: [${v.impact ?? 'n/a'}] ${v.id}: ${v.help} (${v.nodes.length}) ${targets}`)
+  }
+}
+
 async function shoot(page: Page, name: string, width: number) {
   await settle(page)
   const file = join(outDir, `${width}-${name}.png`)
   await page.screenshot({ path: file })
   console.log(`  ${file}`)
+  await audit(page, `${width}-${name}`)
 }
 
 async function run() {
@@ -77,7 +90,9 @@ async function run() {
   const browser = await chromium.launch()
   try {
     for (const viewport of viewports) {
-      const page = await browser.newPage({ viewport, reducedMotion: 'reduce' })
+      // axe needs pages from an explicit context.
+      const context = await browser.newContext({ viewport, reducedMotion: 'reduce' })
+      const page = await context.newPage()
       const w = viewport.width
 
       await page.goto(baseUrl)
@@ -91,23 +106,37 @@ async function run() {
       await page.getByRole('button', { name: 'Mother: asthma', exact: true }).click()
       await shoot(page, '03-consultation-item-linked', w)
 
-      await page.getByRole('button', { name: /^S26, Patient/ }).click()
+      await page.getByRole('button', { name: /^S26 Patient/ }).click()
       await shoot(page, '04-consultation-sentence-linked', w)
 
-      for (const [path, name] of [
-        ['/verification', '05-verification'],
-        ['/compare', '06-compare'],
-        ['/evaluation', '07-evaluation'],
-      ] as const) {
-        await page.getByRole('link', { name: name.slice(3).replace(/^./, (c) => c.toUpperCase()) }).click()
-        await page.waitForURL(`**${path}*`)
-        await shoot(page, name, w)
-      }
-      await page.close()
+      // Flagged row in the evidence panel deep-links to its Verification row.
+      await page.getByRole('button', { name: /^Asthma S26 says/ }).click()
+      await page.waitForURL('**/verification?item=*')
+      await shoot(page, '05-verification', w)
+
+      await page.getByRole('link', { name: 'Compare' }).click()
+      await page.getByRole('button', { name: 'Generate plain summary' }).click()
+      await page.getByText(/sentences not confirmed/).waitFor()
+      await shoot(page, '06-compare', w)
+
+      await page.getByRole('button', { name: /why this sentence was not confirmed/ }).first().click()
+      await shoot(page, '07-compare-reason', w)
+
+      await page.getByRole('link', { name: 'Evaluation' }).click()
+      await page.getByText('Scored against gold annotations').waitFor()
+      await shoot(page, '08-evaluation', w)
+      await context.close()
     }
   } finally {
     await browser.close()
     for (const child of children) child.kill()
+  }
+  if (violations.length) {
+    console.error(`\nAccessibility violations (${violations.length}):`)
+    for (const v of violations) console.error(`  ${v}`)
+    process.exitCode = 1
+  } else {
+    console.log('\nAccessibility: no axe violations (WCAG 2.1 A/AA) on any captured view.')
   }
 }
 

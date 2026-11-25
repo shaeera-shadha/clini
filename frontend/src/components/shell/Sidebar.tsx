@@ -62,11 +62,11 @@ export function Sidebar() {
           </div>
           <div>
             <dt className="text-muted">Extractor</dt>
-            <dd className="font-id break-all">{health?.models.extractor ?? 'Unknown'}</dd>
+            <dd className="font-medium break-all">{health?.models.extractor ?? 'Unknown'}</dd>
           </div>
           <div>
             <dt className="text-muted">Verifier</dt>
-            <dd className="font-id break-all">{health?.models.verifier ?? 'Unknown'}</dd>
+            <dd className="font-medium break-all">{health?.models.verifier ?? 'Unknown'}</dd>
           </div>
         </dl>
       </section>
