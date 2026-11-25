@@ -13,6 +13,11 @@ from fastapi import Depends, FastAPI, Request, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse, StreamingResponse
 
+from app.analysis import (
+    clinical_assessment,
+    compare_reports,
+    insurance_assessment,
+)
 from app.baseline import run_baseline
 from app.cache import BaselineCache, NoteCache
 from app.clients import get_baseline_cache, get_client, get_result_cache
@@ -24,9 +29,15 @@ from app.pipeline import ResultEvent, StageEvent, generate, run_pipeline
 from app.samples import get_sample, list_samples
 from app.schemas import (
     BaselineResult,
+    ClinicalAssessmentRequest,
+    ClinicalAssessmentResult,
+    CompareRequest,
+    CompareResult,
     GenerateRequest,
     GenerateResult,
     HealthResponse,
+    InsuranceAssessmentRequest,
+    InsuranceAssessmentResult,
     Sample,
     SampleSummary,
     TextResponse,
@@ -143,6 +154,25 @@ async def extract_text(file: UploadFile) -> TextResponse:
 async def transcribe(file: UploadFile, settings: SettingsDep) -> TextResponse:
     text = await transcribe_audio(file, settings)
     return TextResponse(text=text)
+
+
+@app.post("/compare-reports")
+async def compare(body: CompareRequest, settings: SettingsDep, client: ClientDep) -> CompareResult:
+    return await compare_reports(body.reports, client, settings)
+
+
+@app.post("/clinical-assessment")
+async def assess_clinical(
+    body: ClinicalAssessmentRequest, settings: SettingsDep, client: ClientDep
+) -> ClinicalAssessmentResult:
+    return await clinical_assessment(body.reports, client, settings)
+
+
+@app.post("/insurance-assessment")
+async def assess_insurance(
+    body: InsuranceAssessmentRequest, settings: SettingsDep, client: ClientDep
+) -> InsuranceAssessmentResult:
+    return await insurance_assessment(body.reports, body.bills, body.policy, client, settings)
 
 
 @app.get("/eval")

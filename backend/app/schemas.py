@@ -176,6 +176,112 @@ class TextResponse(BaseModel):
     text: str
 
 
+# ---- Report comparison (POST /compare-reports) -----------------------------------------------
+
+ContradictionCategory = Literal["consistent", "changed", "contradictory", "needs_review"]
+ConcernLevel = Literal["none", "low", "moderate", "high"]
+InsuranceCategory = Literal["potentially_claimable", "further_verification", "not_worth_claiming"]
+
+
+class ReportInput(BaseModel):
+    name: str
+    text: str
+
+
+class ReportEvidence(_Strict):
+    report: str
+    quote: str
+
+
+class ComparisonFinding(_Strict):
+    topic: str
+    category: ContradictionCategory
+    details: str
+    evidence: list[ReportEvidence]
+
+
+class ComparisonOutput(_Strict):
+    findings: list[ComparisonFinding]
+    summary: str
+
+
+class CompareRequest(BaseModel):
+    reports: list[ReportInput] = Field(min_length=2)
+
+
+class CompareResult(BaseModel):
+    findings: list[ComparisonFinding]
+    summary: str
+    report_names: list[str]
+
+
+# ---- Clinical assessment (POST /clinical-assessment) -----------------------------------------
+
+
+class ClinicalFinding(_Strict):
+    area: str
+    finding: str
+    concern_level: ConcernLevel
+    evidence: str
+
+
+class ClinicalAssessmentOutput(_Strict):
+    findings: list[ClinicalFinding]
+    emergency_concerns: str
+    stability_summary: str
+    transfer_assessment: str
+    missing_information: list[str]
+
+
+class ClinicalAssessmentRequest(BaseModel):
+    reports: list[ReportInput] = Field(min_length=1)
+
+
+class ClinicalAssessmentResult(BaseModel):
+    findings: list[ClinicalFinding]
+    emergency_concerns: str
+    stability_summary: str
+    transfer_assessment: str
+    missing_information: list[str]
+    report_names: list[str]
+
+
+# ---- Insurance assessment (POST /insurance-assessment) ----------------------------------------
+
+
+class BillItem(_Strict):
+    description: str
+    amount: str
+    flag: str | None
+
+
+class InsuranceAssessmentOutput(_Strict):
+    category: InsuranceCategory
+    bill_items: list[BillItem]
+    coverage_analysis: str
+    deductible_info: str | None
+    exclusions_found: list[str]
+    missing_documents: list[str]
+    reasoning: str
+
+
+class InsuranceAssessmentRequest(BaseModel):
+    reports: list[ReportInput] = Field(min_length=1)
+    bills: list[ReportInput] = Field(default_factory=list)
+    policy: ReportInput | None = None
+
+
+class InsuranceAssessmentResult(BaseModel):
+    category: InsuranceCategory
+    bill_items: list[BillItem]
+    coverage_analysis: str
+    deductible_info: str | None
+    exclusions_found: list[str]
+    missing_documents: list[str]
+    reasoning: str
+    report_names: list[str]
+
+
 class SampleSummary(BaseModel):
     id: str
     title: str

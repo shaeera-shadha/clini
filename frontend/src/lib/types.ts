@@ -100,6 +100,72 @@ export interface ApiErrorBody {
   message: string
 }
 
+// ---- Report comparison (POST /compare-reports) ---------------------------------------------
+
+export type ContradictionCategory = 'consistent' | 'changed' | 'contradictory' | 'needs_review'
+export type ConcernLevel = 'none' | 'low' | 'moderate' | 'high'
+export type InsuranceCategory = 'potentially_claimable' | 'further_verification' | 'not_worth_claiming'
+
+export interface ReportInput {
+  name: string
+  text: string
+}
+
+export interface ReportEvidence {
+  report: string
+  quote: string
+}
+
+export interface ComparisonFinding {
+  topic: string
+  category: ContradictionCategory
+  details: string
+  evidence: ReportEvidence[]
+}
+
+export interface CompareResult {
+  findings: ComparisonFinding[]
+  summary: string
+  report_names: string[]
+}
+
+// ---- Clinical assessment (POST /clinical-assessment) ----------------------------------------
+
+export interface ClinicalFinding {
+  area: string
+  finding: string
+  concern_level: ConcernLevel
+  evidence: string
+}
+
+export interface ClinicalAssessmentResult {
+  findings: ClinicalFinding[]
+  emergency_concerns: string
+  stability_summary: string
+  transfer_assessment: string
+  missing_information: string[]
+  report_names: string[]
+}
+
+// ---- Insurance assessment (POST /insurance-assessment) --------------------------------------
+
+export interface BillItem {
+  description: string
+  amount: string
+  flag: string | null
+}
+
+export interface InsuranceAssessmentResult {
+  category: InsuranceCategory
+  bill_items: BillItem[]
+  coverage_analysis: string
+  deductible_info: string | null
+  exclusions_found: string[]
+  missing_documents: string[]
+  reasoning: string
+  report_names: string[]
+}
+
 // ---- Plain-summary baseline (POST /baseline) ----------------------------------------------
 
 export interface Segment {

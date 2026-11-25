@@ -21,6 +21,8 @@ ErrorCode = Literal[
     "transcription_unavailable",
     "empty_transcription",
     "transcription_failed",
+    "analysis_unavailable",
+    "analysis_failed",
 ]
 
 

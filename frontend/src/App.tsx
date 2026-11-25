@@ -2,9 +2,12 @@ import { useEffect, useRef } from 'react'
 import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom'
 
 import { AppShell } from './components/shell/AppShell'
+import { AssessmentPage } from './pages/AssessmentPage'
+import { ClaimsPage } from './pages/ClaimsPage'
 import { ConsultationPage } from './pages/ConsultationPage'
 import { ComparePage } from './pages/ComparePage'
 import { EvaluationPage } from './pages/EvaluationPage'
+import { ReportComparisonPage } from './pages/ReportComparisonPage'
 import { VerificationPage } from './pages/VerificationPage'
 import { AppStateProvider } from './state/AppState'
 import { useAppState } from './state/context'
@@ -67,6 +70,30 @@ export function App() {
             element={
               <AppShell title="Evaluation" subtitle="ClinNote and a plain summary on six synthetic consultations, scored against hand-written gold.">
                 <EvaluationPage />
+              </AppShell>
+            }
+          />
+          <Route
+            path="/reports"
+            element={
+              <AppShell title="Report Comparison" subtitle="Upload multiple clinical reports and identify contradictions, changes and consistencies.">
+                <ReportComparisonPage />
+              </AppShell>
+            }
+          />
+          <Route
+            path="/assessment"
+            element={
+              <AppShell title="Assessment" subtitle="Clinical stability and insurance coverage assessment based on uploaded documents.">
+                <AssessmentPage />
+              </AppShell>
+            }
+          />
+          <Route
+            path="/claims"
+            element={
+              <AppShell title="Insurance Claims" subtitle="Consolidated view of patient details, bills, reports and coverage assessment.">
+                <ClaimsPage />
               </AppShell>
             }
           />

@@ -1,4 +1,4 @@
-import { BarChart3, Columns2, FileText, Settings, ShieldCheck, type LucideIcon } from 'lucide-react'
+import { BarChart3, ClipboardList, Columns2, FileText, GitCompareArrows, Settings, ShieldCheck, Stethoscope, type LucideIcon } from 'lucide-react'
 import { NavLink } from 'react-router-dom'
 
 import { useAppState } from '../../state/context'
@@ -11,6 +11,9 @@ const NAV: { to: string; label: string; icon: LucideIcon }[] = [
   { to: '/verification', label: 'Verification', icon: ShieldCheck },
   { to: '/compare', label: 'Compare', icon: Columns2 },
   { to: '/evaluation', label: 'Evaluation', icon: BarChart3 },
+  { to: '/reports', label: 'Reports', icon: GitCompareArrows },
+  { to: '/assessment', label: 'Assessment', icon: Stethoscope },
+  { to: '/claims', label: 'Claims', icon: ClipboardList },
 ]
 
 function modeLabel(health: Health | null): string {

@@ -26,7 +26,7 @@ from app.errors import PipelineError
 from app.preprocess import transcript_hash
 from app.samples import get_sample, list_samples
 
-Task = Literal["extract", "verify", "baseline"]
+Task = Literal["extract", "verify", "baseline", "compare", "clinical_assess", "insurance_assess"]
 T = TypeVar("T", bound=BaseModel)
 
 FIXTURES_DIR = DATA_DIR / "fixtures"
@@ -144,7 +144,14 @@ _STRICT_SCHEMA_PREFIXES = (
     "qwen/qwen3.8",
     "meta-models/",
 )
-_MAX_TOKENS: dict[Task, int] = {"extract": 8192, "verify": 1024, "baseline": 4096}
+_MAX_TOKENS: dict[Task, int] = {
+    "extract": 8192,
+    "verify": 1024,
+    "baseline": 4096,
+    "compare": 8192,
+    "clinical_assess": 4096,
+    "insurance_assess": 8192,
+}
 _BACKOFF_BASE_S = 2.0
 _BACKOFF_CAP_S = 60.0
 JSON_RETRIES = 2

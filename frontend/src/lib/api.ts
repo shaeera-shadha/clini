@@ -1,9 +1,13 @@
 import type {
   ApiErrorBody,
   BaselineResult,
+  ClinicalAssessmentResult,
+  CompareResult,
   EvalReport,
   GenerateResult,
   Health,
+  InsuranceAssessmentResult,
+  ReportInput,
   Sample,
   SampleSummary,
   StageEvent,
@@ -76,6 +80,28 @@ export const api = {
   evaluation: () => request<EvalReport>('/eval'),
   extractText: (file: File) => upload<{ text: string }>('/extract-text', file),
   transcribe: (blob: Blob, filename: string) => upload<{ text: string }>('/transcribe', blob, filename),
+  compareReports: (reports: ReportInput[]) =>
+    request<CompareResult>('/compare-reports', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ reports }),
+    }),
+  clinicalAssessment: (reports: ReportInput[]) =>
+    request<ClinicalAssessmentResult>('/clinical-assessment', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ reports }),
+    }),
+  insuranceAssessment: (
+    reports: ReportInput[],
+    bills: ReportInput[],
+    policy: ReportInput | null,
+  ) =>
+    request<InsuranceAssessmentResult>('/insurance-assessment', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ reports, bills, policy }),
+    }),
 }
 
 /**
