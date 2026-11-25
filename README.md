@@ -8,7 +8,7 @@ three sections: patient-reported symptoms, history, and clinician observations. 
 **the note never contains a finding that is absent from the transcript.**
 
 It enforces that rule by construction rather than by asking the model nicely:
-
+i love this project
 - Every note item cites numbered transcript sentences (`S4`, `S7`).
 - A **second, independent model** re-checks each item against **only its cited sentences**,
   after deterministic rule checks on IDs, speakers, numbers, durations, doses, drug names and
